@@ -12,7 +12,7 @@ system.time(expr={
     grid.circle(ruchy$x[i], ruchy$y[i], r = .05, name = "ciri")
     cat(sprintf("\r%f", i/n))
   }
-  cat("\r")
+  cat("\r")   ### can any1 tell me why this line is necessary? Marcin
 })
 
 cat("Creating standard plot at each step:\n")
