@@ -1,5 +1,5 @@
 library(grid)
-n <- 200
+n <- 100
 ruchy <- data.frame(x = runif(n), y = runif(n))
 
 cat("Adding and removing turtle at each step - grid package:\n")
