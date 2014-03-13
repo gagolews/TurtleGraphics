@@ -1,0 +1,14 @@
+%\VignetteIndexEntry{Tytul winietki}
+\documentclass{article}
+
+\begin{document}
+\SweaveOpts{concordance=TRUE}
+
+
+<<>>=
+  print(rnorm(10))
+@
+cos
+
+
+\end{document}
