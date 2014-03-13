@@ -2,3 +2,7 @@
 .Rhistory
 .RData
 *.Rproj
+.log
+.tex
+.out
+.synctex.gz

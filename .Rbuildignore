@@ -4,3 +4,8 @@
 ^README.md$
 ^\.git
 ^\.gitignore$
+^.*\.out
+^.*\.log
+^.*\.synctex\.gz
+^.*\.tex 
+^.*-condordance\.tex
