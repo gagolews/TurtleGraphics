@@ -1,0 +1,6 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^devel
+^README.md$
+^\.git
+^\.gitignore$

@@ -1,0 +1,16 @@
+Package: TurboTurtle
+Version: 0.1-1
+Date: 2014-03-13
+Title: Package for playing with turtle
+Authors@R: c(person("Barbara", "Zogala-Siudem", role = c("aut", "cre"),
+    email = "zogala@rexamine.com"),
+    person("Anna", "Cena", role = c("aut")),
+    person("Marcin", "Kosinski", role = c("aut")))
+Author: Anna Cena and Barbara Zogala-Siudem and Marcin Kosinski
+Maintainer: Marcin Kosinski <email@email>
+Depends: R (>= 2.15.0)
+Description: A short (one paragraph) description of what
+    the package does and why it may be useful.
+License: GPL (>= 2)
+URL: http://github.com/user/projectname
+BugReports: http://github.com/user/projectname
