@@ -7,10 +7,10 @@ Authors@R: c(person("Barbara", "Zogala-Siudem", role = c("aut", "cre"),
     person("Anna", "Cena", role = c("aut")),
     person("Marcin", "Kosinski", role = c("aut")))
 Author: Anna Cena and Barbara Zogala-Siudem and Marcin Kosinski
-Maintainer: Marcin Kosinski <email@email>
+Maintainer: Marcin Kosinski <kosinskim@student.mini.pw.edu.pl>
 Depends: R (>= 2.15.0)
 Description: A short (one paragraph) description of what
     the package does and why it may be useful.
 License: GPL (>= 2)
-URL: http://github.com/user/projectname
-BugReports: http://github.com/user/projectname
+URL: http://github.com/andromeda14/TurboTurtle
+BugReports: http://github.com/andromeda14/TurboTurtle
