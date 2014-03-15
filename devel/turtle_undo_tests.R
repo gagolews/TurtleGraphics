@@ -42,24 +42,4 @@ x <- system.time(expr={
 })
 print(x)
 
-library(latticeExtra)
-cat("Adding and removing turtle at each step - latticeExtra package:\n")
-x <- system.time(expr = {
-  coor <- c(0,0)
-  trellis.par.set("axis.line",list(col=NA,lty=1,lwd=1)) 
-  Graph <- xyplot(0~0, xlab="", ylab="", type="l", 
-                  scales=list(draw=FALSE),subscripts = TRUE) 
-  Graph + layer({panel.text(coor[1], coor[2], "-O-") })
-  n_coor <- as.data.frame(matrix(round(runif(2*n) / 5, digits=3), nrow = n) )
-
-  for (i in 2:n){   
-    Graph <- Graph + layer(panel.lines(x=c(n_coor[1:i,1]),
-                                       y=c(n_coor[1:i,2])))
-    print(Graph)
-    print(Graph + layer(panel.text(x=n_coor[i,1], y=n_coor[i,2], "-O-"))  )
-    cat(sprintf("\r%f", i/n))
-  }  
-  cat("\r")
-})
-print(x)
 

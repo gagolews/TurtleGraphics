@@ -68,50 +68,61 @@ coor
 ###########################################
 ###########################################
 
-coor <- c(0,0)
-trellis.par.set("axis.line",list(col=NA,lty=1,lwd=1)) 
-Graph <- xyplot(0~0, xlab="", ylab="", type="l", 
-                scales=list(draw=FALSE),subscripts = TRUE) 
-Graph + layer({panel.text(coor[1], coor[2], "-O-") })
-n_coor <- as.data.frame(matrix(ncol=2,nrow=100))
 
-n_coor[1,] <- round(runif(2)/10, digits=3) 
+##########################################
+# Thats why testing a trellis plot in a loop
+# like mine, does not work as we assume it
+# should. Quick brief.
+###########################################
+foo <- xyplot(ozone ~ wind, environmental)
+foo
 
 
-for (i in 2:100){   
-   n_coor[i,] <- round(runif(2)/5, digits=3) #i suppose here isnt everything ok
-   Graph <- Graph + layer(panel.lines(x=c(n_coor[1:i,1]),
-                                       y=c(n_coor[1:i,2])))
-   Graph
-   Graph + layer(panel.text(x=n_coor[i,1], y=n_coor[i,2], "-O-"))
+foo <- foo + layer(panel.abline(h = 3))
+foo <- foo + layer(panel.lines( x = c(1,20), y = c(3,40), col = "red" ))
+foo <- foo + layer(panel.lines( x = c(17,40), y = c(36,71), col = "yellow"))
+foo <- foo + layer(panel.lines( x = c(20,4), y = c(36,71), col = "yellow"))
 
+foo <- foo + layer(panel.lines( x = c(7,40), y = c(36,71), col = "green"))
+foo <- foo + layer(panel.lines( x = c(7,40), y = c(11,71), col = sample(8,1)))
+foo <- foo + layer(panel.text(x=4, y=70, "napis"))
+foo <- foo + layer(panel.lines( x = c(7,20), y = c(1,101), col = sample(8,1)))
+foo <- foo + layer(panel.lines( x = c(20,40), y = c(101,71), col = sample(8,1)))
+
+# try to run next line a couple of times, to get the wiev of a problem in putting
+# trellis object into a loop
+foo
+
+#########################################
+
+
+#########################################
+# Real test - 19 seconds - still slower,
+# than the rest of ideas.
+#########################################
+
+
+
+# It might look very primitive, but those are only tests
+# Cr8ing a new file.
+for (i in 2:n){
+   cat("Graph <- Graph + layer(panel.lines( x = c(n_coor[",i-1,",1], n_coor[",i,",1]), y = c(n_coor[",i-1,",2], n_coor[",i,",2]))) \n")
+   cat("print(Graph) \n")
+   cat("print(Graph + layer(panel.text(x=n_coor[",i,",1], y=n_coor[",i,",2], \"-O-\"))) \n")
 }
 
 
-Graph + layer(panel.text(x=n_coor[i,1], y=n_coor[i,2], "-O-"))
 
 
-testing <- function(){
-   coor <- c(0,0)
-   trellis.par.set("axis.line",list(col=NA,lty=1,lwd=1)) 
-   Graph <- xyplot(0~0, xlab="", ylab="", type="l", 
-                   scales=list(draw=FALSE),subscripts = TRUE) 
-   Graph + layer({panel.text(coor[1], coor[2], "-O-") })
-   n_coor <- as.data.frame(matrix(ncol=2,nrow=100))
-   
-   n_coor[1,] <- round(runif(2)/10, digits=3) 
-   
-   
-   for (i in 2:100){   
-      n_coor[i,] <- round(runif(2)/5, digits=3) #i suppose here isnt everything ok
-      Graph <- Graph + layer(panel.lines(x=c(n_coor[1:i,1]),
-                                         y=c(n_coor[1:i,2])))
-      Graph
-      Graph + layer(panel.text(x=n_coor[i,1], y=n_coor[i,2], "-O-"))
-      
-   }
-}
-require(microbenchmark)
-microbenchmark(testing())
 
-# https://stat.ethz.ch/R-manual/R-devel/library/lattice/html/update.trellis.html
+x <- system.time(expr = {
+
+source("D:/TurboTurtle/devel/Marcin/100_Graphs_in_lattice.R")
+})
+print(x)
+##################################
+# użytkownik     system   upłynęło 
+# 18.37       0.62      19.39 
+##################################
+
+Graph
