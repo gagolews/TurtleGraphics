@@ -20,8 +20,8 @@ move_forward<- function(x){
   grid.raster(as.raster(image), x=ruchy$x[n+1], y=ruchy$y[n+1], height=unit(0.09,"npc"), width=unit(0.09,"npc"), name="turtle")
 }
 
-# graphics.off()
-image <- readPNG("devel/Ania/turtle.png")
+graphics.off()
+image <- readPNG("devel/Ania/turtle2.png")
 
 turtle_init()
-move_forward(0.2)
+move_forward(0.1)
