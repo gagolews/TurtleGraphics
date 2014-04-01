@@ -15,18 +15,19 @@ turtle_init<- function(){
 move_forward<- function(x){
   y <- x+0.5
   n <- nrow(ruchy)
+  image <- readPNG("devel/Ania/turtle2.png")
   ruchy <<- rbind(ruchy, c(ruchy[n, 1], y))
   grid.remove("turtle")
   grid.polygon(ruchy$x[n:(n+1)], ruchy$y[n:(n+1)], name = "lines")
   grid.raster(as.raster(image), x=ruchy$x[n+1], y=ruchy$y[n+1], height=unit(0.09,"npc"), width=unit(0.09,"npc"), name="turtle")
 }
 
-turtle_init()
-move_forward(0.7)
-
-help(package="png")
-
 graphics.off()
 
-grid.polygon(x=unit(0, "npc"), y=unit(0, "npc"))
-grid.polygon(x=unit(c(0,0.5), "npc"), y=unit(c(0,0.5), "npc"))
+turtle_init()
+move_forward(0.2)
+move_forward(0.1)
+move_forward(0.1)
+
+
+
