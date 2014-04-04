@@ -8,4 +8,9 @@
 hide_turtle<-function(){
   grid.remove("head")
   grid.remove("body")
+  grid.remove("leg1")
+  grid.remove("leg2")
+  grid.remove("leg3")
+  grid.remove("leg4")
+  
 }
