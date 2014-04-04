@@ -1,4 +1,12 @@
+#' @title The function that inicjalize the TurbiTurtle program.
+#'
+#' @description
+#' Function initialize the turtle.
+#'
+#' @param size a non-negative numeric denoting a number of turtle moves
+#'
 #' @export
+#'
 turtle_init<- function(size=1000){
   .turtle_history <<- list(N = 1, 
                            moves = data.frame(x = c(0.5, rep(NA, size- 1)), 
