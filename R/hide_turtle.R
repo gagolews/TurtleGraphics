@@ -6,5 +6,6 @@
 #' @export
 #'
 hide_turtle<-function(){
-  grid.remove("turtle")
+  grid.remove("head")
+  grid.remove("body")
 }
