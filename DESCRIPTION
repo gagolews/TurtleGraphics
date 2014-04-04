@@ -8,10 +8,12 @@ Authors@R: c(person("Barbara", "Zogala-Siudem", role = c("aut", "cre"),
     person("Marcin", "Kosinski", role = c("aut")))
 Author: Anna Cena and Barbara Zogala-Siudem and Marcin Kosinski
 Maintainer: Marcin Kosinski <kosinskim@student.mini.pw.edu.pl>
-Depends: R (>= 2.15.0),
-         grid,
-         png
-Description: The TurboTurtle package allows to learn programming while having fun.  
+Depends:
+    R (>= 2.15.0),
+    grid,
+    png
+Description: The TurboTurtle package allows to learn programming while having
+    fun.
 License: GPL (>= 2)
 URL: http://github.com/andromeda14/TurboTurtle
 BugReports: http://github.com/andromeda14/TurboTurtle
