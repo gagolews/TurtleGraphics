@@ -52,7 +52,7 @@ set_param <- function(col = NA, lwd = NA, lty = NA, visible = NA, draw = NA) {
   # TODO: chceck correctness of parameters
   
   curN <- .turtle_history$N
-  if(!is.na(col)) .turtle_history$moves$col[curN] <<- col
+  if(!is.na(col)) .turtle_history$col <<- col
   if(!is.na(lwd)) .turtle_history$moves$lwd[curN] <<- lwd
   if(!is.na(lty)) .turtle_history$moves$lty[curN] <<- lty
   if(!is.na(visible)) .turtle_history$moves$visible[curN] <<- visible  
