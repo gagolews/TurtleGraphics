@@ -1,0 +1,71 @@
+#' @rdname move_forward
+#' @aliases move_backward
+#'
+#' @title Moving a turtle forward or backward.
+#'
+#' @description
+#' Those functions able to move a Turtle. Command \code{move_forward} moves a Turtle in a forward direction, command
+#' \code{back_forward} moves a Turtle in a backward direction.
+#' 
+#' 
+#'   
+#' @param dist Specifies the range of distance for a Turtle to move. 
+#' The default value for both functions is \code{dist = 0.1}.
+#' 
+#' @details
+#' To use, the tutrle must be initiated, see \code{\link{turtle_init}}. 
+#' Both, \code{move_forward} and \code{move_backward}, are using parameteres specified in 
+#' \code{\link{set_param}} function (or if not, use default parameters from \code{turtle_init}).
+#' Also if functio \code{up} or \code{down} were used, route after Turtle is printed or not.
+#' Functions \code{move_forward} and \code{move_backward} correspond to \code{\link{show_turtle}}, \code{\link{hide_turtle}}
+#' and after proceding his moves a Turtle is shown or not. 
+#'
+#' @return
+#' Nothing is returned. Just the moves of a Turtle are printed in Plots window.
+#'
+#' @seealso
+#' \code{\link{turtle_init}}, \code{\link{up}}, \code{\link{down}}, \code{\link{set_param}},
+#' \code{\link{show_turtle}}, \code{\link{hide_turtle}}
+#'
+#' @examples
+#' turtle_init()
+#' move_forward(0.2)
+#' move_backward(0.1)
+#' 
+#' #also works:
+#' turtle_init()
+#' move_forward(-0.3)
+#' move_backward(-0.4)
+#' 
+#' # longer yourney
+#' turtle_init()
+#' turn(30, "left")
+#' move_forward(0.2)
+#' up()
+#' move_forward(0.1)
+#' down()
+#' turn(60, "right")
+#' move_forward(0.9)
+
+
+
+#' @rdname move_forward
+#' @export
+move_forward <- function(dist=0.1){
+   if(!exists(".turtle_history")) 
+      stop("Turtle has not been initiated, please type turtle_init() first")
+   stopifnot(is.numeric(dist) & length(dist) == 1)
+   if(dist < 0) cat("Negative value of distance movess turtle in the opposite direction")
+   ## not finished yet
+}
+
+#' @rdname move_forward
+#' @export
+
+move_backward <- function(dist=0.1){
+   if(!exists(".turtle_history")) 
+      stop("Turtle has not been initiated, please type turtle_init() first")
+   stopifnot(is.numeric(dist) & length(dist) == 1)
+   if(dist < 0) cat("Negative value of distance moves turtle in the opposite direction")
+   ## not finished yet
+}

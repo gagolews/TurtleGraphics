@@ -1,6 +1,8 @@
 export(down)
 export(hide_turtle)
 export(left)
+export(move_backward)
+export(move_forward)
 export(right)
 export(set_col)
 export(set_lty)
