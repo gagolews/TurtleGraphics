@@ -43,11 +43,11 @@
 
 #' @rdname set_param
 #' @export
-set_param <- function(col = NA, lwd = NA, lty = NA, visible = NA) {
+set_param <- function(col = NA, lwd = NA, lty = NA, visible = NA, draw = NA) {
   if(!exists(".turtle_history")) 
     stop("Turtle has not been initiated, please type turtle_init() first")
-  if(all(is.na(col), is.na(lwd), is.na(lty), is.na(visible))) 
-    stop("You need to give at least one parameter to set: 'col', 'lwd', 'lty', 'visible")
+  if(all(is.na(col), is.na(lwd), is.na(lty), is.na(visible), is.na(draw)))
+    stop("You need to give at least one parameter to set: 'col', 'lwd', 'lty', 'visible', 'draw'")
 
   # TODO: chceck correctness of parameters
   
@@ -56,6 +56,7 @@ set_param <- function(col = NA, lwd = NA, lty = NA, visible = NA) {
   if(!is.na(lwd)) .turtle_history$moves$lwd[curN] <<- lwd
   if(!is.na(lty)) .turtle_history$moves$lty[curN] <<- lty
   if(!is.na(visible)) .turtle_history$moves$visible[curN] <<- visible  
+  if(!is.na(draw)) .turtle_history$moves$draw[curN] <<- draw  
   
 }
 
@@ -80,12 +81,12 @@ set_lty <- function(lty) {
 #' @rdname set_param
 #' @export
 up <- function() {
-  set_param(visible = FALSE)
+  set_param(draw = FALSE)
 }
 
 #' @rdname set_param
 #' @export
 down <- function() {
-  set_param(visible = TRUE)
+  set_param(draw = TRUE)
 }
 

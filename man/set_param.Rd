@@ -7,7 +7,7 @@
 \alias{up}
 \title{Setting Parameters of the Turtle}
 \usage{
-set_param(col = NA, lwd = NA, lty = NA, visible = NA)
+set_param(col = NA, lwd = NA, lty = NA, visible = NA, draw = NA)
 
 set_col(col)
 
