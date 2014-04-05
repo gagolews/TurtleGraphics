@@ -4,7 +4,7 @@
 #' 
 #' @export
 forward_tmp <- function(moves = 1){
-  dist <- dist / 20
+  moves <- moves / 20
   
   # current values for .turtle_history
   curN <- .turtle_history$N
