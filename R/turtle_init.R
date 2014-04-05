@@ -1,13 +1,16 @@
-#' @title The function that inicjalize the TurbiTurtle program.
+#' @rdname turtle_init
+#' @title Initialization of the Turtle Program
 #'
 #' @description
-#' Function initialize the turtle.
+#' \code{turtle_init()} create an empty page with the Turtle image displayed in the 
+#' middle. 
 #'
-#' @param size a non-negative numeric denoting a number of turtle moves
+#' @param size A non-negative scalar denoting a number of turtle moves to be drawn
 #'
 #' @export
-#'
 turtle_init<- function(size=1000){
+  stopifnot(is.numeric(size))
+  stopifnot(length(size)==1, size>0)
   .turtle_history <<- list(N = 1, 
                            moves = data.frame(x = c(0.5, rep(NA, size- 1)), 
                                               y = c(0.5, rep(NA, size - 1)), 

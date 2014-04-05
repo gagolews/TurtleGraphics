@@ -1,13 +1,23 @@
 \name{hide}
 \alias{hide}
 \alias{hide_turtle}
-\title{Function that hide the turtle image.}
+\title{Hide Turtle Image}
 \usage{
 hide()
 
 hide_turtle()
 }
 \description{
-hiding turtle image
+\code{hide()} function makes Turtle image invisible while
+the path is drawn.
+}
+\details{
+To use turn, the tutrle must be initiated, see
+\code{\link{turtle_init}}. While Turtle has been hiden, the
+\code{show()} function should be used to display the Turtle
+image.
+}
+\seealso{
+\code{\link{show}}
 }
 
