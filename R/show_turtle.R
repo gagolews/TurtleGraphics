@@ -5,6 +5,16 @@
 #'
 #' @param coordinates of a turtle
 #'
+#' @rdname show
+#' @export
+#'
+show<-function(){
+  n <- .turtle_history$N
+  show_turtle(.turtle_history$moves$x[n], .turtle_history$moves$y[n], 
+              .turtle_history$moves$angle[n])
+  .turtle_history$move$visible[n:nrow(.turtle_history$moves)]<<-TRUE
+}
+#' @rdname show
 #' @export
 #'
 show_turtle<-function(x, y, angle){
@@ -22,4 +32,3 @@ show_turtle<-function(x, y, angle){
   grid.circle(x, y, r=0.03, gp = gpar(fill = "darkorange4", col = "brown"), name = "body")
   
 }
-
