@@ -1,4 +1,7 @@
 #' @rdname forward_tmp
+#' 
+#' @title Temporary forward
+#' 
 #' @export
 forward_tmp <- function(moves = 1){
   dist <- dist / 20

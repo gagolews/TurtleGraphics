@@ -1,14 +1,37 @@
-%\VignetteIndexEntry{Tytul winietki}
+% \VignetteIndexEntry{Turbo Turtle packge}
 \documentclass{article}
 
 \begin{document}
-\SweaveOpts{concordance=TRUE}
+% \SweaveOpts{concordance=TRUE}
+
+\section{Introduction}
+
+TurboTurtle is dedicated to .... 
+
+\section{Turbo Turtle Package}
 
 
-<<>>=
-  print(rnorm(10))
+<<results='hide'>>=
+require("TurboTurtle")
 @
-cos
+
+To initialize Turtle ....
+
+<<fig.align='center', fig.height=5, fig.width=5>>=
+turtle_init(size=10)
+@
+
+\subsection{Walking}
+move : forward, backwarad
+turn : right, left
+
+\subsection{Visibility settings}
+hide, show (turtle image)
+up, down (path image)
+
+\subsection{Reset}
+?
+
 
 
 \end{document}
