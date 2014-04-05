@@ -8,7 +8,7 @@
 hide<-function(){
   n <- .turtle_history$N
   hide_turtle()
-  .turtle_history$move$visible[n:nrow(.turtle_history$moves)]<<-FALSE
+  .turtle_history$moves$visible[n:nrow(.turtle_history$moves)]<<-FALSE
 }
 #'
 #' @rdname hide
