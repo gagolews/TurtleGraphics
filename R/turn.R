@@ -45,8 +45,8 @@ turn <- function(angle = 0, direction = "left") {
   curY <- .turtle_history$moves$y[curN]
   newAng <- .turtle_history$moves$angle[curN] + angle  
   
-  if(.turtle_history$moves$visible[curN]){
-        hide_turtle()
+  if(.turtle_history$moves$draw[curN]){
+    hide_turtle()
     show_turtle(curX, curY, newAng)
   }
   

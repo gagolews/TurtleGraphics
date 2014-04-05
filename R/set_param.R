@@ -34,7 +34,7 @@
 #' down()
 #' left(90)
 #' move_forward(5)
-#' set_param(col = "red", lwd = 3, lty = 2)
+#' set_param(col = "red", lwd = 3, lty = 2) # col does not work! (TODO)
 #' move_forward(5)
 
 
