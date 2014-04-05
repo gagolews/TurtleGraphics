@@ -16,7 +16,6 @@ turtle_init<- function(size=1000){
                                               col = c("black", rep(NA, size - 1)), 
                                               lwd = c(1, rep(NA, size - 1)), 
                                               lty = c(1, rep(NA, size - 1))))
-  .image <<- as.raster(readPNG("img/turtle2.png"))
   grid.newpage()
   show_turtle(.turtle_history$moves$x[1], .turtle_history$moves$y[1], .turtle_history$moves$angle[1])
 }

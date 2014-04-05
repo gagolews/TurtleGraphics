@@ -1,3 +1,7 @@
 export(hide_turtle)
+export(left)
+export(move_forward)
+export(right)
 export(show_turtle)
+export(turn)
 export(turtle_init)

@@ -1,32 +1,42 @@
-#' @title Opis Co Funkcja Robi (zalecenie: po angielsku + Title Case)
+#' @rdname turn
+#' @aliases left right
+#'
+#' @title Turn Turtle
 #'
 #' @description
-#' Co robi funkcja.
-#' Takie tam wprowadzenie.
-#'
+#' Turn turtle by the given angle in degrees and in the given one.
+#' 
+#' \code{left} and \code{right} turn turtle to left or right by the given angle.
+#' 
+#'   
+#' @param angle Angle of turn in degrees. If negative the turtle turn in the opposite direction than the given direction
+#' @param direction Direction of turn, posiible values c("left", "right")
+#' 
 #' @details
-#' Wiecej szczegolowych informacji.
+#' To use turn, the tutrle must be initiated, see \code{\link{turtle_init}}. 
+#' After \code{turn} function, the turtle turns and during next 
+#' \code{\link{move_forward}} usage, the turtle goes in the changed direction.
 #'
-#' To bedzie drugi akapit.
 #'
 #' @return
 #' Opis obiektu, ktory funkcja zwraca.
 #'
-#' @param x opis do czego sluzy ten parametr
-#' @param y opis znowu
+#' @seealso
+#' \code{\link{turtle_init}}, \code{\link{move_forward}}, 
 #'
 #' @examples
 #' left(30)
 #' right(40)
-#'
+#' turn(30, "left")
+#' turn(30, sample(c("left", "right"), 1))
+#' 
 #' @export
-
-turn <- function(direction = "left", angle = 0) {
+turn <- function(angle = 0, direction = "left") {
   # checking correctness of the parameters 
   if(!exists(".turtle_history")) stop("Turtle has not been initiated, please type turtle_init() first")
   if(!(direction == "left" | direction == "right")) stop("This parameter should be 'left' or 'right' ")
   stopifnot(is.numeric(angle) & length(angle) == 1)
-  if(angle < 0) warning("negative value of angle turn turtle in the opposite direction")
+  if(angle < 0) warning("Negative value of angle turns turtle in the opposite direction")
   
   if(direction == "left"){ angle = angle * (-1) }
   
@@ -36,16 +46,9 @@ turn <- function(direction = "left", angle = 0) {
   newAng <- .turtle_history$moves$angle[curN] + angle  
   
   if(.turtle_history$moves$visible[curN]){
-    #    vp <- viewport(angle = newAng)
-    
-    #    pushViewport(vp)
-    hide_turtle()
-    #!! change to new show_turtle 
+        hide_turtle()
     show_turtle(curX, curY, newAng)
-    #     show_turtle(curX, curY)
-    #    popViewport()
   }
-  
   
   newN <- curN %% nrow(.turtle_history$moves) + 1
   .turtle_history$N <<- newN
@@ -53,10 +56,14 @@ turn <- function(direction = "left", angle = 0) {
   .turtle_history$moves$angle[newN] <<- newAng
 }
 
+#' @rdname turn
+#' @export
 left <- function(angle = 0) {
-  turn(direction = "left", angle = angle)
+  turn(angle = angle, direction = "left")
 }
 
+#' @rdname turn
+#' @export
 right <- function(angle = 0) {
-  turn(direction = "right", angle = angle)
+  turn(angle = angle, direction = "right")
 }
