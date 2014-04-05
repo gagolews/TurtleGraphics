@@ -1,6 +1,47 @@
+#' @rdname set_param
+#' @aliases up down set_col set_lty set_lwd
+#'
+#' @title Setting Parameters of the Turtle
+#'
+#' @description
+#' Sets parameters of the turtle.
+#' 
+#' \code{up} and \code{down} lifts and drops turtle respectively, so it leaves the trace or not.
+#' 
+#'   
+#' @param col Color of a trace
+#' @param lty Line type of the trace
+#' @param lwd Line width of the trace
+#' @param visible \code{bolean} If trace should be drawn
+#' 
+#' @details
+#' To use, the tutrle must be initiated, see \code{\link{turtle_init}}. 
+#' After running any of parameter changing functions, the trace of a turtle changes during the next 
+#' \code{\link{move_forward}} usage.
+#'
+#'
+#' @return
+#' Opis obiektu, ktory funkcja zwraca.
+#'
+#' @seealso
+#' \code{\link{turtle_init}}, \code{\link{move_forward}}, 
+#'
+#' @examples
+#' turtle_init(10)
+#' move_forward(5)
+#' up()
+#' move_forward(3)
+#' down()
+#' left(90)
+#' move_forward(5)
+#' set_param(col = "red", lwd = 3, lty = 2)
+#' move_forward(5)
+
+
 # sets parameters of a turtle: col, lty, lwd 
 # TODO: chceck correctness of parameters
 
+#' @rdname set_param
 #' @export
 set_param <- function(col = NA, lwd = NA, lty = NA, visible = NA) {
   if(!exists(".turtle_history")) 
@@ -8,6 +49,8 @@ set_param <- function(col = NA, lwd = NA, lty = NA, visible = NA) {
   if(all(is.na(col), is.na(lwd), is.na(lty), is.na(visible))) 
     stop("You need to give at least one parameter to set: 'col', 'lwd', 'lty', 'visible")
 
+  # TODO: chceck correctness of parameters
+  
   curN <- .turtle_history$N
   if(!is.na(col)) .turtle_history$moves$col[curN] <<- col
   if(!is.na(lwd)) .turtle_history$moves$lwd[curN] <<- lwd
@@ -16,26 +59,31 @@ set_param <- function(col = NA, lwd = NA, lty = NA, visible = NA) {
   
 }
 
+#' @rdname set_param
 #' @export
 set_col <- function(col) {
   set_param(col = col)
 }
 
+#' @rdname set_param
 #' @export
 set_lwd <- function(lwd) {
   set_param(lwd = lwd)
 }
 
+#' @rdname set_param
 #' @export
 set_lty <- function(lty) {
   set_param(lty = lty)
 }
 
+#' @rdname set_param
 #' @export
 up <- function() {
   set_param(visible = FALSE)
 }
 
+#' @rdname set_param
 #' @export
 down <- function() {
   set_param(visible = TRUE)
