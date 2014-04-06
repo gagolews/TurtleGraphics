@@ -43,18 +43,25 @@
 
 #' @rdname set_param
 #' @export
-set_param <- function(col = NA, lwd = NA, lty = NA, visible = NA, draw = NA) {
+set_param <- function(col = NA, lwd = NA, lty = NA, draw = NA) {
   if(!exists(".turtle_history")) 
     stop("Turtle has not been initiated, please type turtle_init() first")
-  if(all(is.na(col), is.na(lwd), is.na(lty), is.na(visible), is.na(draw)))
+  if(all(is.na(col), is.na(lwd), is.na(lty), is.na(draw)))
     stop("You need to give at least one parameter to set: 'col', 'lwd', 'lty', 'visible', 'draw'")
-
-  # TODO: chceck correctness of parameters
+  
+  # checking if 'col' parameter is correct
+  tryCatch({tmp <- col2rgb(col)},
+           error = function(e){
+             stop("The parameter 'col' in set_col or set_param should be a correct R color.")
+           })
+  # checking other parameters
+  if(!is.na(lty) & (!is.numeric(lty) | lty < 0)) stop("You gave improper value of 'lty' parameter")
+  if(!is.na(lwd) & (!is.numeric(lwd) | lwd < 0)) stop("You gave improper value of 'lwd' parameter")  
+  if(!is.logical(draw)) stop("You gave improper value of 'draw' parameter, it shoud be TRUE or FALSE")
   
   if(!is.na(col)) .turtle_history$col <<- col
   if(!is.na(lwd)) .turtle_history$lwd <<- lwd
   if(!is.na(lty)) .turtle_history$lty <<- lty
-  if(!is.na(visible)) .turtle_history$visible <<- visible  
   if(!is.na(draw)) .turtle_history$draw <<- draw  
   
 }
