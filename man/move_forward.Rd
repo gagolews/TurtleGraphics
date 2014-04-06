@@ -53,6 +53,33 @@ move_forward(1)
 down()
 turn(60, "right")
 move_forward(9)
+
+# yourney from developers tests
+
+turtle_init()
+turn(30, "left")
+turn(30, "left")
+move_forward(16)
+turn(30, "left")
+turn(30, "left")
+move_forward(16)
+turn(30, "left")
+turn(30, "left")
+move_forward(16)
+turn(30, "left")
+turn(30, "left")
+move_forward(16)
+turn(30, "left")
+move_forward(16)
+hide()
+turn(30, "left")
+move_forward(16)
+move_forward(16)
+show()
+move_forward(16)
+turn(30, "left")
+move_forward(16)
+move_forward(16)
 }
 \seealso{
 \code{\link{turtle_init}}, \code{\link{up}},
