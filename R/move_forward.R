@@ -114,7 +114,7 @@ move_forward <- function(dist=1){
    # case1
    if(newY>1){
       if(curAng%%180==0){borX<-newX}else{
-      a <- curY/(curX+newY-newX)
+      a <- (newY-curY)/(newX-curX)
       borX <- (1+a*newX-newY)/a}
       
       distance <- sqrt((borX-newX)^2 + (1-newY)^2)
@@ -140,7 +140,7 @@ move_forward <- function(dist=1){
    # case2
    if(newX>1){
       if(curAng%%90==0){borY<-newY}else{
-         a <- curY/(curX+newY-newX)
+         a <- (newY-curY)/(newX-curX)
          borY <- a+newY-a*newX}
       
       
@@ -167,7 +167,7 @@ move_forward <- function(dist=1){
    # case3
    if(newY<0){
       if(curAng%%180==0){borX<-newX}else{
-         a <- curY/(curX+newY-newX)
+         a <- (newY-curY)/(newX-curX)
          borX <- (a*newX-newY)/a}
            
       distance <- sqrt((borX-newX)^2 + (newY)^2)
@@ -193,7 +193,7 @@ move_forward <- function(dist=1){
    # case4
    if(newX<0){
       if(curAng%%90==0){borY<-newY}else{
-         a <- curY/(curX+newY-newX)
+         a <- (newY-curY)/(newX-curX)
          borY <- newY-a*newX}
       
       
@@ -267,7 +267,7 @@ move_backward <- function(dist=1){
    # case1
    if(newY>1){
       if(curAng%%180==0){borX<-newX}else{
-         a <- curY/(curX+newY-newX)
+         a <- (newY-curY)/(newX-curX)
          borX <- (1+a*newX-newY)/a}
       
       distance <- sqrt((borX-newX)^2 + (1-newY)^2)
@@ -293,7 +293,7 @@ move_backward <- function(dist=1){
       # case2
       if(newX>1){
          if(curAng%%90==0){borY<-newY}else{
-            a <- curY/(curX+newY-newX)
+            a <- (newY-curY)/(newX-curX)
             borY <- a+newY-a*newX}
          
          
@@ -320,7 +320,7 @@ move_backward <- function(dist=1){
          # case3
          if(newY<0){
             if(curAng%%180==0){borX<-newX}else{
-               a <- curY/(curX+newY-newX)
+               a <- (newY-curY)/(newX-curX)
                borX <- (a*newX-newY)/a}
             
             distance <- sqrt((borX-newX)^2 + (newY)^2)
@@ -346,7 +346,7 @@ move_backward <- function(dist=1){
             # case4
             if(newX<0){
                if(curAng%%90==0){borY<-newY}else{
-                  a <- curY/(curX+newY-newX)
+                  a <- (newY-curY)/(newX-curX)
                   borY <- newY-a*newX}
                
                
