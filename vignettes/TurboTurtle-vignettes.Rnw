@@ -1,29 +1,35 @@
+%\VignetteEngine{knitr::knitr}
 % \VignetteIndexEntry{Turbo Turtle packge}
 \documentclass{article}
 
 \begin{document}
 % \SweaveOpts{concordance=TRUE}
 
-\section{Introduction}
+\section{The \textsf{TurboTurtle} Package Introduction}
 
-TurboTurtle is dedicated to .... 
+The \textsf{TurboTurtle} package offers to R-users functionality of the famous ''turtle graphics'' from Logo educational programming language. The main idea standing behind it is to encourage children to learn programming and show that working with computer can be fun and creative.
 
-\section{Turbo Turtle Package}
+The \textsf{TurboTurtle} package allows to create sophisticated graphics on basis of lines.  
+The main idea is that the Turtle, desribed by its location and orientation, moves with commands that are relative to its own position. The line he left behind can also be controlled, by enabling it or setting its color and type.
 
+The \textsf{TurboTurtle} package offers functions to move forward or backward a given distance and to turn the Turtle in a choosen direction. The graphical parameter of the plot, like for example color, type or visibility of the line, can also be easily changed.   
+
+
+\section{The \textsf{TurboTurtle} moving}
+
+\subsection{Walking}
 
 <<results='hide'>>=
 require("TurboTurtle")
 @
 
-To initialize Turtle ....
+The program is started with \textsf{turtle\_init()} function, which create a plot region and places the Turtle in its central point. 
 
-<<fig.align='center', fig.height=5, fig.width=5>>=
-turtle_init(size=10)
-@
+To move the turtlr forward we can easily use the \textsf{move\_forward()} function.
 
-\subsection{Walking}
 move : forward, backwarad
 turn : right, left
+
 
 \subsection{Visibility settings}
 hide, show (turtle image)
