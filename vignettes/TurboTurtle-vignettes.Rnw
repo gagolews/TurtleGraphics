@@ -1,9 +1,24 @@
+\documentclass{article}
 %\VignetteEngine{knitr::knitr}
 % \VignetteIndexEntry{Turbo Turtle packge}
-\documentclass{article}
 \usepackage{subfigure}
+
 \begin{document}
-% \SweaveOpts{concordance=TRUE}
+
+\begin{center}
+{\LARGE A Guide to the \textsf{TurboTurtle} Package for \textsf{R}}
+
+\bigskip
+{\large A. Cena, M. Kosinski, B. Zogala-Siudem}
+
+\begin{figure}[hbt!]
+\centering
+\includegraphics[width=3in]{figures/turtle.pdf}
+\end{figure}
+
+\end{center}
+
+
 
 \section{The \textsf{TurboTurtle} Package Introduction}
 
@@ -31,12 +46,11 @@ Now, we can move the Turtle forward, for example for a distance of 3 units, with
 <<fig.keep='none', eval=FALSE>>=
 move_forward(dist=3)
 @
-If you would like to change directions -- you may use \textsf{left()} or \textsf{right()} functions, which change the Turtle direction of a given angle. For example, we may turn 45 degrees in the right  direction. 
+If you would like to change directions -- you may use \textsf{left()} or \textsf{right()} functions, which change the Turtle direction of a given angle. For example, we may turn 45 degrees in the right  direction. The results are presented in Figure~\ref{Fig:initMove}
 <<fig.keep='none', eval=FALSE>>=
 right(angle=45)
 move_forward(dist=5)
 @
-
 
 \begin{figure}[hbt!]
 \subfigure[Initialization of the Turtle]{
@@ -47,15 +61,59 @@ move_forward(dist=5)
 \includegraphics[width=2.3in]{figures/turn.pdf}}
 \subfigure[Moving forward]{
 \includegraphics[width=2.3in]{figures/turnMove.pdf}}
+\caption{TurboTurtle}\label{Fig:initMove}
 \end{figure}
 
 \subsection{Visibility settings}
-hide, show (turtle image)
-up, down (path image)
 
-\subsection{Reset}
-?
+To unable the path from being drawn we can simply use \textsf{up()} function. Let us consider simple example. We will turn the Turtle in right direction about 90 degrees and then \textsf{up()} function. Now when we move forward the path is not visible. If we want to draw the path we should call \textsf{down()} function. 
+
+<<fig.keep='none', eval=FALSE>>=
+right(90)
+up()
+move_forward(dist=3)
+right(45)
+down()
+move_forward(dist=4)
+@
+
+Similarly, we may show or hide thr Turtle image, using \textsf{show()} and \textsf{hide()} functions respectively.
+
+<<fig.keep='none', eval=FALSE>>=
+hide()
+right(60)
+move_forward(4)
+show()
+@
+
+The results are depicted in Figure~\ref{Fig:UpDown}.
+
+\begin{figure}[hbt!]
+\subfigure[Unable to draw path]{
+\includegraphics[width=2.3in]{figures/up.pdf}}
+\subfigure[Enable to draw path]{
+\includegraphics[width=2.3in]{figures/down.pdf}}
+\subfigure[Hide the Turtle image]{
+\includegraphics[width=2.3in]{figures/hide.pdf}}
+\subfigure[Display the Turtle image]{
+\includegraphics[width=2.3in]{figures/show.pdf}}
+\caption{TurboTurtle}\label{Fig:UpDown}
+
+\end{figure}
 
 
+\subsection{Graphical parameters}
+To set graphical parameters please use the \textsf{set\_param()} function, which allows to change the color of tha path, its types and thickness~e.g.
+<<fig.keep='none', eval=FALSE>>=
+set_param(col="red", lwd=2, lty=3)
+move_forward(5)
+@
+
+Results are presented in Figure~\ref{Fig:SetParam}
+
+\begin{figure}[hbt!]
+\includegraphics[width=3in]{figures/setParam.pdf}
+\caption{Changing graphical parameters}\label{Fig:SetParam}
+\end{figure}
 
 \end{document}
