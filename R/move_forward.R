@@ -68,6 +68,7 @@ move_forward <- function(dist=1){
    curLwd <- .turtle_history$lwd
    curLty <- .turtle_history$lty
    
+   
    # new values for turtle history
    newX <- curX + dist * sin(curAng * pi / 180)
    newY <- curY + dist * cos(curAng * pi / 180)
@@ -183,15 +184,16 @@ move_forward <- function(dist=1){
    }else{   
       
    # case that turtle is in a frame
+      if(.turtle_history$visible){hide_turtle()}
    
-   hide_turtle()
-   if(.turtle_history$draw)
+   if(.turtle_history$draw){
       grid.polygon(c(curX, newX), c(curY, newY),
                    name = "lines", 
                    gp = gpar(col = curCol,
                              lwd = curLwd, 
-                             lty = curLty))
-   show_turtle(newX, newY, curAng)
+                             lty = curLty))}
+   if(.turtle_history$visible){
+      show_turtle(newX, newY, curAng)}
    
    # changing .turtle_history
    .turtle_history$moves$x <<- newX
