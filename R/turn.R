@@ -40,20 +40,16 @@ turn <- function(angle = 0, direction = "left") {
   
   if(direction == "left"){ angle = angle * (-1) }
   
-  curN <- .turtle_history$N
-  curX <- .turtle_history$moves$x[curN]
-  curY <- .turtle_history$moves$y[curN]
-  newAng <- .turtle_history$moves$angle[curN] + angle  
+  curX <- .turtle_history$moves$x
+  curY <- .turtle_history$moves$y
+  newAng <- .turtle_history$moves$angle + angle  
   
-  if(.turtle_history$moves$visible[curN]){
+  if(.turtle_history$visible){
     hide_turtle()
     show_turtle(curX, curY, newAng)
   }
   
-  newN <- curN %% nrow(.turtle_history$moves) + 1
-  .turtle_history$N <<- newN
-  .turtle_history$moves[newN, ] <<- .turtle_history$moves[curN, ]
-  .turtle_history$moves$angle[newN] <<- newAng
+  .turtle_history$moves$angle <<- newAng
 }
 
 #' @rdname turn
