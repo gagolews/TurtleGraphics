@@ -3,9 +3,9 @@
 \alias{move_forward}
 \title{Moving a turtle forward or backward.}
 \usage{
-move_forward(dist = 0.1)
+move_forward(dist = 1)
 
-move_backward(dist = 0.1)
+move_backward(dist = 1)
 }
 \arguments{
   \item{dist}{Specifies the range of distance for a Turtle
@@ -39,7 +39,7 @@ turtle_init()
 move_forward(0.2)
 move_backward(0.1)
 
-#also works:
+#do not work:
 turtle_init()
 move_forward(-0.3)
 move_backward(-0.4)
@@ -47,12 +47,12 @@ move_backward(-0.4)
 # longer yourney
 turtle_init()
 turn(30, "left")
-move_forward(0.2)
+move_forward(2)
 up()
-move_forward(0.1)
+move_forward(1)
 down()
 turn(60, "right")
-move_forward(0.9)
+move_forward(9)
 }
 \seealso{
 \code{\link{turtle_init}}, \code{\link{up}},
