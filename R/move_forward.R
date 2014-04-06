@@ -385,7 +385,7 @@ move_backward <- function(dist=1){
                
                # changing .turtle_history
                .turtle_history$moves$x <<- newX
-               .turtle_history$moves$y <<- newY
+               .turtle_history$moves$y <<- newY 
             }
          }
       }
