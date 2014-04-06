@@ -7,16 +7,14 @@ forward_tmp <- function(moves = 1){
   moves <- moves / 20
   
   # current values for .turtle_history
-  curN <- .turtle_history$N
-  curX <- .turtle_history$moves$x[curN]
-  curY <- .turtle_history$moves$y[curN]  
-  curAng <- .turtle_history$moves$angle[curN]  
+  curX <- .turtle_history$moves$x
+  curY <- .turtle_history$moves$y  
+  curAng <- .turtle_history$moves$angle  
   curCol <- .turtle_history$col
-  curLwd <- .turtle_history$moves$lwd[curN]
-  curLty <- .turtle_history$moves$lty[curN]
+  curLwd <- .turtle_history$lwd
+  curLty <- .turtle_history$lty
   
   # new values for turtle history
-  newN <- curN %% nrow(.turtle_history$moves) + 1
   newX <- curX + moves * sin(curAng * pi / 180)
   newY <- curY + moves * cos(curAng * pi / 180)
   
@@ -24,7 +22,7 @@ forward_tmp <- function(moves = 1){
   # TODO: does not work when visible = F
   
   hide_turtle()
-  if(.turtle_history$moves$draw[curN])
+  if(.turtle_history$draw)
     grid.polygon(c(curX, newX), c(curY, newY),
                  name = "lines", 
                  gp = gpar(col = curCol,
@@ -33,8 +31,6 @@ forward_tmp <- function(moves = 1){
   show_turtle(newX, newY, curAng)
   
   # changing .turtle_history
-  .turtle_history$N <<- newN
-  .turtle_history$moves[newN, ] <<- .turtle_history$moves[curN, ]
-  .turtle_history$moves$x[newN] <<- newX
-  .turtle_history$moves$y[newN] <<- newY
+  .turtle_history$moves$x <<- newX
+  .turtle_history$moves$y <<- newY
 }

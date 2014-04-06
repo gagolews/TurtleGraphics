@@ -16,10 +16,9 @@
 #' @rdname show
 #' @export
 show<-function(){
-  n <- .turtle_history$N
-  show_turtle(.turtle_history$moves$x[n], .turtle_history$moves$y[n], 
-              .turtle_history$moves$angle[n])
-  .turtle_history$moves$visible[n:nrow(.turtle_history$moves)]<<-TRUE
+  show_turtle(.turtle_history$moves$x, .turtle_history$moves$y, 
+              .turtle_history$moves$angle)
+  .turtle_history$visible <<- TRUE
 }
 
 #' @rdname show
