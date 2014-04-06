@@ -12,10 +12,14 @@
 #' @param angle Angle of turn in degrees. 
 #' 
 #' @details
-#' To use turn, the tutrle must be initiated, see \code{\link{turtle_init}}. 
+#' The main difference between \code{show} and \code{show_turtle} is that the first one 
+#' display the turtle in the position set by previous usage of \code{move_forward},
+#' \code{move_backward} and \code{turn} functions, while the second one allows you to create 
+#' many turtle images in any location. Please note that to use both of them, the turtle 
+#' must be initiated, see \code{\link{turtle_init}}.
 #' 
 #' @seealso
-#' \code{\link{hide}}, \code{\link{move_forward}, \code{\link{turn}
+#' \code{\link{hide}}, \code{\link{move_forward}}, \code{\link{turn}}
 #'
 #' @examples
 #' turtle_init()

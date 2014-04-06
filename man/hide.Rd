@@ -26,7 +26,7 @@ left(30)
 move_forward(3)
 }
 \seealso{
-\code{\link{show}}, \code{\link{move_forward},
-\code{\link{turn}
+\code{\link{show}}, \code{\link{move_forward}},
+\code{\link{turn}}
 }
 

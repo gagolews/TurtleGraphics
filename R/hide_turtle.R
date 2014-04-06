@@ -12,7 +12,7 @@
 #' during next moves, untli \code{\link{show}} will be used.
 #'  
 #' @seealso
-#' \code{\link{show}}, \code{\link{move_forward}, \code{\link{turn}
+#' \code{\link{show}}, \code{\link{move_forward}}, \code{\link{turn}}
 #'
 #' @examples
 #' turtle_init()
