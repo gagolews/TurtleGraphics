@@ -1,13 +1,13 @@
 %\VignetteEngine{knitr::knitr}
 % \VignetteIndexEntry{Turbo Turtle packge}
 \documentclass{article}
-
+\usepackage{subfigure}
 \begin{document}
 % \SweaveOpts{concordance=TRUE}
 
 \section{The \textsf{TurboTurtle} Package Introduction}
 
-The \textsf{TurboTurtle} package offers to R-users functionality of the famous ''turtle graphics'' from Logo educational programming language. The main idea standing behind it is to encourage children to learn programming and show that working with computer can be fun and creative.
+The \textsf{TurboTurtle} package offers to R-users functionality of the famous ''turtle graphics'' from Logo educational programming language. The main idea standing behind it is to keep kids away from drugs and encourage children to learn programming and show that working with computer can be fun and creative.
 
 The \textsf{TurboTurtle} package allows to create sophisticated graphics on basis of lines.  
 The main idea is that the Turtle, desribed by its location and orientation, moves with commands that are relative to its own position. The line he left behind can also be controlled, by enabling it or setting its color and type.
@@ -17,19 +17,37 @@ The \textsf{TurboTurtle} package offers functions to move forward or backward a 
 
 \section{The \textsf{TurboTurtle} moving}
 
-\subsection{Walking}
+\subsection{Let the party started!}
 
 <<results='hide'>>=
 require("TurboTurtle")
 @
-
+ 
 The program is started with \textsf{turtle\_init()} function, which create a plot region and places the Turtle in its central point. 
+<<fig.keep='none', results='hold'>>=
+turtle_init()
+@
+Now, we can move the Turtle forward, for example for a distance of 3 units, with the use of the \textsf{move\_forward()} function.
+<<fig.keep='none', eval=FALSE>>=
+move_forward(dist=3)
+@
+If you would like to change directions -- you may use \textsf{left()} or \textsf{right()} functions, which change the Turtle direction of a given angle. For example, we may turn 45 degrees in the right  direction. 
+<<fig.keep='none', eval=FALSE>>=
+right(angle=45)
+move_forward(dist=5)
+@
 
-To move the turtlr forward we can easily use the \textsf{move\_forward()} function.
 
-move : forward, backwarad
-turn : right, left
-
+\begin{figure}[hbt!]
+\subfigure[Initialization of the Turtle]{
+\includegraphics[width=2.3in]{figures/init.pdf}}
+\subfigure[Moving forward ]{
+\includegraphics[width=2.3in]{figures/move.pdf}}
+\subfigure[Turning right]{
+\includegraphics[width=2.3in]{figures/turn.pdf}}
+\subfigure[Moving forward]{
+\includegraphics[width=2.3in]{figures/turnMove.pdf}}
+\end{figure}
 
 \subsection{Visibility settings}
 hide, show (turtle image)
