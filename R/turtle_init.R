@@ -5,8 +5,6 @@
 #' \code{turtle_init()} create an empty page with the Turtle image displayed in the 
 #' middle. 
 #'
-#' @param size A non-negative scalar denoting a number of turtle moves to be drawn
-#'
 #' @export
 turtle_init<- function(){
   .turtle_history <<- list(col = "black",
