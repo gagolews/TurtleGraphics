@@ -2,6 +2,7 @@
 turtle_init()
 set_col("blue")
 set_lwd(3)
+hide()
 for(i in 1:5){
   move_forward(2)
   for(j in 1:5){
@@ -16,6 +17,7 @@ for(i in 1:5){
   down()
   left(72)
 }
+show()
 
 #turtle on a spiderweb
 turtle_init()
@@ -67,10 +69,11 @@ for(i in 1:100){
 
 # drunken turtle
 turtle_init()
-for(i in 1:50){
+hide()
+for(i in 1:1000){
   left(sample(1:360, 1))
   move_forward(runif(1, 1, 3))
 }
-
+show()
 
 
