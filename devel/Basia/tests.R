@@ -1,5 +1,7 @@
 # turtle on a snowflake
 turtle_init()
+set_col("blue")
+set_lwd(3)
 for(i in 1:5){
   move_forward(2)
   for(j in 1:5){
@@ -17,6 +19,7 @@ for(i in 1:5){
 
 #turtle on a spiderweb
 turtle_init()
+set_lwd(2)
 left(20)
 for(i in 1:5){
   move_forward(4)
@@ -62,10 +65,12 @@ for(i in 1:100){
   set_col(sample(1:50, 1))
 }
 
-# testing moving behind the frame
+# drunken turtle
 turtle_init()
-move_forward(5)
-right(5)
-move_forward(5)
+for(i in 1:50){
+  left(sample(1:360, 1))
+  move_forward(runif(1, 1, 3))
+}
+
 
 

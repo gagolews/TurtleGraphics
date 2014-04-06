@@ -116,4 +116,14 @@ Results are presented in Figure~\ref{Fig:SetParam}
 \caption{Changing graphical parameters}\label{Fig:SetParam}
 \end{figure}
 
+\noindent You may also change graphical paramaeters more easily by functions \textsf{set\_col()}, \textsf{set\_lty()}, \textsf{set\_lwd()}. Each of them takes exactly one argument to be passed to \textsf{set\_param()}.
+
+\section{Examples}
+With TurboTurtle you can draw everything and more!\\
+\begin{figure}
+\subfigure[Snowflake]{\includegraphics[width=2.5in]{figures/turtle_snowflake.pdf}}
+\subfigure[Spiderweb]{\includegraphics[width=2.5in]{figures/turtle_spiderweb.pdf}}
+\subfigure[Drunken turtle]{\includegraphics[width=2.5in]{figures/drunken_turtle.pdf}}
+\caption{What turtle does in the free time}
+\end{figure}
 \end{document}
