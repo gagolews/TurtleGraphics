@@ -1,18 +1,30 @@
 #' @rdname show
+#' @aliases show_turtle
 #' @title Show Turtle Image
 #'
 #' @description
 #' 
-#' \code{show()} function make Turtle image be displayed while the path is drawn.
+#' \code{show()} function enable the turtle image be displayed while the path is drawn.
 #' \code{show_turtle(x, y, angle)} function display the image of the Turtle in a
-#' position given by x, y, angle cooridnates. This function is inner function.   
+#' position given by x, y, angle cooridnates.   
 #' 
-#' @param x,y Coordinates describing the Turtle position in the picture
-#' @param angle Angle of turn in degrees. If negative the turtle turn in the opposite direction than the given direction
+#' @param x,y Coordinates describing the turtle position in the picture
+#' @param angle Angle of turn in degrees. 
 #' 
 #' @details
 #' To use turn, the tutrle must be initiated, see \code{\link{turtle_init}}. 
+#' 
+#' @seealso
+#' \code{\link{hide}}, \code{\link{move_forward}, \code{\link{turn}
 #'
+#' @examples
+#' turtle_init()
+#' move_forward(4)
+#' hide()
+#' left(30)
+#' move_forward(3)
+#' show()
+#' 
 #' @rdname show
 #' @export
 show<-function(){
