@@ -1,30 +1,29 @@
 #' @rdname set_param
 #' @aliases up down set_col set_lty set_lwd
 #'
-#' @title Setting Parameters of the Turtle
+#' @title Setting Parameters of the Turtle Trace
 #'
 #' @description
-#' Sets parameters of the turtle.
-#' 
-#' \code{up} and \code{down} lifts and drops turtle respectively, so it leaves the trace or not.
+#' Sets parameters of the turtle trace. It is possible to change its color, line type, 
+#' line width or if should be drawn or not. To change each of the parameters more easily 
+#' \code{set_lwd}, \code{set_lty}, \code{set_col}, \code{up} and \code{down} are also availabale.
 #' 
 #'   
-#' @param col Color of a trace
-#' @param lty Line type of the trace
-#' @param lwd Line width of the trace
-#' @param visible \code{bolean} If trace should be drawn
+#' @param col  Color of a trace, should be the correct R color
+#' @param lty \code{numeric}  Line type of a trace
+#' @param lwd \code{numeric}  Line width of a trace
+#' @param visible \code{bolean}  If a trace should be drawn
 #' 
 #' @details
 #' To use, the tutrle must be initiated, see \code{\link{turtle_init}}. 
-#' After running any of parameter changing functions, the trace of a turtle changes during the next 
+#' After running any of the parameter changing functions, the trace of a turtle changes during the next 
 #' \code{\link{move_forward}} usage.
-#'
-#'
-#' @return
-#' Opis obiektu, ktory funkcja zwraca.
+#' 
+#' \code{up} and \code{down} lifts and drops the turtle respectively, so it leaves the trace or not.
+#' 
 #'
 #' @seealso
-#' \code{\link{turtle_init}}, \code{\link{move_forward}}, 
+#' \code{\link{turtle_init}}, \code{\link{move_forward}}, \code{\link{turn}}
 #'
 #' @examples
 #' turtle_init(10)
@@ -34,12 +33,8 @@
 #' down()
 #' left(90)
 #' move_forward(5)
-#' set_param(col = "red", lwd = 3, lty = 2) # col does not work! (TODO)
+#' set_param(col = "red", lwd = 2, lty = 2)
 #' move_forward(5)
-
-
-# sets parameters of a turtle: col, lty, lwd 
-# TODO: chceck correctness of parameters
 
 #' @rdname set_param
 #' @export
