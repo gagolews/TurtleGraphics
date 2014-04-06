@@ -54,6 +54,15 @@ down()
 turn(60, "right")
 move_forward(9)
 
+# backward yourney
+turtle_init()
+turn(60, "left")
+move_backward(6)
+move_forward(12)
+turn(90, "right")
+move_backward(9)
+
+
 # yourney from developers tests
 
 turtle_init()
