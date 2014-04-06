@@ -4,22 +4,23 @@
 #' @title Turn Turtle
 #'
 #' @description
-#' Turn turtle by the given angle in degrees and in the given one.
+#' Turn turtle in the given direction by the given angle.
 #' 
 #' \code{left} and \code{right} turn turtle to left or right by the given angle.
 #' 
 #'   
-#' @param angle Angle of turn in degrees. If negative the turtle turn in the opposite direction than the given direction
-#' @param direction Direction of turn, posiible values c("left", "right")
+#' @param angle  Angle of turn in degrees. If negative the turtle turn in the opposite direction than the given direction
+#' @param direction  Direction of turn, possible values c("left", "right")
 #' 
 #' @details
-#' To use turn, the tutrle must be initiated, see \code{\link{turtle_init}}. 
+#' To use turn, the turtle must be initiated, see \code{\link{turtle_init}}. 
 #' After \code{turn} function, the turtle turns and during next 
 #' \code{\link{move_forward}} usage, the turtle goes in the changed direction.
+#' 
 #'
 #'#'
 #' @seealso
-#' \code{\link{turtle_init}}, \code{\link{move_forward}}, 
+#' \code{\link{turtle_init}}, \code{\link{move_forward}}
 #'
 #' @examples
 #' left(30)
