@@ -5,8 +5,8 @@
 reset()
 }
 \description{
-\code{reset()} function clear the plot region and history
-of moves that have been made.
+\code{reset()} function clear the plot region and moves the
+Turtle to the start point.
 }
 \seealso{
 \code{\link{turtle_init}}
