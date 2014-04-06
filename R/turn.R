@@ -17,10 +17,7 @@
 #' After \code{turn} function, the turtle turns and during next 
 #' \code{\link{move_forward}} usage, the turtle goes in the changed direction.
 #'
-#'
-#' @return
-#' Opis obiektu, ktory funkcja zwraca.
-#'
+#'#'
 #' @seealso
 #' \code{\link{turtle_init}}, \code{\link{move_forward}}, 
 #'
