@@ -32,7 +32,7 @@ The \textsf{TurboTurtle} package offers functions to move forward or backward a 
 
 \section{The \textsf{TurboTurtle} moving}
 
-\subsection{Let the party started!}
+\subsection{Let the party begin!}
 To install package \textsf{TurboTurtle} you should use following instructions.
 <<eval=FALSE>>=
 if (!require(devtools)) {
@@ -86,7 +86,7 @@ down()
 move_forward(dist=4)
 @
 
-Similarly, we may show or hide thr Turtle image, using \textsf{show()} and \textsf{hide()} functions respectively, see Figure~\ref{Fig:UpDown}cd.
+Similarly, we may show or hide the Turtle image, using \textsf{show()} and \textsf{hide()} functions respectively, see Figure~\ref{Fig:UpDown}cd.
 
 <<fig.keep='none', eval=FALSE>>=
 hide()
