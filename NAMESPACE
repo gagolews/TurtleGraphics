@@ -1,5 +1,4 @@
 export(down)
-export(forward_tmp)
 export(hide)
 export(hide_turtle)
 export(left)
