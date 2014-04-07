@@ -18,7 +18,7 @@
 #' \code{\link{move_forward}} usage, the turtle goes in the changed direction.
 #' 
 #'
-#'#'
+#'
 #' @seealso
 #' \code{\link{turtle_init}}, \code{\link{move_forward}}
 #'

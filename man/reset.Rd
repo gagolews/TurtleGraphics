@@ -5,8 +5,8 @@
 reset()
 }
 \description{
-\code{reset()} function clear the plot region and moves the
-turtle to the start point.
+\code{reset()} function moves the turtle to the start point
+without clearing the plot region.
 }
 \details{
 Please note that \code{reset} function do not change the
@@ -19,6 +19,7 @@ turtle_init()
 move_forward(4)
 set_param(col="red", lty=2, lwd=3)
 reset()
+left(45)
 move_forward(3)
 }
 \seealso{
