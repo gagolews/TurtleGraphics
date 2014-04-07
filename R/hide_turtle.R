@@ -24,8 +24,12 @@
 #' @rdname hide
 #' @export
 hide<-function(){
-  hide_turtle()
-  .turtle_history$visible <<- FALSE
+  if(.turtle_history$visible){
+    hide_turtle()
+    .turtle_history$visible <<- FALSE
+  }else{
+    warning("You cannot hide turtle if it is already hidden")
+  }
 }
 
 #' @rdname hide

@@ -32,9 +32,13 @@
 #' @rdname show
 #' @export
 show<-function(){
-  show_turtle(.turtle_history$moves$x, .turtle_history$moves$y, 
-              .turtle_history$moves$angle)
-  .turtle_history$visible <<- TRUE
+  if(!.turtle_history$visible){
+    show_turtle(.turtle_history$moves$x, .turtle_history$moves$y, 
+                .turtle_history$moves$angle)
+    .turtle_history$visible <<- TRUE
+  }else{
+    warning("You cannot show turtle if it is already visible")
+  }
 }
 
 #' @rdname show
