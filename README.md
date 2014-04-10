@@ -8,6 +8,5 @@ TurboTurtle package's website is available under this link: http://students.mimu
 
 Enjoy using !
 
-
-Inline-style: 
-![alt text](https://github.com/andromeda14/TurboTurtle/blob/master/img/turtle2.png "Logo Title Text 1")
+ 
+![alt text](https://github.com/andromeda14/TurboTurtle/blob/master/img/turtle2.png "TurboTurtle")
