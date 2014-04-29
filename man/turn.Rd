@@ -31,6 +31,7 @@ turtle turns and during next \code{\link{move_forward}}
 usage, the turtle goes in the changed direction.
 }
 \examples{
+turtle_init()
 left(30)
 right(40)
 turn(30, "left")

@@ -1,3 +1,20 @@
+##    TurtleGraphics package for R
+##    Copyright (C) 2014 Rexamine
+##
+##    This program is free software: you can redistribute it and/or modify
+##    it under the terms of the GNU General Public License as published by
+##    the Free Software Foundation, either version 3 of the License, or
+##    (at your option) any later version.
+##
+##    This program is distributed in the hope that it will be useful,
+##    but WITHOUT ANY WARRANTY; without even the implied warranty of
+##    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+##    GNU General Public License for more details.
+##
+##    You should have received a copy of the GNU General Public License
+##    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
 #' @rdname turn
 #' @aliases left right
 #'
@@ -23,6 +40,7 @@
 #' \code{\link{turtle_init}}, \code{\link{move_forward}}
 #'
 #' @examples
+#' turtle_init()
 #' left(30)
 #' right(40)
 #' turn(30, "left")

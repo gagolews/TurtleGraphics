@@ -1,19 +1,17 @@
-Package: TurboTurtle
+Package: TurtleGraphics
 Version: 0.1-1
-Date: 2014-03-13
-Title: Package for playing with turtle
+Date: 2014-04-29
+Title: Turtle Graphics in R
 Authors@R: c(person("Barbara", "Zogala-Siudem", role = c("aut", "cre"),
     email = "zogala@rexamine.com"),
     person("Anna", "Cena", role = c("aut")),
+    person("Marek", "Gagolewski", role = c("aut")),
     person("Marcin", "Kosinski", role = c("aut")))
-Author: Anna Cena and Barbara Zogala-Siudem and Marcin Kosinski
-Maintainer: Marcin Kosinski <kosinskim@student.mini.pw.edu.pl>
 Depends:
     R (>= 2.15.0),
-    grid,
-    png
+    grid
 Description: The TurboTurtle package allows to learn programming while having
     fun.
-License: GPL (>= 2)
-URL: http://github.com/andromeda14/TurboTurtle
-BugReports: http://github.com/andromeda14/TurboTurtle
+License: GPL (>= 3)
+URL: http://TurboTurtle.rexamine.com
+BugReports: https://github.com/Rexamine/TurtleGraphics/issues

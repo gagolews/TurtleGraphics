@@ -46,7 +46,7 @@ during the next \code{\link{move_forward}} usage.
 respectively, so it leaves the trace or not.
 }
 \examples{
-turtle_init(10)
+turtle_init()
 move_forward(5)
 up()
 move_forward(3)

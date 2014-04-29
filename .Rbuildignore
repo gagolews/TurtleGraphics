@@ -7,5 +7,5 @@
 ^.*\.out
 ^.*\.log
 ^.*\.synctex\.gz
-^.*\.tex 
+^.*\.tex
 ^.*-condordance\.tex

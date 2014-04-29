@@ -44,7 +44,7 @@ turtle_init()
 move_forward(-0.3)
 move_backward(-0.4)
 
-# longer yourney
+# longer journey
 turtle_init()
 turn(30, "left")
 move_forward(2)
@@ -54,7 +54,7 @@ down()
 turn(60, "right")
 move_forward(9)
 
-# backward yourney
+# backward journey
 turtle_init()
 turn(60, "left")
 move_backward(6)
@@ -63,7 +63,7 @@ turn(90, "right")
 move_backward(9)
 
 
-# yourney from developers tests
+# journey from developers tests
 
 turtle_init()
 turn(30, "left")
