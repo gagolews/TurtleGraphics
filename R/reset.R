@@ -43,6 +43,6 @@ reset <- function(){
   .turtle_history$moves$y <<- 0.5
   .turtle_history$moves$angle <<- 0
   
-  hide_turtle()
-  show_turtle(.turtle_history$moves$x, .turtle_history$moves$y, .turtle_history$moves$angle)
+  .hide_turtle()
+  .show_turtle(.turtle_history$moves$x, .turtle_history$moves$y, .turtle_history$moves$angle)
 } 

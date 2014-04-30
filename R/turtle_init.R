@@ -39,6 +39,6 @@ turtle_init<- function(){
                                         y = 0.5,
                                         angle = 0))
   grid.newpage()
-  show_turtle(.turtle_history$moves$x, .turtle_history$moves$y, .turtle_history$moves$angle)
+  .show_turtle(.turtle_history$moves$x, .turtle_history$moves$y, .turtle_history$moves$angle)
 }
 

@@ -34,7 +34,7 @@
 #' Both, \code{move_forward} and \code{move_backward}, are using parameteres specified in 
 #' \code{\link{set_param}} function (or if not, use default parameters from \code{turtle_init}).
 #' Also if functio \code{up} or \code{down} were used, route after Turtle is printed or not.
-#' Functions \code{move_forward} and \code{move_backward} correspond to \code{\link{show_turtle}}, \code{\link{hide_turtle}}
+#' Functions \code{move_forward} and \code{move_backward} correspond to \code{\link{turtle_show}}, \code{\link{turtle_hide}}
 #' and after proceding his moves a Turtle is shown or not. 
 #'
 #' @return
@@ -42,7 +42,7 @@
 #'
 #' @seealso
 #' \code{\link{turtle_init}}, \code{\link{up}}, \code{\link{down}}, \code{\link{set_param}},
-#' \code{\link{show_turtle}}, \code{\link{hide_turtle}}
+#' \code{\link{turtle_show}}, \code{\link{turtle_hide}}
 #'
 #' @examples
 #' turtle_init()
@@ -90,11 +90,11 @@
 #' move_forward(16)
 #' turn(30, "left")
 #' move_forward(16)
-#' hide()
+#' turtle_hide()
 #' turn(30, "left")
 #' move_forward(16)
 #' move_forward(16)
-#' show()
+#' turtle_show()
 #' move_forward(16)
 #' turn(30, "left")
 #' move_forward(16)
@@ -236,7 +236,7 @@ move_forward <- function(dist=1){
    }else{   
       
    # case that turtle is in a frame
-      if(.turtle_history$visible){hide_turtle()}
+      if(.turtle_history$visible){.hide_turtle()}
    
    if(.turtle_history$draw){
       grid.polygon(c(curX, newX), c(curY, newY),
@@ -245,7 +245,7 @@ move_forward <- function(dist=1){
                              lwd = curLwd, 
                              lty = curLty))}
    if(.turtle_history$visible){
-      show_turtle(newX, newY, curAng)}
+      .show_turtle(newX, newY, curAng)}
    
    # changing .turtle_history
    .turtle_history$moves$x <<- newX
@@ -389,7 +389,7 @@ move_backward <- function(dist=1){
             }else{   
                
                # case that turtle is in a frame
-               if(.turtle_history$visible){hide_turtle()}
+               if(.turtle_history$visible){.hide_turtle()}
                
                if(.turtle_history$draw){
                   grid.polygon(c(curX, newX), c(curY, newY),
@@ -398,7 +398,7 @@ move_backward <- function(dist=1){
                                          lwd = curLwd, 
                                          lty = curLty))}
                if(.turtle_history$visible){
-                  show_turtle(newX, newY, curAng)}
+                  .show_turtle(newX, newY, curAng)}
                
                # changing .turtle_history
                .turtle_history$moves$x <<- newX
