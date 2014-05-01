@@ -12,10 +12,6 @@ move_backward(dist = 1)
   to move. The default value for both functions is
   \code{dist = 0.1}.}
 }
-\value{
-Nothing is returned. Just the moves of a Turtle are printed
-in Plots window.
-}
 \description{
 Those functions able to move a Turtle. Command
 \code{move_forward} moves a Turtle in a forward direction,
@@ -46,20 +42,20 @@ move_backward(-0.4)
 
 # longer journey
 turtle_init()
-turn(30, "left")
+turtle_turn(30, "left")
 move_forward(2)
 up()
 move_forward(1)
 down()
-turn(60, "right")
+turtle_turn(60, "right")
 move_forward(9)
 
 # backward journey
 turtle_init()
-turn(60, "left")
+turtle_turn(60, "left")
 move_backward(6)
 move_forward(12)
-turn(90, "right")
+turtle_turn(90, "right")
 move_backward(9)
 
 
@@ -91,8 +87,9 @@ move_forward(16)
 move_forward(16)
 }
 \seealso{
-\code{\link{turtle_init}}, \code{\link{up}},
-\code{\link{down}}, \code{\link{set_param}},
-\code{\link{turtle_show}}, \code{\link{turtle_hide}}
+Other TurtleGraphics: \code{\link{TurtleGraphics-package}};
+\code{\link{turtle_left}}, \code{\link{turtle_left}},
+\code{\link{turtle_right}}, \code{\link{turtle_right}},
+\code{\link{turtle_turn}}, \code{\link{turtle_turn}}
 }
 

@@ -15,103 +15,66 @@
 ##    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-#' @rdname move_forward
-#' @aliases move_backward
-#'
-#' @title Moving a turtle forward or backward.
+#' @title Move a Turtle forward or backward
 #'
 #' @description
-#' Those functions able to move a Turtle. Command \code{move_forward} moves a Turtle in a forward direction, command
+#' \code{move_forward} moves a Turtle in a forward direction, and
 #' \code{back_forward} moves a Turtle in a backward direction.
 #' 
 #' 
-#'   
-#' @param dist Specifies the range of distance for a Turtle to move. 
-#' The default value for both functions is \code{dist = 0.1}.
-#' 
 #' @details
-#' To use, the tutrle must be initiated, see \code{\link{turtle_init}}. 
-#' Both, \code{move_forward} and \code{move_backward}, are using parameteres specified in 
-#' \code{\link{set_param}} function (or if not, use default parameters from \code{turtle_init}).
-#' Also if functio \code{up} or \code{down} were used, route after Turtle is printed or not.
-#' Functions \code{move_forward} and \code{move_backward} correspond to \code{\link{turtle_show}}, \code{\link{turtle_hide}}
-#' and after proceding his moves a Turtle is shown or not. 
+#' The turtle must be initialized prior to using
+#' this function, see \code{\link{turtle_init}}. 
+#' 
+#' These functions make use of the turtle options specified by
+#' \code{\link{set_param}} function
+#' (or if not, use default parameters from \code{turtle_init}).
+#' 
+#' Note that if function \code{\link{turtle_up}} or \code{\link{turtle_down}}
+#' was called, the Turtle's route will be drawn or not drawn, respectively.
+#' 
+#' If you are willing to call these functions in an R loop,
+#' you may want to hide the turtle (see \code{\link{turtle_hide}})
+#' befor making actual moves. This will increase the drawing performance
+#' significantly.
+#' 
+#' 
+#' @param dist Specifies the distance to make.
+#'        Negative distance results in moving in the opposite direction.
+#' @param direction Moving direction.
+#'        One of \code{"forward"} or \code{"backward"}.
+#' 
 #'
-#' @return
-#' Nothing is returned. Just the moves of a Turtle are printed in Plots window.
-#'
-#' @seealso
-#' \code{\link{turtle_init}}, \code{\link{up}}, \code{\link{down}}, \code{\link{set_param}},
-#' \code{\link{turtle_show}}, \code{\link{turtle_hide}}
 #'
 #' @examples
 #' turtle_init()
-#' move_forward(0.2)
-#' move_backward(0.1)
+#' turtle_left(30)
+#' turtle_forward(2)
+#' turtle_up()
+#' turtle_forward(1)
+#' turtle_down()
+#' turtle_right(60)
+#' turtle_forward(9)
 #' 
-#' #do not work:
-#' turtle_init()
-#' move_forward(-0.3)
-#' move_backward(-0.4)
-#' 
-#' # longer journey
-#' turtle_init()
-#' turn(30, "left")
-#' move_forward(2)
-#' up()
-#' move_forward(1)
-#' down()
-#' turn(60, "right")
-#' move_forward(9)
-#' 
-#' # backward journey
-#' turtle_init()
-#' turn(60, "left")
-#' move_backward(6)
-#' move_forward(12)
-#' turn(90, "right")
-#' move_backward(9)
-#' 
-#' 
-#' # journey from developers tests
-#' 
-#' turtle_init()
-#' turn(30, "left")
-#' turn(30, "left")
-#' move_forward(16)
-#' turn(30, "left")
-#' turn(30, "left")
-#' move_forward(16)
-#' turn(30, "left")
-#' turn(30, "left")
-#' move_forward(16)
-#' turn(30, "left")
-#' turn(30, "left")
-#' move_forward(16)
-#' turn(30, "left")
-#' move_forward(16)
-#' turtle_hide()
-#' turn(30, "left")
-#' move_forward(16)
-#' move_forward(16)
-#' turtle_show()
-#' move_forward(16)
-#' turn(30, "left")
-#' move_forward(16)
-#' move_forward(16)
-
-
-
-#' @rdname move_forward
+#' @family TurtleGraphics
+#' @aliases turtle_move turtle_forward turtle_backward
+#' @rdname turtle_move
 #' @export
-move_forward <- function(dist=1){
-   if(!exists(".turtle_history")) 
-      stop("Turtle has not been initiated, please type turtle_init() first")
-   stopifnot(is.numeric(dist) & length(dist) == 1)
-   if(dist < 0) warning("Negative value of distance moves turtle in the opposite direction.\n Use move_backward() function.")
+turtle_move <- function(dist=1, direction = c("forward", "backward"))
+{
+   if (!exists(".turtle_history"))
+      stop("Turtle has not been initialized, please call turtle_init() first.")
+   
+   direction <- match.arg(direction)
+   stopifnot(is.numeric(dist), length(dist) == 1, is.finite(dist))
+   
+   if(dist < 0)
+      warning("Negative value of `dist` moves turtle in the opposite direction.")
   
+   if (direction == 'backward')
+      dist <- -dist
 
-   dist <- dist / 20
+   dist <- dist / 20 # @TODO: remove this!
    
    # current values for .turtle_history
    curX <- .turtle_history$moves$x
@@ -128,42 +91,45 @@ move_forward <- function(dist=1){
    
    
    
-   # case1
-   if(newY>1){
-      if(curAng%%180==0){borX<-newX}else{
-      a <- (newY-curY)/(newX-curX)
-      borX <- (1+a*newX-newY)/a}
+   # case 1
+   if(newY>1) {
+      if (curAng%%180==0) {
+         borX<-newX
+      }
+      else {
+         a <- (newY-curY)/(newX-curX)
+         borX <- (1+a*newX-newY)/a
+      }
       
       distance <- sqrt((borX-newX)^2 + (1-newY)^2)
-      
-      
-      if(.turtle_history$draw)
+   
+   
+      if(.turtle_history$draw) {
          grid.polygon(c(curX, newX), c(curY, newY),
-                      name = "lines", 
-                      gp = gpar(col = curCol,
-                                lwd = curLwd, 
-                                lty = curLty))
-      
-      
-      
+                   name = "lines", 
+                   gp = gpar(col = curCol,
+                             lwd = curLwd, 
+                             lty = curLty))
+      }
+   
+   
       # changing .turtle_history
       .turtle_history$moves$x <<- borX
       .turtle_history$moves$y <<- 0
-      
-      move_forward(distance*20)
-      
-      
-   }else{
-   # case2
-   if(newX>1){
-      if(curAng%%90==0){borY<-newY}else{
+   
+      turtle_move(distance*20, 'forward')
+   }
+   else if(newX>1) { # case2
+      if(curAng%%90==0){
+         borY<-newY
+      }
+      else {
          a <- (newY-curY)/(newX-curX)
-         borY <- a+newY-a*newX}
-      
+         borY <- a+newY-a*newX
+      }
       
       distance <- sqrt((1-newX)^2 + (borY-newY)^2)
       
-     
       if(.turtle_history$draw)
          grid.polygon(c(curX, newX), c(curY, newY),
                       name = "lines", 
@@ -177,15 +143,18 @@ move_forward <- function(dist=1){
       .turtle_history$moves$x <<- 0
       .turtle_history$moves$y <<- borY
       
-      move_forward(distance*20)
+      turtle_move(distance*20, 'forward')
       
-      
-   }else{
-   # case3
-   if(newY<0){
-      if(curAng%%180==0){borX<-newX}else{
+   }
+   else if (newY<0) { # case 3
+   
+      if(curAng%%180==0){
+         borX<-newX
+      }
+      else {
          a <- (newY-curY)/(newX-curX)
-         borX <- (a*newX-newY)/a}
+         borX <- (a*newX-newY)/a
+      }
            
       distance <- sqrt((borX-newX)^2 + (newY)^2)
       
@@ -203,212 +172,65 @@ move_forward <- function(dist=1){
       .turtle_history$moves$x <<- borX
       .turtle_history$moves$y <<- 1
       
-      move_forward(distance*20)
-      
-      
-   }else{
-   # case4
-   if(newX<0){
-      if(curAng%%90==0){borY<-newY}else{
+      turtle_move(distance*20, 'forward')
+   }
+   else if (newX<0) { # case 4
+      if (curAng%%90==0) {
+         borY<-newY
+      }
+      else {
          a <- (newY-curY)/(newX-curX)
-         borY <- newY-a*newX}
-      
+         borY <- newY-a*newX
+      }
       
       distance <- sqrt((newX)^2 + (borY-newY)^2)
       
-     
       if(.turtle_history$draw)
          grid.polygon(c(curX, newX), c(curY, newY),
                       name = "lines", 
                       gp = gpar(col = curCol,
                                 lwd = curLwd, 
                                 lty = curLty))
-      
-      
       
       # changing .turtle_history
       .turtle_history$moves$x <<- 1
       .turtle_history$moves$y <<- borY
       
-      move_forward(distance*20)
-      
-      
-   }else{   
-      
-   # case that turtle is in a frame
+      turtle_move(distance*20, 'forward')
+   }
+   else {# case that turtle is in a frame
       if(.turtle_history$visible){.hide_turtle()}
    
-   if(.turtle_history$draw){
-      grid.polygon(c(curX, newX), c(curY, newY),
+      if(.turtle_history$draw) {
+         grid.polygon(c(curX, newX), c(curY, newY),
                    name = "lines", 
                    gp = gpar(col = curCol,
                              lwd = curLwd, 
-                             lty = curLty))}
-   if(.turtle_history$visible){
-      .show_turtle(newX, newY, curAng)}
-   
-   # changing .turtle_history
-   .turtle_history$moves$x <<- newX
-   .turtle_history$moves$y <<- newY
-}
-}
-}
-}
-}
-#' @rdname move_forward
-#' @export
-
-move_backward <- function(dist=1){
-   if(!exists(".turtle_history")) 
-      stop("Turtle has not been initiated, please type turtle_init() first")
-   stopifnot(is.numeric(dist) & length(dist) == 1)
-   if(dist < 0) warning("Negative value of distance moves turtle in the opposite direction. \n Use move_forward() function.")
-   dist <- dist / 20
-   
-   # current values for .turtle_history
-   curX <- .turtle_history$moves$x
-   curY <- .turtle_history$moves$y  
-   curAng <- .turtle_history$moves$angle  
-   curCol <- .turtle_history$col
-   curLwd <- .turtle_history$lwd
-   curLty <- .turtle_history$lty
-   
-   
-   # new values for turtle history
-   newX <- curX - dist * sin(curAng * pi / 180)
-   newY <- curY - dist * cos(curAng * pi / 180)
-   
-   
-   
-   
-   # case1
-   if(newY>1){
-      if(curAng%%180==0){borX<-newX}else{
-         a <- (newY-curY)/(newX-curX)
-         borX <- (1+a*newX-newY)/a}
-      
-      distance <- sqrt((borX-newX)^2 + (1-newY)^2)
-      
-      
-      if(.turtle_history$draw)
-         grid.polygon(c(curX, newX), c(curY, newY),
-                      name = "lines", 
-                      gp = gpar(col = curCol,
-                                lwd = curLwd, 
-                                lty = curLty))
-      
-      
-      
-      # changing .turtle_history
-      .turtle_history$moves$x <<- borX
-      .turtle_history$moves$y <<- 0
-      
-      move_backward(distance*20)
-      
-      
-   }else{
-      # case2
-      if(newX>1){
-         if(curAng%%90==0){borY<-newY}else{
-            a <- (newY-curY)/(newX-curX)
-            borY <- a+newY-a*newX}
-         
-         
-         distance <- sqrt((1-newX)^2 + (borY-newY)^2)
-         
-         
-         if(.turtle_history$draw)
-            grid.polygon(c(curX, newX), c(curY, newY),
-                         name = "lines", 
-                         gp = gpar(col = curCol,
-                                   lwd = curLwd, 
-                                   lty = curLty))
-         
-         
-         
-         # changing .turtle_history
-         .turtle_history$moves$x <<- 0
-         .turtle_history$moves$y <<- borY
-         
-         move_backward(distance*20)
-         
-         
-      }else{
-         # case3
-         if(newY<0){
-            if(curAng%%180==0){borX<-newX}else{
-               a <- (newY-curY)/(newX-curX)
-               borX <- (a*newX-newY)/a}
-            
-            distance <- sqrt((borX-newX)^2 + (newY)^2)
-            
-            
-            if(.turtle_history$draw)
-               grid.polygon(c(curX, newX), c(curY, newY),
-                            name = "lines", 
-                            gp = gpar(col = curCol,
-                                      lwd = curLwd, 
-                                      lty = curLty))
-            
-            
-            
-            # changing .turtle_history
-            .turtle_history$moves$x <<- borX
-            .turtle_history$moves$y <<- 1
-            
-            move_backward(distance*20)
-            
-            
-         }else{
-            # case4
-            if(newX<0){
-               if(curAng%%90==0){borY<-newY}else{
-                  a <- (newY-curY)/(newX-curX)
-                  borY <- newY-a*newX}
-               
-               
-               distance <- sqrt((newX)^2 + (borY-newY)^2)
-               
-               
-               if(.turtle_history$draw)
-                  grid.polygon(c(curX, newX), c(curY, newY),
-                               name = "lines", 
-                               gp = gpar(col = curCol,
-                                         lwd = curLwd, 
-                                         lty = curLty))
-               
-               
-               
-               # changing .turtle_history
-               .turtle_history$moves$x <<- 1
-               .turtle_history$moves$y <<- borY
-               
-               move_backward(distance*20)
-               
-               
-            }else{   
-               
-               # case that turtle is in a frame
-               if(.turtle_history$visible){.hide_turtle()}
-               
-               if(.turtle_history$draw){
-                  grid.polygon(c(curX, newX), c(curY, newY),
-                               name = "lines", 
-                               gp = gpar(col = curCol,
-                                         lwd = curLwd, 
-                                         lty = curLty))}
-               if(.turtle_history$visible){
-                  .show_turtle(newX, newY, curAng)}
-               
-               # changing .turtle_history
-               .turtle_history$moves$x <<- newX
-               .turtle_history$moves$y <<- newY 
-            }
-         }
+                             lty = curLty))
       }
+      
+      if(.turtle_history$visible) {
+         .show_turtle(newX, newY, curAng)
+      }
+   
+      # changing .turtle_history
+      .turtle_history$moves$x <<- newX
+      .turtle_history$moves$y <<- newY
    }
 }
 
 
+#' @rdname turtle_move
+#' @export
+turtle_forward <- function(dist=1)
+{
+   turtle_move(dist, 'forward')
+}
 
 
+#' @rdname turtle_move
+#' @export
+turtle_backward <- function(dist=1)
+{
+   turtle_move(dist, 'backward')
+}

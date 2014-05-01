@@ -14,4 +14,13 @@ Gagolewski \email{gagolews@rexamine.com} [aut]\cr Marcin
 Kosinski \email{m.p.kosinski@gmail.com} [aut]\cr Barbara
 Zogala-Siudem \email{zogala@rexamine.com} [aut, cre]
 }
+\seealso{
+Other TurtleGraphics: \code{\link{turtle_backward}},
+\code{\link{turtle_backward}},
+\code{\link{turtle_forward}}, \code{\link{turtle_forward}},
+\code{\link{turtle_move}}, \code{\link{turtle_move}};
+\code{\link{turtle_left}}, \code{\link{turtle_left}},
+\code{\link{turtle_right}}, \code{\link{turtle_right}},
+\code{\link{turtle_turn}}, \code{\link{turtle_turn}}
+}
 

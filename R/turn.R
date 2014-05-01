@@ -28,12 +28,9 @@
 #' 
 #' @param angle  Rotation angle in degrees.
 #'    A negative value turns the turtle turn in the opposite
-#'    direction than the given one
+#'    direction than the given one.
 #' @param direction  Direction of turn.
 #'    Possible values are "left" and "right"
-#' 
-#' @seealso
-#' \code{\link{turtle_init}}, \code{\link{move_forward}}
 #'
 #' @examples
 #' turtle_init()
@@ -41,19 +38,20 @@
 #' turtle_right(40)
 #' turtle_turn(30, sample(c("left", "right"), 1)) # random turn
 #' 
+#' @family TurtleGraphics
 #' @export
 #' @rdname turtle_turn
 #' @aliases turtle_turn turtle_left turtle_right
-turtle_turn <- function(angle = 0, direction = "left")
+turtle_turn <- function(angle = 0, direction = c("left", "right"))
 {
    if (!exists(".turtle_history"))
-      stop("Turtle has not been initialized, please call turtle_init() first")
+      stop("Turtle has not been initialized, please call turtle_init() first.")
    
    direction <- match.arg(direction)
    stopifnot(is.numeric(angle), length(angle) == 1, is.finite(angle))
    
    if (angle < 0)
-      warning("Negative value of `angle` turns turtle in the opposite direction")
+      warning("Negative value of `angle` turns the turtle in the opposite direction.")
    
    if (direction == "left")
       angle = -angle
@@ -62,7 +60,7 @@ turtle_turn <- function(angle = 0, direction = "left")
    curY <- .turtle_history$moves$y
    newAng <- .turtle_history$moves$angle + angle  
    
-   if(.turtle_history$visible){
+   if(.turtle_history$visible) {
       .hide_turtle()
       .show_turtle(curX, curY, newAng)
    }

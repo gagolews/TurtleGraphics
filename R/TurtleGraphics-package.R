@@ -30,7 +30,7 @@
 #' Barbara Zogala-Siudem \email{zogala@@rexamine.com} [aut, cre]
 #' 
 #' 
-#'
+#' @family TurtleGraphics
 #' @name TurtleGraphics-package
 #' @docType package
 invisible(NULL)
