@@ -28,7 +28,7 @@
 #' 
 #' These functions make use of the turtle's display options specified by
 #' \code{\link{turtle_param}} function
-#' (or if not, use the default options set by \code{turtle_init}).
+#' (or if not, use the default options set by \code{\link{turtle_init}}).
 #' 
 #' Note that if function \code{\link{turtle_up}} or \code{\link{turtle_down}}
 #' was called, the Turtle's route will be drawn or not drawn, respectively.
@@ -57,7 +57,6 @@
 #' turtle_forward(9)
 #' 
 #' @family TurtleGraphics
-#' @aliases turtle_move turtle_forward turtle_backward
 #' @rdname turtle_move
 #' @export
 turtle_move <- function(dist=1, direction = c("forward", "backward"))

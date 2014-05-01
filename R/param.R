@@ -49,8 +49,6 @@
 #' turtle_forward(5)
 #' 
 #' @family TurtleGraphics
-#' @aliases turtle_param turtle_up turtle_down turtle_lty turtle_draw
-#'          turtle_lwd turtle_col
 #' @rdname turtle_param
 #' @export
 turtle_param <- function(col=NULL, lwd=NULL, lty=NULL, draw=NULL)

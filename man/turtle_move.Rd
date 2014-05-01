@@ -28,7 +28,8 @@ function, see \code{\link{turtle_init}}.
 
 These functions make use of the turtle's display options
 specified by \code{\link{turtle_param}} function (or if
-not, use the default options set by \code{turtle_init}).
+not, use the default options set by
+\code{\link{turtle_init}}).
 
 Note that if function \code{\link{turtle_up}} or
 \code{\link{turtle_down}} was called, the Turtle's route
@@ -51,17 +52,12 @@ turtle_forward(9)
 }
 \seealso{
 Other TurtleGraphics: \code{\link{TurtleGraphics-package}};
-\code{\link{turtle_col}}, \code{\link{turtle_col}},
-\code{\link{turtle_down}}, \code{\link{turtle_down}},
-\code{\link{turtle_draw}}, \code{\link{turtle_draw}},
-\code{\link{turtle_lty}}, \code{\link{turtle_lty}},
-\code{\link{turtle_lwd}}, \code{\link{turtle_lwd}},
-\code{\link{turtle_param}}, \code{\link{turtle_param}},
-\code{\link{turtle_up}}, \code{\link{turtle_up}};
-\code{\link{turtle_hide}}, \code{\link{turtle_show}};
-\code{\link{turtle_init}}; \code{\link{turtle_left}},
+\code{\link{turtle_col}}, \code{\link{turtle_down}},
+\code{\link{turtle_draw}}, \code{\link{turtle_lty}},
+\code{\link{turtle_lwd}}, \code{\link{turtle_param}},
+\code{\link{turtle_up}}; \code{\link{turtle_hide}},
+\code{\link{turtle_show}}; \code{\link{turtle_init}};
 \code{\link{turtle_left}}, \code{\link{turtle_right}},
-\code{\link{turtle_right}}, \code{\link{turtle_turn}},
 \code{\link{turtle_turn}}; \code{\link{turtle_reset}};
 \code{\link{turtle_status}}
 }

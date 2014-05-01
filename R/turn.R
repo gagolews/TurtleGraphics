@@ -41,7 +41,6 @@
 #' @family TurtleGraphics
 #' @export
 #' @rdname turtle_turn
-#' @aliases turtle_turn turtle_left turtle_right
 turtle_turn <- function(angle = 0, direction = c("left", "right"))
 {
    if (!exists(".turtle_history"))
