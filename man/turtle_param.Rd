@@ -1,14 +1,14 @@
-\name{turtle_option}
+\name{turtle_param}
 \alias{turtle_col}
 \alias{turtle_down}
 \alias{turtle_draw}
 \alias{turtle_lty}
 \alias{turtle_lwd}
-\alias{turtle_option}
+\alias{turtle_param}
 \alias{turtle_up}
 \title{Set Display Options}
 \usage{
-turtle_option(col = NULL, lwd = NULL, lty = NULL, draw = NULL)
+turtle_param(col = NULL, lwd = NULL, lty = NULL, draw = NULL)
 
 turtle_col(col)
 
@@ -43,10 +43,10 @@ function, see \code{\link{turtle_init}}.
 
 After running any of the parameter changing functions, the
 trace of a turtle changes during the next
-\code{\link{move_forward}} usage.
+\code{\link{turtle_forward}} usage.
 
-\code{up} and \code{down} lifts and drops the turtle
-respectively, so it leaves the trace or not.
+\code{turtle_up} and \code{turtle_down} lifts and drops the
+turtle respectively, so it leaves the trace or not.
 }
 \examples{
 turtle_init()
@@ -56,7 +56,7 @@ turtle_forward(3)
 turtle_down()
 turtle_left(90)
 turtle_forward(5)
-turtle_option(col = "red", lwd = 2, lty = 2)
+turtle_param(col = "red", lwd = 2, lty = 2)
 turtle_forward(5)
 }
 \seealso{

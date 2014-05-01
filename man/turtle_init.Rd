@@ -13,7 +13,7 @@ After the \code{turtle_init()} function was called you can
 e.g. move the turtle with the \code{\link{turtle_forward}}
 function, turn its direction with
 \code{\link{turtle_right}} or set display parameters of the
-turtle trace, see \code{\link{turtle_option}}.
+turtle trace, see \code{\link{turtle_param}}.
 }
 \seealso{
 Other TurtleGraphics: \code{\link{TurtleGraphics-package}};
@@ -26,7 +26,7 @@ Other TurtleGraphics: \code{\link{TurtleGraphics-package}};
 \code{\link{turtle_draw}}, \code{\link{turtle_draw}},
 \code{\link{turtle_lty}}, \code{\link{turtle_lty}},
 \code{\link{turtle_lwd}}, \code{\link{turtle_lwd}},
-\code{\link{turtle_option}}, \code{\link{turtle_option}},
+\code{\link{turtle_param}}, \code{\link{turtle_param}},
 \code{\link{turtle_up}}, \code{\link{turtle_up}};
 \code{\link{turtle_hide}}, \code{\link{turtle_show}};
 \code{\link{turtle_left}}, \code{\link{turtle_left}},

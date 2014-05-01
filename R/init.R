@@ -27,7 +27,7 @@
 #' you can e.g. move the turtle with the \code{\link{turtle_forward}}
 #' function, turn its direction with \code{\link{turtle_right}}
 #' or set display parameters of the turtle trace, 
-#' see \code{\link{turtle_option}}. 
+#' see \code{\link{turtle_param}}. 
 #'
 #' @family TurtleGraphics
 #' @rdname turtle_init

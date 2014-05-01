@@ -28,13 +28,13 @@
 #' this function, see \code{\link{turtle_init}}. 
 #' 
 #' All the graphical parameters are left unchanged after calling
-#' this function, see \code{\link{turtle_option}}.
+#' this function, see \code{\link{turtle_param}}.
 #' 
 #' 
 #' @examples
 #' turtle_init()
 #' turtle_forward(4)
-#' turtle_option(col="red", lty=2, lwd=3)
+#' turtle_param(col="red", lty=2, lwd=3)
 #' turtle_reset()
 #' turtle_left(45)
 #' turtle_forward(3)

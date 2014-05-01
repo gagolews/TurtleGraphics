@@ -42,7 +42,7 @@ Other TurtleGraphics: \code{\link{TurtleGraphics-package}};
 \code{\link{turtle_draw}}, \code{\link{turtle_draw}},
 \code{\link{turtle_lty}}, \code{\link{turtle_lty}},
 \code{\link{turtle_lwd}}, \code{\link{turtle_lwd}},
-\code{\link{turtle_option}}, \code{\link{turtle_option}},
+\code{\link{turtle_param}}, \code{\link{turtle_param}},
 \code{\link{turtle_up}}, \code{\link{turtle_up}};
 \code{\link{turtle_hide}}, \code{\link{turtle_show}};
 \code{\link{turtle_init}}; \code{\link{turtle_reset}};

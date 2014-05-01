@@ -36,7 +36,7 @@ turtle_status <- function()
    if (!exists(".turtle_history"))
       stop("Turtle has not been initialized, please call turtle_init() first.")
    
-   graph<-data.frame(.turtle_history[1:5])
+   graph <- data.frame(.turtle_history[1:5])
    rownames(graph) <- "Value"
    move <- unlist(.turtle_history$moves)
    list(Graphical_Parameters=graph, Position=move)

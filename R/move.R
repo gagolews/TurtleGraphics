@@ -27,7 +27,7 @@
 #' this function, see \code{\link{turtle_init}}. 
 #' 
 #' These functions make use of the turtle's display options specified by
-#' \code{\link{turtle_option}} function
+#' \code{\link{turtle_param}} function
 #' (or if not, use the default options set by \code{turtle_init}).
 #' 
 #' Note that if function \code{\link{turtle_up}} or \code{\link{turtle_down}}

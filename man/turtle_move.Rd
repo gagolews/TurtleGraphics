@@ -27,7 +27,7 @@ The turtle must be initialized prior to using this
 function, see \code{\link{turtle_init}}.
 
 These functions make use of the turtle's display options
-specified by \code{\link{turtle_option}} function (or if
+specified by \code{\link{turtle_param}} function (or if
 not, use the default options set by \code{turtle_init}).
 
 Note that if function \code{\link{turtle_up}} or
@@ -56,7 +56,7 @@ Other TurtleGraphics: \code{\link{TurtleGraphics-package}};
 \code{\link{turtle_draw}}, \code{\link{turtle_draw}},
 \code{\link{turtle_lty}}, \code{\link{turtle_lty}},
 \code{\link{turtle_lwd}}, \code{\link{turtle_lwd}},
-\code{\link{turtle_option}}, \code{\link{turtle_option}},
+\code{\link{turtle_param}}, \code{\link{turtle_param}},
 \code{\link{turtle_up}}, \code{\link{turtle_up}};
 \code{\link{turtle_hide}}, \code{\link{turtle_show}};
 \code{\link{turtle_init}}; \code{\link{turtle_left}},

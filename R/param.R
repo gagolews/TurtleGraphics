@@ -33,9 +33,9 @@
 #' this function, see \code{\link{turtle_init}}. 
 #' 
 #' After running any of the parameter changing functions, the trace of a turtle changes during the next 
-#' \code{\link{move_forward}} usage.
+#' \code{\link{turtle_forward}} usage.
 #' 
-#' \code{up} and \code{down} lifts and drops the turtle respectively, so it leaves the trace or not.
+#' \code{turtle_up} and \code{turtle_down} lifts and drops the turtle respectively, so it leaves the trace or not.
 #' 
 #' @examples
 #' turtle_init()
@@ -45,15 +45,15 @@
 #' turtle_down()
 #' turtle_left(90)
 #' turtle_forward(5)
-#' turtle_option(col = "red", lwd = 2, lty = 2)
+#' turtle_param(col = "red", lwd = 2, lty = 2)
 #' turtle_forward(5)
 #' 
 #' @family TurtleGraphics
-#' @aliases turtle_option turtle_up turtle_down turtle_lty turtle_draw
+#' @aliases turtle_param turtle_up turtle_down turtle_lty turtle_draw
 #'          turtle_lwd turtle_col
-#' @rdname turtle_option
+#' @rdname turtle_param
 #' @export
-turtle_option <- function(col=NULL, lwd=NULL, lty=NULL, draw=NULL)
+turtle_param <- function(col=NULL, lwd=NULL, lty=NULL, draw=NULL)
 {
    if (!exists(".turtle_history"))
       stop("Turtle has not been initialized, please call turtle_init() first.")
@@ -91,50 +91,49 @@ turtle_option <- function(col=NULL, lwd=NULL, lty=NULL, draw=NULL)
 }
 
 
-#' @rdname turtle_option
+#' @rdname turtle_param
 #' @export
 turtle_col <- function(col)
 {
-   turtle_option(col = col)
+   turtle_param(col = col)
 }
 
 
-#' @rdname turtle_option
+#' @rdname turtle_param
 #' @export
 turtle_lwd <- function(lwd)
 {
-   turtle_option(lwd = lwd)
+   turtle_param(lwd = lwd)
 }
 
 
-#' @rdname turtle_option
+#' @rdname turtle_param
 #' @export
 turtle_lty <- function(lty)
 {
-   turtle_option(lty = lty)
+   turtle_param(lty = lty)
 }
 
 
-#' @rdname turtle_option
+#' @rdname turtle_param
 #' @export
 turtle_up <- function()
 {
-   turtle_option(draw = FALSE)
+   turtle_param(draw = FALSE)
 }
 
 
-#' @rdname turtle_option
+#' @rdname turtle_param
 #' @export
 turtle_down <- function()
 {
-   turtle_option(draw = TRUE)
+   turtle_param(draw = TRUE)
 }
 
 
-#' @rdname turtle_option
+#' @rdname turtle_param
 #' @export
 turtle_draw <- function(draw)
 {
-   turtle_option(draw = draw)
+   turtle_param(draw = draw)
 }
-

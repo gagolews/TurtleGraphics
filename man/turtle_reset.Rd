@@ -15,12 +15,12 @@ The turtle must be initialized prior to using this
 function, see \code{\link{turtle_init}}.
 
 All the graphical parameters are left unchanged after
-calling this function, see \code{\link{turtle_option}}.
+calling this function, see \code{\link{turtle_param}}.
 }
 \examples{
 turtle_init()
 turtle_forward(4)
-turtle_option(col="red", lty=2, lwd=3)
+turtle_param(col="red", lty=2, lwd=3)
 turtle_reset()
 turtle_left(45)
 turtle_forward(3)
@@ -36,7 +36,7 @@ Other TurtleGraphics: \code{\link{TurtleGraphics-package}};
 \code{\link{turtle_draw}}, \code{\link{turtle_draw}},
 \code{\link{turtle_lty}}, \code{\link{turtle_lty}},
 \code{\link{turtle_lwd}}, \code{\link{turtle_lwd}},
-\code{\link{turtle_option}}, \code{\link{turtle_option}},
+\code{\link{turtle_param}}, \code{\link{turtle_param}},
 \code{\link{turtle_up}}, \code{\link{turtle_up}};
 \code{\link{turtle_hide}}, \code{\link{turtle_show}};
 \code{\link{turtle_init}}; \code{\link{turtle_left}},
