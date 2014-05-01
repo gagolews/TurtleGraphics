@@ -36,6 +36,8 @@ Other TurtleGraphics: \code{\link{TurtleGraphics-package}};
 \code{\link{turtle_backward}},
 \code{\link{turtle_backward}},
 \code{\link{turtle_forward}}, \code{\link{turtle_forward}},
-\code{\link{turtle_move}}, \code{\link{turtle_move}}
+\code{\link{turtle_move}}, \code{\link{turtle_move}};
+\code{\link{turtle_hide}}, \code{\link{turtle_show}};
+\code{\link{turtle_reset}}; \code{\link{turtle_status}}
 }
 

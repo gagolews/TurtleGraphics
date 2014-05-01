@@ -14,54 +14,95 @@
 ##    You should have received a copy of the GNU General Public License
 ##    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-#' @rdname turtle_show
-#' @title Show Turtle Image
+
+#' @title Show or Hide the Turtle
 #'
 #' @description
-#' 
-#' \code{turtle_show()} function enable the turtle image be displayed while the path is drawn.
-#' \code{turtle_hide()} function unable the turtle image be displayed while the path is drawn.
+#' These functions enable or disable displaying the turtle
+#' image on the screen.
 #' 
 #' @details
-#' To use \code{turtle_hide()} the turtle must be initiated, see \code{\link{turtle_init}}.
-#' Please note, that after \code{turtle_hide()} was called the turtle image will not be visible 
-#' during next moves, untli \code{\link{turtle_show}} will be used.
+#' The turtle must be initialized prior to using
+#' this function, see \code{\link{turtle_init}}. 
 #' 
-#' @seealso
-#' \code{\link{turtle_init}}, \code{\link{move_forward}}, \code{\link{turn}}
+#' It is recommended to hide the turtle when
+#' performing multiple turtle moves, for efficiency reasons.
 #'
 #' @examples
 #' turtle_init()
-#' move_forward(4)
+#' turtle_forward(4)
 #' turtle_hide()
-#' left(30)
-#' move_forward(3)
+#' turtle_left(30)
+#' turtle_forward(3)
 #' 
-
+#' @family TurtleGraphics
+#' @rdname turtle_show
 #' @export
-turtle_show<-function(){
-  if(!.turtle_history$visible){
-    .show_turtle(.turtle_history$moves$x, .turtle_history$moves$y, 
+turtle_show <- function()
+{
+   if (!exists(".turtle_history"))
+      stop("Turtle has not been initialized, please call turtle_init() first.")
+   
+   if (!.turtle_history$visible) {
+      .show_turtle(.turtle_history$moves$x, .turtle_history$moves$y, 
                 .turtle_history$moves$angle)
-    .turtle_history$visible <<- TRUE
-  }else{
-    warning("You cannot show turtle if it is already visible")
-  }
+      .turtle_history$visible <<- TRUE
+   }
+   else{
+      warning("The turtle is already visible")
+   }
+   
+   invisible(NULL)
 }
 
+
+#' @rdname turtle_show
 #' @export
-.show_turtle<-function(x, y, angle){
-  ang <- angle * pi / 180
-  grid.circle(x + 0.03 * sin(ang), y + 0.03 * cos(ang),  
-              gp = gpar(fill = "darkorange3", col = "brown"), r=0.015, name = "head")
-  grid.circle(x + 0.03 * sin(ang + pi/3), y + 0.03 * cos(ang + pi/3),  
-              gp = gpar(fill = "darkorange3", col = "brown"), r=0.01, name = "leg1")
-  grid.circle(x + 0.03 * sin(ang - pi/3), y + 0.03 * cos(ang - pi/3),  
-              gp = gpar(fill = "darkorange3", col = "brown"), r=0.01, name = "leg2")
-  grid.circle(x + 0.03 * sin(ang + 2*pi/3), y + 0.03 * cos(ang + 2*pi/3),  
-              gp = gpar(fill = "darkorange3", col = "brown"), r=0.01, name = "leg3")
-  grid.circle(x + 0.03 * sin(ang - 2*pi/3), y + 0.03 * cos(ang - 2*pi/3),  
-              gp = gpar(fill = "darkorange3", col = "brown"), r=0.01, name = "leg4")
-  grid.circle(x, y, r=0.03, gp = gpar(fill = "darkorange4", col = "brown"), name = "body")
-  
+turtle_hide <- function()
+{
+   if (!exists(".turtle_history"))
+      stop("Turtle has not been initialized, please call turtle_init() first.")
+   
+   if (.turtle_history$visible) {
+      .hide_turtle()
+      .turtle_history$visible <<- FALSE
+   }
+   else{
+      warning("The turtle is already hidden")
+   }
+   
+   invisible(NULL)
+}
+
+
+# This function shall not be exported:
+.hide_turtle <- function()
+{
+   grid.remove("head")
+   grid.remove("body")
+   grid.remove("leg1")
+   grid.remove("leg2")
+   grid.remove("leg3")
+   grid.remove("leg4")
+   invisible(NULL)
+}
+
+
+# This function shall not be exported:
+.show_turtle <- function(x, y, angle)
+{
+   ang <- angle * pi / 180
+   grid.circle(x + 0.03 * sin(ang), y + 0.03 * cos(ang),  
+        gp = gpar(fill = "darkorange3", col = "brown"), r=0.015, name = "head")
+   grid.circle(x + 0.03 * sin(ang + pi/3), y + 0.03 * cos(ang + pi/3),  
+        gp = gpar(fill = "darkorange3", col = "brown"), r=0.01, name = "leg1")
+   grid.circle(x + 0.03 * sin(ang - pi/3), y + 0.03 * cos(ang - pi/3),  
+        gp = gpar(fill = "darkorange3", col = "brown"), r=0.01, name = "leg2")
+   grid.circle(x + 0.03 * sin(ang + 2*pi/3), y + 0.03 * cos(ang + 2*pi/3),  
+        gp = gpar(fill = "darkorange3", col = "brown"), r=0.01, name = "leg3")
+   grid.circle(x + 0.03 * sin(ang - 2*pi/3), y + 0.03 * cos(ang - 2*pi/3),  
+        gp = gpar(fill = "darkorange3", col = "brown"), r=0.01, name = "leg4")
+   grid.circle(x, y, r=0.03,
+        gp = gpar(fill = "darkorange4", col = "brown"), name = "body")
+   invisible(NULL)
 }

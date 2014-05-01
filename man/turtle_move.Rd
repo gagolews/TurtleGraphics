@@ -51,8 +51,10 @@ turtle_forward(9)
 }
 \seealso{
 Other TurtleGraphics: \code{\link{TurtleGraphics-package}};
+\code{\link{turtle_hide}}, \code{\link{turtle_show}};
 \code{\link{turtle_left}}, \code{\link{turtle_left}},
 \code{\link{turtle_right}}, \code{\link{turtle_right}},
-\code{\link{turtle_turn}}, \code{\link{turtle_turn}}
+\code{\link{turtle_turn}}, \code{\link{turtle_turn}};
+\code{\link{turtle_reset}}; \code{\link{turtle_status}}
 }
 

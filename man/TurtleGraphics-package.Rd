@@ -19,8 +19,10 @@ Other TurtleGraphics: \code{\link{turtle_backward}},
 \code{\link{turtle_backward}},
 \code{\link{turtle_forward}}, \code{\link{turtle_forward}},
 \code{\link{turtle_move}}, \code{\link{turtle_move}};
+\code{\link{turtle_hide}}, \code{\link{turtle_show}};
 \code{\link{turtle_left}}, \code{\link{turtle_left}},
 \code{\link{turtle_right}}, \code{\link{turtle_right}},
-\code{\link{turtle_turn}}, \code{\link{turtle_turn}}
+\code{\link{turtle_turn}}, \code{\link{turtle_turn}};
+\code{\link{turtle_reset}}; \code{\link{turtle_status}}
 }
 

@@ -14,7 +14,7 @@
 ##    You should have received a copy of the GNU General Public License
 ##    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-#' @rdname turtle_status
+
 #' @title Turtle Position Status
 #'
 #' @description
@@ -24,11 +24,13 @@
 #' @details
 #' \code{turtle_status()} returns two element list describing graphical parameters valus and
 #' Turtle current position.
-
+#' 
+#' @family TurtleGraphics
+#' @rdname turtle_status
 #' @export
 turtle_status<-function(){
-  graph<-data.frame(.turtle_history[1:5])
-  rownames(graph) <- "Value"
-  move <- unlist(.turtle_history$moves)
-  list(Graphical_Parameters=graph, Position=move)
+   graph<-data.frame(.turtle_history[1:5])
+   rownames(graph) <- "Value"
+   move <- unlist(.turtle_history$moves)
+   list(Graphical_Parameters=graph, Position=move)
 }
