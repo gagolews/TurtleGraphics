@@ -66,6 +66,7 @@ turtle_turn <- function(angle = 0, direction = c("left", "right"))
    }
    
    .turtle_history$moves$angle <<- newAng
+   
    invisible(NULL)
 }
 

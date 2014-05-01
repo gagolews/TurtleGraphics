@@ -18,19 +18,23 @@
 #' @title Reset the Turtle's Position and Direction
 #'
 #' @description
-#' This function moves the turtle to the center and 
-#' point without clearing the plot region.
+#' This function resets the turtle's position and direction.
+#' After a call to this function, the turtle will be situated
+#' in the terrarium's center and it will be directed
+#' to the north.
 #' 
 #' @details
-#' Please note that \code{reset} function do not change the graphical parameters - they stay 
-#' unchaned from the last time \code{set_param} was called.
-#' To use \code{reset}, the tutrle must be initiated, see \code{\link{turtle_init}}. 
+#' The turtle must be initialized prior to using
+#' this function, see \code{\link{turtle_init}}. 
+#' 
+#' All the graphical parameters are left unchanged after calling
+#' this function, see \code{\link{turtle_option}}.
 #' 
 #' 
 #' @examples
 #' turtle_init()
 #' turtle_forward(4)
-#' set_param(col="red", lty=2, lwd=3)
+#' turtle_option(col="red", lty=2, lwd=3)
 #' turtle_reset()
 #' turtle_left(45)
 #' turtle_forward(3)
@@ -50,4 +54,6 @@ turtle_reset <- function()
   .hide_turtle()
   .show_turtle(.turtle_history$moves$x, .turtle_history$moves$y,
      .turtle_history$moves$angle)
+   
+   invisible(NULL)
 } 

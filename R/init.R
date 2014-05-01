@@ -15,21 +15,27 @@
 ##    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-#' @rdname turtle_init
-#' @title Starting the Turtle Program
+#' @title
+#' Set Up a New, Shiny Terrarium
 #'
 #' @description
-#' \code{turtle_init()} function create an empty page with the turtle image displayed in the 
-#' center.  
+#' This function creates a new empty plot
+#' with the turtle centered on the board and facing to the north.
 #' 
 #' @details
-#' After \code{turtle_init()} was called you can move the turtle with \code{\link{move_forward}} 
-#' or \code{\link{move_backward}} functions, turn its direction with
-#' \code{\link{turn}} or set graphical parameters of the turtle trace, 
-#' see \code{\link{set_param}}. 
+#' After the \code{turtle_init()} function was called
+#' you can e.g. move the turtle with the \code{\link{turtle_forward}}
+#' function, turn its direction with \code{\link{turtle_right}}
+#' or set display parameters of the turtle trace, 
+#' see \code{\link{turtle_option}}. 
 #'
+#' @family TurtleGraphics
+#' @rdname turtle_init
 #' @export
-turtle_init<- function(){
+turtle_init <- function()
+{
+   # @TODO: this is a gloval env-variable
+   # it should be a variable in the package's namespace:
   .turtle_history <<- list(col = "black",
                            lty = 1,
                            lwd = 1,
@@ -38,7 +44,13 @@ turtle_init<- function(){
                            moves = list(x = 0.5, 
                                         y = 0.5,
                                         angle = 0))
-  grid.newpage()
-  .show_turtle(.turtle_history$moves$x, .turtle_history$moves$y, .turtle_history$moves$angle)
+   
+   # @TODO: http://stackoverflow.com/questions/23404270/preserving-aspect-ratio-in-rs-grid-graphics
+   grid.newpage()
+   
+   .show_turtle(.turtle_history$moves$x, .turtle_history$moves$y,
+     .turtle_history$moves$angle)
+   
+   invisible(NULL)
 }
 

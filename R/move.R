@@ -26,9 +26,9 @@
 #' The turtle must be initialized prior to using
 #' this function, see \code{\link{turtle_init}}. 
 #' 
-#' These functions make use of the turtle options specified by
-#' \code{\link{set_param}} function
-#' (or if not, use default parameters from \code{turtle_init}).
+#' These functions make use of the turtle's display options specified by
+#' \code{\link{turtle_option}} function
+#' (or if not, use the default options set by \code{turtle_init}).
 #' 
 #' Note that if function \code{\link{turtle_up}} or \code{\link{turtle_down}}
 #' was called, the Turtle's route will be drawn or not drawn, respectively.
@@ -74,7 +74,7 @@ turtle_move <- function(dist=1, direction = c("forward", "backward"))
    if (direction == 'backward')
       dist <- -dist
 
-   dist <- dist / 20 # @TODO: remove this!
+   dist <- dist / 20 # @TODO: remove this magic constant!!!! :(
    
    # current values for .turtle_history
    curX <- .turtle_history$moves$x
@@ -217,6 +217,8 @@ turtle_move <- function(dist=1, direction = c("forward", "backward"))
       .turtle_history$moves$x <<- newX
       .turtle_history$moves$y <<- newY
    }
+   
+   invisible(NULL)
 }
 
 

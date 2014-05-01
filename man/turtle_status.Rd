@@ -1,16 +1,20 @@
 \name{turtle_status}
 \alias{turtle_status}
-\title{Turtle Position Status}
+\title{Read Turtle's Status}
 \usage{
 turtle_status()
 }
+\value{
+Returns a list with two elements.
+}
 \description{
-\code{turtle_status()} gives information about current
-Turtle position and values of graphical parameters.
+\code{turtle_status()} gives information about the current
+turtle's position, direction, and on values of display
+parameters.
 }
 \details{
-\code{turtle_status()} returns two element list describing
-graphical parameters valus and Turtle current position.
+The turtle must be initialized prior to using this
+function, see \code{\link{turtle_init}}.
 }
 \seealso{
 Other TurtleGraphics: \code{\link{TurtleGraphics-package}};
@@ -18,10 +22,17 @@ Other TurtleGraphics: \code{\link{TurtleGraphics-package}};
 \code{\link{turtle_backward}},
 \code{\link{turtle_forward}}, \code{\link{turtle_forward}},
 \code{\link{turtle_move}}, \code{\link{turtle_move}};
+\code{\link{turtle_col}}, \code{\link{turtle_col}},
+\code{\link{turtle_down}}, \code{\link{turtle_down}},
+\code{\link{turtle_draw}}, \code{\link{turtle_draw}},
+\code{\link{turtle_lty}}, \code{\link{turtle_lty}},
+\code{\link{turtle_lwd}}, \code{\link{turtle_lwd}},
+\code{\link{turtle_option}}, \code{\link{turtle_option}},
+\code{\link{turtle_up}}, \code{\link{turtle_up}};
 \code{\link{turtle_hide}}, \code{\link{turtle_show}};
-\code{\link{turtle_left}}, \code{\link{turtle_left}},
-\code{\link{turtle_right}}, \code{\link{turtle_right}},
-\code{\link{turtle_turn}}, \code{\link{turtle_turn}};
-\code{\link{turtle_reset}}
+\code{\link{turtle_init}}; \code{\link{turtle_left}},
+\code{\link{turtle_left}}, \code{\link{turtle_right}},
+\code{\link{turtle_right}}, \code{\link{turtle_turn}},
+\code{\link{turtle_turn}}; \code{\link{turtle_reset}}
 }
 

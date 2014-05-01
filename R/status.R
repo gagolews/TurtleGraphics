@@ -15,20 +15,27 @@
 ##    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-#' @title Turtle Position Status
+#' @title Read Turtle's Status
 #'
 #' @description
-#' \code{turtle_status()} gives information about current Turtle position and 
-#' values of graphical parameters.
+#' \code{turtle_status()} gives information about the current
+#' turtle's position, direction, and on values of display parameters.
 #' 
 #' @details
-#' \code{turtle_status()} returns two element list describing graphical parameters valus and
-#' Turtle current position.
+#' The turtle must be initialized prior to using
+#' this function, see \code{\link{turtle_init}}. 
+#' 
+#' @return
+#' Returns a list with two elements.
 #' 
 #' @family TurtleGraphics
 #' @rdname turtle_status
 #' @export
-turtle_status<-function(){
+turtle_status <- function()
+{
+   if (!exists(".turtle_history"))
+      stop("Turtle has not been initialized, please call turtle_init() first.")
+   
    graph<-data.frame(.turtle_history[1:5])
    rownames(graph) <- "Value"
    move <- unlist(.turtle_history$moves)

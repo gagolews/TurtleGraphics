@@ -91,6 +91,8 @@ turtle_hide <- function()
 # This function shall not be exported:
 .show_turtle <- function(x, y, angle)
 {
+   # @TODO: turtle's size should depend on grid's Viewport size
+   
    ang <- angle * pi / 180
    grid.circle(x + 0.03 * sin(ang), y + 0.03 * cos(ang),  
         gp = gpar(fill = "darkorange3", col = "brown"), r=0.015, name = "head")
