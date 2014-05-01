@@ -2,7 +2,7 @@
 \alias{turtle_init}
 \title{Set Up a New, Shiny Terrarium}
 \usage{
-turtle_init()
+turtle_init(width = 1, height = 1)
 }
 \description{
 This function creates a new empty plot with the turtle

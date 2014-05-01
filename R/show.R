@@ -92,19 +92,23 @@ turtle_hide <- function()
 .show_turtle <- function(x, y, angle)
 {
    # @TODO: turtle's size should depend on grid's Viewport size
-   
-   ang <- angle * pi / 180
-   grid.circle(x + 0.03 * sin(ang), y + 0.03 * cos(ang),  
-        gp = gpar(fill = "darkorange3", col = "brown"), r=0.015, name = "head")
-   grid.circle(x + 0.03 * sin(ang + pi/3), y + 0.03 * cos(ang + pi/3),  
-        gp = gpar(fill = "darkorange3", col = "brown"), r=0.01, name = "leg1")
-   grid.circle(x + 0.03 * sin(ang - pi/3), y + 0.03 * cos(ang - pi/3),  
-        gp = gpar(fill = "darkorange3", col = "brown"), r=0.01, name = "leg2")
-   grid.circle(x + 0.03 * sin(ang + 2*pi/3), y + 0.03 * cos(ang + 2*pi/3),  
-        gp = gpar(fill = "darkorange3", col = "brown"), r=0.01, name = "leg3")
-   grid.circle(x + 0.03 * sin(ang - 2*pi/3), y + 0.03 * cos(ang - 2*pi/3),  
-        gp = gpar(fill = "darkorange3", col = "brown"), r=0.01, name = "leg4")
-   grid.circle(x, y, r=0.03,
-        gp = gpar(fill = "darkorange4", col = "brown"), name = "body")
-   invisible(NULL)
+   # Ania: NOT FINISHED
+
+  r <- max(.turtle_history$width, .turtle_history$height)
+  tmp <- 0.03*r
+  ang <- angle * pi / 180
+  grid.circle(x + tmp * sin(ang), y + tmp * cos(ang), default.units='native',  
+              gp = gpar(fill = "darkorange3", col = "brown"), r=0.015*r, name = "head")
+  grid.circle(x + tmp * sin(ang + pi/3), y + tmp * cos(ang + pi/3), default.units='native',  
+              gp = gpar(fill = "darkorange3", col = "brown"), r=0.01*r, name = "leg1")
+  grid.circle(x + tmp * sin(ang - pi/3), y + tmp * cos(ang - pi/3), default.units='native',  
+              gp = gpar(fill = "darkorange3", col = "brown"), r=0.01*r, name = "leg2")
+  grid.circle(x + tmp * sin(ang + 2*pi/3), y + tmp * cos(ang + 2*pi/3),  
+              gp = gpar(fill = "darkorange3", col = "brown"), r=0.01*r, 
+              default.units='native', name = "leg3")
+  grid.circle(x + tmp * sin(ang - 2*pi/3), y + tmp * cos(ang - 2*pi/3), default.units='native',  
+              gp = gpar(fill = "darkorange3", col = "brown"), r=0.01*r, name = "leg4")
+  grid.circle(x, y, r=0.03*r, default.units='native',
+              gp = gpar(fill = "darkorange4", col = "brown"), name = "body")
+  invisible(NULL)
 }
