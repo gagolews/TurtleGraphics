@@ -5,17 +5,16 @@
 turtle_reset()
 }
 \description{
-This function resets the turtle's position and direction.
-After a call to this function, the turtle will be situated
-in the terrarium's center and it will be directed to the
-north.
+This function resets the turtle's position, direction, and
+graphical options. After a call to this function, the
+turtle will be situated in the terrarium's center and it
+will be directed to the north.
 }
 \details{
 The turtle must be initialized prior to using this
 function, see \code{\link{turtle_init}}.
 
-All the graphical parameters are left unchanged after
-calling this function, see \code{\link{turtle_param}}.
+The drawing remains unchanged.
 }
 \examples{
 turtle_init()
@@ -29,12 +28,11 @@ turtle_forward(3)
 Other TurtleGraphics: \code{\link{TurtleGraphics-package}};
 \code{\link{turtle_backward}},
 \code{\link{turtle_forward}}, \code{\link{turtle_move}};
-\code{\link{turtle_col}}, \code{\link{turtle_down}},
-\code{\link{turtle_draw}}, \code{\link{turtle_lty}},
-\code{\link{turtle_lwd}}, \code{\link{turtle_param}},
-\code{\link{turtle_up}}; \code{\link{turtle_hide}},
-\code{\link{turtle_show}}; \code{\link{turtle_init}};
-\code{\link{turtle_left}}, \code{\link{turtle_right}},
-\code{\link{turtle_turn}}; \code{\link{turtle_status}}
+\code{\link{turtle_col}}, \code{\link{turtle_lty}},
+\code{\link{turtle_lwd}}, \code{\link{turtle_param}};
+\code{\link{turtle_hide}}, \code{\link{turtle_show}};
+\code{\link{turtle_init}}; \code{\link{turtle_left}},
+\code{\link{turtle_right}}, \code{\link{turtle_turn}};
+\code{\link{turtle_status}}
 }
 

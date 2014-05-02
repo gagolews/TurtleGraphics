@@ -33,4 +33,12 @@
 #' @family TurtleGraphics
 #' @name TurtleGraphics-package
 #' @docType package
+#' @importFrom grid grid.newpage
+#' @importFrom grid pushViewport
+#' @importFrom grid viewport
+#' @importFrom grid gpar
+#' @importFrom grid unit
+#' @importFrom grid grid.circle
+#' @importFrom grid grid.rect
+#' @importFrom grid grid.lines
 invisible(NULL)

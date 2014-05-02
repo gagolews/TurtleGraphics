@@ -4,11 +4,11 @@
 \alias{turtle_turn}
 \title{Turn (Rotate) a Turtle}
 \usage{
-turtle_turn(angle = 0, direction = c("left", "right"))
+turtle_turn(angle, direction = c("left", "right"))
 
-turtle_left(angle = 0)
+turtle_left(angle)
 
-turtle_right(angle = 0)
+turtle_right(angle)
 }
 \arguments{
   \item{angle}{Rotation angle in degrees.  A negative value
@@ -35,11 +35,10 @@ turtle_turn(30, sample(c("left", "right"), 1)) # random turn
 Other TurtleGraphics: \code{\link{TurtleGraphics-package}};
 \code{\link{turtle_backward}},
 \code{\link{turtle_forward}}, \code{\link{turtle_move}};
-\code{\link{turtle_col}}, \code{\link{turtle_down}},
-\code{\link{turtle_draw}}, \code{\link{turtle_lty}},
-\code{\link{turtle_lwd}}, \code{\link{turtle_param}},
-\code{\link{turtle_up}}; \code{\link{turtle_hide}},
-\code{\link{turtle_show}}; \code{\link{turtle_init}};
-\code{\link{turtle_reset}}; \code{\link{turtle_status}}
+\code{\link{turtle_col}}, \code{\link{turtle_lty}},
+\code{\link{turtle_lwd}}, \code{\link{turtle_param}};
+\code{\link{turtle_hide}}, \code{\link{turtle_show}};
+\code{\link{turtle_init}}; \code{\link{turtle_reset}};
+\code{\link{turtle_status}}
 }
 

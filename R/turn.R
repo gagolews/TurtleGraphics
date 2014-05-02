@@ -41,30 +41,22 @@
 #' @family TurtleGraphics
 #' @export
 #' @rdname turtle_turn
-turtle_turn <- function(angle = 0, direction = c("left", "right"))
+turtle_turn <- function(angle, direction = c("left", "right"))
 {
-   if (!exists(".turtle_history"))
-      stop("Turtle has not been initialized, please call turtle_init() first.")
+   .turtle_check()
    
    direction <- match.arg(direction)
    stopifnot(is.numeric(angle), length(angle) == 1, is.finite(angle))
    
    if (angle < 0)
-      warning("Negative value of `angle` turns the turtle in the opposite direction.")
+      warning("Negative `angle` turns the turtle in the opposite direction.")
    
    if (direction == "left")
       angle = -angle
    
-   curX <- .turtle_history$moves$x
-   curY <- .turtle_history$moves$y
-   newAng <- .turtle_history$moves$angle + angle  
+   assign(envir=.turtle_data, "angle", get("angle", envir=.turtle_data) + angle)
    
-   if(.turtle_history$visible) {
-      .hide_turtle()
-      .show_turtle(curX, curY, newAng)
-   }
-   
-   .turtle_history$moves$angle <<- newAng
+   .turtle_redraw()
    
    invisible(NULL)
 }
@@ -72,7 +64,7 @@ turtle_turn <- function(angle = 0, direction = c("left", "right"))
 
 #' @rdname turtle_turn
 #' @export
-turtle_left <- function(angle = 0)
+turtle_left <- function(angle)
 {
    turtle_turn(angle = angle, direction = "left")
 }
@@ -80,7 +72,7 @@ turtle_left <- function(angle = 0)
 
 #' @rdname turtle_turn
 #' @export
-turtle_right <- function(angle = 0)
+turtle_right <- function(angle)
 {
    turtle_turn(angle = angle, direction = "right")
 }

@@ -33,11 +33,22 @@
 #' @export
 turtle_status <- function()
 {
-   if (!exists(".turtle_history"))
-      stop("Turtle has not been initialized, please call turtle_init() first.")
+   .turtle_check()
    
-   graph <- data.frame(.turtle_history[1:5])
-   rownames(graph) <- "Value"
-   move <- unlist(.turtle_history$moves)
-   list(Graphical_Parameters=graph, Position=move)
+   list(DisplayOptions=list(
+         col=get("col", envir=.turtle_data),
+         lty=get("lty", envir=.turtle_data),
+         lwd=get("lwd", envir=.turtle_data),
+         visible=get("visible", envir=.turtle_data),
+         draw=get("draw", envir=.turtle_data)
+      ),
+      Terrarium=list(
+         width=get("width", envir=.turtle_data),
+         height=get("height", envir=.turtle_data)
+      ),
+      TurtleStatus=list(
+         x=get("x", envir=.turtle_data),
+         y=get("y", envir=.turtle_data),
+         angle=get("angle", envir=.turtle_data)
+      ))
 }

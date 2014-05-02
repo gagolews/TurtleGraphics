@@ -4,14 +4,14 @@
 \alias{turtle_move}
 \title{Move a Turtle forward or backward}
 \usage{
-turtle_move(dist = 1, direction = c("forward", "backward"))
+turtle_move(distance, direction = c("forward", "backward"))
 
-turtle_forward(dist = 1)
+turtle_forward(distance)
 
-turtle_backward(dist = 1)
+turtle_backward(distance)
 }
 \arguments{
-  \item{dist}{Specifies the distance to make.  Negative
+  \item{distance}{Specifies the distance to make.  Negative
   distance results in moving in the opposite direction.}
 
   \item{direction}{Moving direction.  One of
@@ -52,13 +52,11 @@ turtle_forward(9)
 }
 \seealso{
 Other TurtleGraphics: \code{\link{TurtleGraphics-package}};
-\code{\link{turtle_col}}, \code{\link{turtle_down}},
-\code{\link{turtle_draw}}, \code{\link{turtle_lty}},
-\code{\link{turtle_lwd}}, \code{\link{turtle_param}},
-\code{\link{turtle_up}}; \code{\link{turtle_hide}},
-\code{\link{turtle_show}}; \code{\link{turtle_init}};
-\code{\link{turtle_left}}, \code{\link{turtle_right}},
-\code{\link{turtle_turn}}; \code{\link{turtle_reset}};
-\code{\link{turtle_status}}
+\code{\link{turtle_col}}, \code{\link{turtle_lty}},
+\code{\link{turtle_lwd}}, \code{\link{turtle_param}};
+\code{\link{turtle_hide}}, \code{\link{turtle_show}};
+\code{\link{turtle_init}}; \code{\link{turtle_left}},
+\code{\link{turtle_right}}, \code{\link{turtle_turn}};
+\code{\link{turtle_reset}}; \code{\link{turtle_status}}
 }
 

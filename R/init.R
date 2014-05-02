@@ -23,39 +23,49 @@
 #' with the turtle centered on the board and facing to the north.
 #' 
 #' @details
-#' After the \code{turtle_init()} function was called
+#' After the \code{turtle_init()} function has been called
 #' you can e.g. move the turtle with the \code{\link{turtle_forward}}
 #' function, turn its direction with \code{\link{turtle_right}}
 #' or set display parameters of the turtle trace, 
 #' see \code{\link{turtle_param}}. 
+#' 
+#' @param width ..........
+#' @param height ........
+#' @param mode .............
 #'
 #' @family TurtleGraphics
 #' @rdname turtle_init
 #' @export
-turtle_init <- function(width=1, height=1)
+turtle_init <- function(width=100, height=100, mode=c('error', 'clip', 'cycle'))
 {
-  xlim <- c(0, width)
-  ylim <- c(0, height)
-   # @TODO: this is a gloval env-variable
-   # it should be a variable in the package's namespace:
-  .turtle_history <<- list(col = "black",
-                            lty = 1,
-                            lwd = 1,
-                            visible = TRUE,
-                            draw = T,
-                            moves = list(x = diff(xlim)/2, 
-                                          y = diff(ylim)/2,
-                                          angle = 0),
-                            width=width,
-                            height=height)
-  grid.newpage()
-  pushViewport(viewport( 
-    x=0.5, y=0.5,
-    w=unit(min(1,diff(xlim)/diff(ylim)), "snpc"), 
-    h=unit(min(1,diff(ylim)/diff(xlim)), "snpc"),
-    xscale=xlim, 
-    yscale=ylim  
-  ))
-  .show_turtle(.turtle_history$moves$x, .turtle_history$moves$y, .turtle_history$moves$angle)
+   stopifnot(is.numeric(width), length(width) == 1, is.finite(width), width > 0)
+   stopifnot(is.numeric(height), length(height) == 1, is.finite(height), height > 0)
+   mode <- match.arg(mode)
+   
+   assign(envir=.turtle_data, "mode",     mode)
+   assign(envir=.turtle_data, "width",    width)
+   assign(envir=.turtle_data, "height",   height)
+   
+   .turtle_set_default_params()
+   
+   
+   grid.newpage()
+   
+   pushViewport(viewport( 
+      x=unit(0.5, 'npc'),
+      y=unit(0.5, 'npc'),
+      w=unit(min(1, width/height), 'snpc'), 
+      h=unit(min(1, height/width), 'snpc'),
+      clip='on',
+      xscale=c(0, width), 
+      yscale=c(0, height)  
+   ))
+   
+   grid.rect(0, 0, width, height, c(0, 0), default.units='native',
+      gp=gpar(col='gray', lty=3))
+   
+   .turtle_draw()
+   
+   invisible(NULL)
 }
 

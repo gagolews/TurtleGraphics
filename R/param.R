@@ -20,13 +20,12 @@
 #' @description
 #' Sets the display options for the turtle's trace.
 #' It is possible to change its color, line type, 
-#' line width or whether the turtle is drawn or not.
+#' line width.
 #' 
 #'   
 #' @param col  numeric or character; Trace color
 #' @param lty  numeric;  Trace line type
 #' @param lwd  numeric;  Trace line width
-#' @param draw logical;  Determines whether a trace should be drawn at all
 #' 
 #' @details
 #' The turtle must be initialized prior to using
@@ -35,7 +34,6 @@
 #' After running any of the parameter changing functions, the trace of a turtle changes during the next 
 #' \code{\link{turtle_forward}} usage.
 #' 
-#' \code{turtle_up} and \code{turtle_down} lifts and drops the turtle respectively, so it leaves the trace or not.
 #' 
 #' @examples
 #' turtle_init()
@@ -51,39 +49,42 @@
 #' @family TurtleGraphics
 #' @rdname turtle_param
 #' @export
-turtle_param <- function(col=NULL, lwd=NULL, lty=NULL, draw=NULL)
+turtle_param <- function(col=NULL, lwd=NULL, lty=NULL)
 {
-   if (!exists(".turtle_history"))
-      stop("Turtle has not been initialized, please call turtle_init() first.")
+   .turtle_check()
    
-   if (all(is.null(col), is.null(lwd), is.null(lty), is.null(draw)))
-      stop("You need to provide at least one of: `col`, `lwd`, `lty`, `draw`.")
+   if (all(is.null(col), is.null(lwd), is.null(lty)))
+      stop("You need to provide at least one of: `col`, `lwd`, `lty`.")
    
    if (!is.null(col)) {
       tryCatch({
          tmp <- col2rgb(col)
       },
       error = function(e) {
-         stop("The `col` argument should indicate a correct color specifier.")
+         stop("Given `col` is not a correct color specifier.")
       })
       
-      .turtle_history$col <<- col
+      gp <- get("gpar_path", envir=.turtle_data)
+      gp$col <- col
+      assign(envir=.turtle_data, "gpar_path", gp)
    }
    
    if (!is.null(lty)) {
       stopifnot(is.numeric(lty), length(lty) == 1, is.finite(lty), lty > 0)
-      .turtle_history$lty <<- lty
+      gp <- get("gpar_path", envir=.turtle_data)
+      gp$lty <- lty
+      assign(envir=.turtle_data, "gpar_path", gp)
    }
    
    if (!is.null(lwd)) {
       stopifnot(is.numeric(lwd), length(lwd) == 1, is.finite(lwd), lwd > 0)
-      .turtle_history$lwd <<- lwd
+      
+      gp <- get("gpar_path", envir=.turtle_data)
+      gp$lwd <- lwd
+      assign(envir=.turtle_data, "gpar_path", gp)
    }
       
-   if (!is.null(draw)) {
-      stopifnot(is.logical(draw), length(draw) == 1, !is.na(draw))
-      .turtle_history$draw <<- draw  
-   }
+
   
    invisible(NULL)
 }
@@ -113,25 +114,32 @@ turtle_lty <- function(lty)
 }
 
 
-#' @rdname turtle_param
+
+#' @title
+#' t.b.d.
+#' 
+#' @description
+#' t.b.d
+#' 
+#' @details
+#' t.b.d.
+#' 
+#' 
+#' @rdname turtle_up
 #' @export
 turtle_up <- function()
 {
-   turtle_param(draw = FALSE)
+   .turtle_check()
+   assign(envir=.turtle_data, "draw", TRUE)
+   invisible(NULL)
 }
 
 
-#' @rdname turtle_param
+#' @rdname turtle_up
 #' @export
 turtle_down <- function()
 {
-   turtle_param(draw = TRUE)
-}
-
-
-#' @rdname turtle_param
-#' @export
-turtle_draw <- function(draw)
-{
-   turtle_param(draw = draw)
+   .turtle_check()
+   assign(envir=.turtle_data, "draw", FALSE)
+   invisible(NULL)
 }

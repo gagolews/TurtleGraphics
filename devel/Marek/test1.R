@@ -1,0 +1,25 @@
+library('TurtleGraphics')
+turtle_init(600, 400, 'clip')
+turtle_forward(100)
+turtle_forward(100)
+turtle_forward(100)
+turtle_right(180)
+turtle_forward(100)
+turtle_forward(100)
+turtle_forward(100)
+turtle_backward(100)
+
+
+turtle_init(600, 400, 'error')
+turtle_forward(100)
+turtle_forward(100)
+turtle_forward(100)
+
+turtle_hide()
+turtle_left(30)
+turtle_reset()
+turtle_right(30)
+turtle_turn(30, 'l')
+turtle_turn(30, 'r')
+turtle_forward(100)
+

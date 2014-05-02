@@ -18,7 +18,8 @@
 #' @title Reset the Turtle's Position and Direction
 #'
 #' @description
-#' This function resets the turtle's position and direction.
+#' This function resets the turtle's position, direction,
+#' and graphical options.
 #' After a call to this function, the turtle will be situated
 #' in the terrarium's center and it will be directed
 #' to the north.
@@ -27,8 +28,7 @@
 #' The turtle must be initialized prior to using
 #' this function, see \code{\link{turtle_init}}. 
 #' 
-#' All the graphical parameters are left unchanged after calling
-#' this function, see \code{\link{turtle_param}}.
+#' The drawing remains unchanged.
 #' 
 #' 
 #' @examples
@@ -44,16 +44,16 @@
 #' @rdname turtle_reset
 turtle_reset <- function()
 {
-   if (!exists(".turtle_history"))
-      stop("Turtle has not been initialized, please call turtle_init() first.")
+   .turtle_check()
    
-  .turtle_history$moves$x <<- 0.5
-  .turtle_history$moves$y <<- 0.5
-  .turtle_history$moves$angle <<- 0
+   was_visible <- get("visible", envir=.turtle_data)
+   
+   .turtle_set_default_params()
   
-  .hide_turtle()
-  .show_turtle(.turtle_history$moves$x, .turtle_history$moves$y,
-     .turtle_history$moves$angle)
+   if (!was_visible)
+      .turtle_draw()
+   else
+      .turtle_redraw()
    
    invisible(NULL)
 } 

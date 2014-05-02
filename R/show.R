@@ -40,16 +40,14 @@
 #' @export
 turtle_show <- function()
 {
-   if (!exists(".turtle_history"))
-      stop("Turtle has not been initialized, please call turtle_init() first.")
+   .turtle_check()
    
-   if (!.turtle_history$visible) {
-      .show_turtle(.turtle_history$moves$x, .turtle_history$moves$y, 
-                .turtle_history$moves$angle)
-      .turtle_history$visible <<- TRUE
+   if (!get("visible", envir=.turtle_data)) {
+      assign(envir=.turtle_data, "visible", TRUE)
+      .turtle_draw()      
    }
    else{
-      warning("The turtle is already visible")
+      warning("The turtle is already visible.")
    }
    
    invisible(NULL)
@@ -60,55 +58,15 @@ turtle_show <- function()
 #' @export
 turtle_hide <- function()
 {
-   if (!exists(".turtle_history"))
-      stop("Turtle has not been initialized, please call turtle_init() first.")
+   .turtle_check()
    
-   if (.turtle_history$visible) {
-      .hide_turtle()
-      .turtle_history$visible <<- FALSE
+   if (get("visible", envir=.turtle_data)) {
+      assign(envir=.turtle_data, "visible", FALSE)
+      .turtle_undraw()
    }
    else{
-      warning("The turtle is already hidden")
+      warning("The turtle is already hidden.")
    }
    
    invisible(NULL)
-}
-
-
-# This function shall not be exported:
-.hide_turtle <- function()
-{
-   grid.remove("head")
-   grid.remove("body")
-   grid.remove("leg1")
-   grid.remove("leg2")
-   grid.remove("leg3")
-   grid.remove("leg4")
-   invisible(NULL)
-}
-
-
-# This function shall not be exported:
-.show_turtle <- function(x, y, angle)
-{
-   # @TODO: turtle's size should depend on grid's Viewport size
-   # Ania: NOT FINISHED
-
-  r <- max(.turtle_history$width, .turtle_history$height)
-  tmp <- 0.03*r
-  ang <- angle * pi / 180
-  grid.circle(x + tmp * sin(ang), y + tmp * cos(ang), default.units='native',  
-              gp = gpar(fill = "darkorange3", col = "brown"), r=0.015*r, name = "head")
-  grid.circle(x + tmp * sin(ang + pi/3), y + tmp * cos(ang + pi/3), default.units='native',  
-              gp = gpar(fill = "darkorange3", col = "brown"), r=0.01*r, name = "leg1")
-  grid.circle(x + tmp * sin(ang - pi/3), y + tmp * cos(ang - pi/3), default.units='native',  
-              gp = gpar(fill = "darkorange3", col = "brown"), r=0.01*r, name = "leg2")
-  grid.circle(x + tmp * sin(ang + 2*pi/3), y + tmp * cos(ang + 2*pi/3),  
-              gp = gpar(fill = "darkorange3", col = "brown"), r=0.01*r, 
-              default.units='native', name = "leg3")
-  grid.circle(x + tmp * sin(ang - 2*pi/3), y + tmp * cos(ang - 2*pi/3), default.units='native',  
-              gp = gpar(fill = "darkorange3", col = "brown"), r=0.01*r, name = "leg4")
-  grid.circle(x, y, r=0.03*r, default.units='native',
-              gp = gpar(fill = "darkorange4", col = "brown"), name = "body")
-  invisible(NULL)
 }

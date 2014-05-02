@@ -39,7 +39,7 @@
 #' significantly.
 #' 
 #' 
-#' @param dist Specifies the distance to make.
+#' @param distance Specifies the distance to make.
 #'        Negative distance results in moving in the opposite direction.
 #' @param direction Moving direction.
 #'        One of \code{"forward"} or \code{"backward"}.
@@ -59,41 +59,116 @@
 #' @family TurtleGraphics
 #' @rdname turtle_move
 #' @export
-turtle_move <- function(dist=1, direction = c("forward", "backward"))
+turtle_move <- function(distance, direction = c("forward", "backward"))
 {
-   if (!exists(".turtle_history"))
-      stop("Turtle has not been initialized, please call turtle_init() first.")
+   .turtle_check()
    
    direction <- match.arg(direction)
-   stopifnot(is.numeric(dist), length(dist) == 1, is.finite(dist))
+   stopifnot(is.numeric(distance), length(distance) == 1, is.finite(distance))
    
-   if(dist < 0)
-      warning("Negative value of `dist` moves turtle in the opposite direction.")
+   if (distance < 0)
+      warning("Negative value of `distance` moves the turtle in the opposite direction.")
   
    if (direction == 'backward')
-      dist <- -dist
-
-   dist <- dist / 20 # @TODO: remove this magic constant!!!! :(
+      distance <- -distance
    
    # current values for .turtle_history
-   curX <- .turtle_history$moves$x
-   curY <- .turtle_history$moves$y  
-   curAng <- .turtle_history$moves$angle  
-   curCol <- .turtle_history$col
-   curLwd <- .turtle_history$lwd
-   curLty <- .turtle_history$lty
+   curX        <- get("x", envir=.turtle_data)
+   curY        <- get("y", envir=.turtle_data)
+   curAng      <- get("angle", envir=.turtle_data)
+   curGp       <- get("gpar_path", envir=.turtle_data)
+   curDraw     <- get("draw", envir=.turtle_data)
+   curMode     <- get("mode", envir=.turtle_data)
+   curWidth    <- get("width", envir=.turtle_data)
+   curHeight   <- get("height", envir=.turtle_data)
+   curVisible  <- get("visible", envir=.turtle_data)
    
+   if (curMode == 'error')
+      .turtle_draw_error(distance, curX, curY, curAng, curGp, curDraw,
+         curWidth, curHeight, curVisible)
+   else if (curMode == 'clip')
+      .turtle_draw_clip(distance, curX, curY, curAng, curGp, curDraw,
+         curWidth, curHeight, curVisible)
+   else
+      .turtle_draw_cycle(distance, curX, curY, curAng, curGp, curDraw,
+         curWidth, curHeight, curVisible)
    
-   # new values for turtle history
-   newX <- curX + dist * sin(curAng * pi / 180)
-   newY <- curY + dist * cos(curAng * pi / 180)
+   invisible(NULL)
+}
+
+
+#' @rdname turtle_move
+#' @export
+turtle_forward <- function(distance)
+{
+   turtle_move(distance, 'forward')
+}
+
+
+#' @rdname turtle_move
+#' @export
+turtle_backward <- function(distance)
+{
+   turtle_move(distance, 'backward')
+}
+
+
+# This function shall not be exported:
+.turtle_draw_fromto <- function(curX, curY, newX, newY, curGp, curDraw, curVisible)
+{
+   if (curVisible) .turtle_undraw()
    
+   if (curDraw) {
+      grid.lines(c(curX, newX), c(curY, newY), 
+         gp = curGp, default.units='native')
+   }
    
+   assign("x", newX, envir=.turtle_data)
+   assign("y", newY, envir=.turtle_data)
+   
+   if (curVisible) .turtle_draw()
+}
+
+
+# This function shall not be exported:
+.turtle_draw_error <- function(distance, curX, curY, curAng, curGp, curDraw,
+         curWidth, curHeight, curVisible)
+{
+   newX <- curX + distance * sin(curAng * pi / 180)
+   newY <- curY + distance * cos(curAng * pi / 180)
+   
+   if (newY > curHeight || newY < 0 || newX > curWidth || newX < 0)
+      stop("The turtle escaped from the terrarium. :-(")
+   
+   .turtle_draw_fromto(curX, curY, newX, newY, curGp, curDraw, curVisible)
+}
+
+
+# This function shall not be exported:
+.turtle_draw_clip <- function(distance, curX, curY, curAng, curGp, curDraw,
+         curWidth, curHeight, curVisible)
+{
+   # new position
+   newX <- curX + distance * sin(curAng * pi / 180)
+   newY <- curY + distance * cos(curAng * pi / 180)
+   
+   .turtle_draw_fromto(curX, curY, newX, newY, curGp, curDraw, curVisible)
+}
+
+
+# This function shall not be exported:
+.turtle_draw_cycle <- function(distance, curX, curY, curAng, curGp, curDraw,
+         curWidth, curHeight, curVisible)
+{
+   newX <- curX + distance * sin(curAng * pi / 180)
+   newY <- curY + distance * cos(curAng * pi / 180)
+   
+   stop("TO DO")
    
    # case 1
-   if(newY>1) {
-      if (curAng%%180==0) {
-         borX<-newX
+   if (newY > curHeight) { # the turtle goes too far to the north
+      if (curAng %% 180 == 0) {
+         borX <- newX
       }
       else {
          a <- (newY-curY)/(newX-curX)
@@ -118,7 +193,7 @@ turtle_move <- function(dist=1, direction = c("forward", "backward"))
    
       turtle_move(distance*20, 'forward')
    }
-   else if(newX>1) { # case2
+   else if (newX > curWidth) { # the turtle goes too far to the east
       if(curAng%%90==0){
          borY<-newY
       }
@@ -145,7 +220,7 @@ turtle_move <- function(dist=1, direction = c("forward", "backward"))
       turtle_move(distance*20, 'forward')
       
    }
-   else if (newY<0) { # case 3
+   else if (newY < 0) { # the turtle goes too far to the south
    
       if(curAng%%180==0){
          borX<-newX
@@ -173,7 +248,7 @@ turtle_move <- function(dist=1, direction = c("forward", "backward"))
       
       turtle_move(distance*20, 'forward')
    }
-   else if (newX<0) { # case 4
+   else if (newX < 0) { # the turtle goes too far to the west
       if (curAng%%90==0) {
          borY<-newY
       }
@@ -197,41 +272,7 @@ turtle_move <- function(dist=1, direction = c("forward", "backward"))
       
       turtle_move(distance*20, 'forward')
    }
-   else {# case that turtle is in a frame
-      if(.turtle_history$visible){.hide_turtle()}
-   
-      if(.turtle_history$draw) {
-         grid.polygon(c(curX, newX), c(curY, newY),
-                   name = "lines", 
-                   gp = gpar(col = curCol,
-                             lwd = curLwd, 
-                             lty = curLty))
-      }
-      
-      if(.turtle_history$visible) {
-         .show_turtle(newX, newY, curAng)
-      }
-   
-      # changing .turtle_history
-      .turtle_history$moves$x <<- newX
-      .turtle_history$moves$y <<- newY
+   else { # the turtle "fits" in the terrarium
+      .turtle_draw_fromto(curX, curY, newX, newY, curGp, curDraw, curVisible)
    }
-   
-   invisible(NULL)
-}
-
-
-#' @rdname turtle_move
-#' @export
-turtle_forward <- function(dist=1)
-{
-   turtle_move(dist, 'forward')
-}
-
-
-#' @rdname turtle_move
-#' @export
-turtle_backward <- function(dist=1)
-{
-   turtle_move(dist, 'backward')
 }
