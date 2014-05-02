@@ -83,7 +83,7 @@ turtle_setpos <- function(x, y)
 
 #' @rdname turtle_goto
 #' @export
-turtle_setang <- function(angle)
+turtle_setangle <- function(angle)
 {
    stopifnot(is.numeric(angle), length(angle)==1, is.finite(angle))
    
