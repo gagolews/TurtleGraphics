@@ -155,124 +155,147 @@ turtle_backward <- function(distance)
    .turtle_draw_fromto(curX, curY, newX, newY, curGp, curDraw, curVisible)
 }
 
-
 # This function shall not be exported:
 .turtle_draw_cycle <- function(distance, curX, curY, curAng, curGp, curDraw,
-         curWidth, curHeight, curVisible)
+                               curWidth, curHeight, curVisible)
 {
-   newX <- curX + distance * sin(curAng * pi / 180)
-   newY <- curY + distance * cos(curAng * pi / 180)
-   
-   stop("TO DO")
-   
-   # case 1
-   if (newY > curHeight) { # the turtle goes too far to the north
-      if (curAng %% 180 == 0) {
-         borX <- newX
+  newX <- curX + distance * sin(curAng * pi / 180)
+  newY <- curY + distance * cos(curAng * pi / 180)  
+  tmpAng <- curAng %% 360
+  if(newX > curWidth | newX < 0 | newY > curHeight | newY < 0){
+    if(tmpAng < 90){
+      distWallX <- curWidth - curX
+      distWallY <- curHeight - curY
+      if(distWallX / distWallY > tan(tmpAng * pi / 180)){
+        # up
+        .turtle_cycle_up(distance, curX, curY, curAng, curGp, curDraw,
+                         curWidth, curHeight, curVisible)
+      }else{
+        # right
+        .turtle_cycle_right(distance, curX, curY, curAng, curGp, curDraw,
+                            curWidth, curHeight, curVisible)      
       }
-      else {
-         a <- (newY-curY)/(newX-curX)
-         borX <- (1+a*newX-newY)/a
-      }
-      
-      distance <- sqrt((borX-newX)^2 + (1-newY)^2)
-   
-   
-      if(.turtle_history$draw) {
-         grid.polygon(c(curX, newX), c(curY, newY),
-                   name = "lines", 
-                   gp = gpar(col = curCol,
-                             lwd = curLwd, 
-                             lty = curLty))
-      }
-   
-   
-      # changing .turtle_history
-      .turtle_history$moves$x <<- borX
-      .turtle_history$moves$y <<- 0
-   
-      turtle_move(distance*20, 'forward')
-   }
-   else if (newX > curWidth) { # the turtle goes too far to the east
-      if(curAng%%90==0){
-         borY<-newY
-      }
-      else {
-         a <- (newY-curY)/(newX-curX)
-         borY <- a+newY-a*newX
-      }
-      
-      distance <- sqrt((1-newX)^2 + (borY-newY)^2)
-      
-      if(.turtle_history$draw)
-         grid.polygon(c(curX, newX), c(curY, newY),
-                      name = "lines", 
-                      gp = gpar(col = curCol,
-                                lwd = curLwd, 
-                                lty = curLty))
-      
-      
-      
-      # changing .turtle_history
-      .turtle_history$moves$x <<- 0
-      .turtle_history$moves$y <<- borY
-      
-      turtle_move(distance*20, 'forward')
-      
-   }
-   else if (newY < 0) { # the turtle goes too far to the south
-   
-      if(curAng%%180==0){
-         borX<-newX
-      }
-      else {
-         a <- (newY-curY)/(newX-curX)
-         borX <- (a*newX-newY)/a
-      }
-           
-      distance <- sqrt((borX-newX)^2 + (newY)^2)
-      
-     
-      if(.turtle_history$draw)
-         grid.polygon(c(curX, newX), c(curY, newY),
-                      name = "lines", 
-                      gp = gpar(col = curCol,
-                                lwd = curLwd, 
-                                lty = curLty))
-      
-      
-      
-      # changing .turtle_history
-      .turtle_history$moves$x <<- borX
-      .turtle_history$moves$y <<- 1
-      
-      turtle_move(distance*20, 'forward')
-   }
-   else if (newX < 0) { # the turtle goes too far to the west
-      if (curAng%%90==0) {
-         borY<-newY
-      }
-      else {
-         a <- (newY-curY)/(newX-curX)
-         borY <- newY-a*newX
-      }
-      
-      distance <- sqrt((newX)^2 + (borY-newY)^2)
-      
-      if(.turtle_history$draw)
-         grid.polygon(c(curX, newX), c(curY, newY),
-                      name = "lines", 
-                      gp = gpar(col = curCol,
-                                lwd = curLwd, 
-                                lty = curLty))
-      
-      # changing .turtle_history
-      .turtle_history$moves$x <<- 1
-      .turtle_history$moves$y <<- borY
-      
-      turtle_move(distance*20, 'forward')
-   }
-   else { # the turtle "fits" in the terrarium
-      .turtle_draw_fromto(curX, curY, newX, newY, curGp, curDraw, curVisible)
-   }
+    }else{
+      if(tmpAng < 180){
+        distWallX <- curWidth - curX
+        distWallY <- curY
+        if(distWallY / distWallX > tan((tmpAng - 90) * pi / 180)){
+          # right
+          .turtle_cycle_right(distance, curX, curY, curAng, curGp, curDraw,
+                              curWidth, curHeight, curVisible)
+        }else{
+          # down
+          .turtle_cycle_down(distance, curX, curY, curAng, curGp, curDraw,
+                             curWidth, curHeight, curVisible)      
+        }
+        
+      }else{
+        if(tmpAng < 270){
+          distWallX <- curX
+          distWallY <- curY
+          if(distWallX / distWallY > tan((tmpAng - 180) * pi / 180)){
+            # down
+            .turtle_cycle_down(distance, curX, curY, curAng, curGp, curDraw,
+                               curWidth, curHeight, curVisible)
+          }else{
+            # left
+            .turtle_cycle_left(distance, curX, curY, curAng, curGp, curDraw,
+                               curWidth, curHeight, curVisible)      
+          }
+          
+        }else{
+          distWallX <- curX
+          distWallY <- curHeight - curY
+          if(distWallY / distWallX > tan((tmpAng - 270) * pi / 180)){
+            # left
+            .turtle_cycle_left(distance, curX, curY, curAng, curGp, curDraw,
+                               curWidth, curHeight, curVisible)
+          }else{
+            # up
+            .turtle_cycle_up(distance, curX, curY, curAng, curGp, curDraw,
+                             curWidth, curHeight, curVisible)      
+          }
+        }
+      }      
+    }
+  }
+  else .turtle_draw_fromto(curX, curY, newX, newY, curGp, curDraw, curVisible)
+}
+
+# This function shall not be exported:
+.turtle_cycle_up <- function(distance, curX, curY, curAng, curGp, curDraw,
+                             curWidth, curHeight, curVisible)
+{
+  newX <- curX + distance * sin(curAng * pi / 180)
+  newY <- curY + distance * cos(curAng * pi / 180)  
+  tmpAng <- curAng %% 360
+  
+  distPassed <- (curHeight - curY) / cos(tmpAng * pi / 180)
+  nextX <- curX + distPassed * sin(tmpAng * pi / 180)
+  distLeft <- distance - distPassed
+  
+  .turtle_draw_fromto(curX, curY, nextX, curHeight, curGp, curDraw, curVisible)
+  assign("x", nextX, envir=.turtle_data)
+  assign("y", 0, envir=.turtle_data)      
+  .turtle_draw_cycle(distLeft, nextX, 0, curAng, curGp, curDraw,
+                     curWidth, curHeight, curVisible)
+}
+
+# This function shall not be exported:
+.turtle_cycle_down <- function(distance, curX, curY, curAng, curGp, curDraw,
+                               curWidth, curHeight, curVisible)
+{
+  newX <- curX + distance * sin(curAng * pi / 180)
+  newY <- curY + distance * cos(curAng * pi / 180)  
+  tmpAng <- (curAng %% 360) - 180
+  
+  distPassed <- (curY) / cos(tmpAng * pi / 180)
+  nextX <- curX - distPassed * sin(tmpAng * pi / 180)
+  distLeft <- distance - distPassed
+  
+  .turtle_draw_fromto(curX, curY, nextX, 0, curGp, curDraw, curVisible)
+  assign("x", nextX, envir=.turtle_data)
+  assign("y", curHeight, envir=.turtle_data)      
+  .turtle_draw_cycle(distLeft, nextX, curHeight, curAng, curGp, curDraw,
+                     curWidth, curHeight, curVisible)
+  
+}
+
+# This function shall not be exported:
+.turtle_cycle_left <- function(distance, curX, curY, curAng, curGp, curDraw,
+                               curWidth, curHeight, curVisible)
+{
+  newX <- curX + distance * sin(curAng * pi / 180)
+  newY <- curY + distance * cos(curAng * pi / 180)
+  tmpAng <- (curAng %% 360) - 270
+  
+  distPassed <- (curX) / cos(tmpAng * pi / 180)
+  nextY <- curY + distPassed * sin(tmpAng * pi / 180)
+  distLeft <- distance - distPassed
+  
+  .turtle_draw_fromto(curX, curY, 0, nextY, curGp, curDraw, curVisible)
+  assign("x", curWidth, envir=.turtle_data)
+  assign("y", nextY, envir=.turtle_data)      
+  .turtle_draw_cycle(distLeft, curWidth, nextY, curAng, curGp, curDraw,
+                     curWidth, curHeight, curVisible)  
+}
+
+# This function shall not be exported:
+.turtle_cycle_right <- function(distance, curX, curY, curAng, curGp, curDraw,
+                                curWidth, curHeight, curVisible)
+{
+  newX <- curX + distance * sin(curAng * pi / 180)
+  newY <- curY + distance * cos(curAng * pi / 180)
+  tmpAng <- (curAng %% 360) - 90
+
+  distPassed <- (curWidth - curX) / cos(tmpAng * pi / 180)
+  nextY <- curY - distPassed * sin(tmpAng * pi / 180)
+  distLeft <- distance - distPassed
+  
+  .turtle_draw_fromto(curX, curY, curWidth, nextY, curGp, curDraw, curVisible)
+  assign("x", 0, envir=.turtle_data)
+  assign("y", nextY, envir=.turtle_data)      
+  .turtle_draw_cycle(distLeft, 0, nextY, curAng, curGp, curDraw,
+                     curWidth, curHeight, curVisible)
+  
 }
