@@ -130,7 +130,7 @@ turtle_lty <- function(lty)
 turtle_up <- function()
 {
    .turtle_check()
-   assign(envir=.turtle_data, "draw", TRUE)
+   assign(envir=.turtle_data, "draw", FALSE)
    invisible(NULL)
 }
 
@@ -140,6 +140,6 @@ turtle_up <- function()
 turtle_down <- function()
 {
    .turtle_check()
-   assign(envir=.turtle_data, "draw", FALSE)
+   assign(envir=.turtle_data, "draw", TRUE)
    invisible(NULL)
 }
