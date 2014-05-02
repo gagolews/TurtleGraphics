@@ -1,6 +1,6 @@
 \name{turtle_goto}
 \alias{turtle_goto}
-\alias{turtle_setang}
+\alias{turtle_setangle}
 \alias{turtle_setpos}
 \title{t.b.d.}
 \usage{
@@ -8,7 +8,7 @@ turtle_goto(x, y)
 
 turtle_setpos(x, y)
 
-turtle_setang(angle)
+turtle_setangle(angle)
 }
 \arguments{
   \item{x}{..........}
@@ -27,6 +27,7 @@ Other TurtleGraphics: \code{\link{TurtleGraphics-package}};
 \code{\link{turtle_forward}}, \code{\link{turtle_move}};
 \code{\link{turtle_col}}, \code{\link{turtle_lty}},
 \code{\link{turtle_lwd}}, \code{\link{turtle_param}};
+\code{\link{turtle_getangle}}, \code{\link{turtle_getpos}};
 \code{\link{turtle_hide}}, \code{\link{turtle_show}};
 \code{\link{turtle_init}}; \code{\link{turtle_left}},
 \code{\link{turtle_right}}, \code{\link{turtle_turn}};

@@ -47,7 +47,8 @@ turtle_forward(5)
 Other TurtleGraphics: \code{\link{TurtleGraphics-package}};
 \code{\link{turtle_backward}},
 \code{\link{turtle_forward}}, \code{\link{turtle_move}};
-\code{\link{turtle_goto}}, \code{\link{turtle_setang}},
+\code{\link{turtle_getangle}}, \code{\link{turtle_getpos}};
+\code{\link{turtle_goto}}, \code{\link{turtle_setangle}},
 \code{\link{turtle_setpos}}; \code{\link{turtle_hide}},
 \code{\link{turtle_show}}; \code{\link{turtle_init}};
 \code{\link{turtle_left}}, \code{\link{turtle_right}},

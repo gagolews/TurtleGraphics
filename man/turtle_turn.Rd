@@ -37,7 +37,8 @@ Other TurtleGraphics: \code{\link{TurtleGraphics-package}};
 \code{\link{turtle_forward}}, \code{\link{turtle_move}};
 \code{\link{turtle_col}}, \code{\link{turtle_lty}},
 \code{\link{turtle_lwd}}, \code{\link{turtle_param}};
-\code{\link{turtle_goto}}, \code{\link{turtle_setang}},
+\code{\link{turtle_getangle}}, \code{\link{turtle_getpos}};
+\code{\link{turtle_goto}}, \code{\link{turtle_setangle}},
 \code{\link{turtle_setpos}}; \code{\link{turtle_hide}},
 \code{\link{turtle_show}}; \code{\link{turtle_init}};
 \code{\link{turtle_reset}}; \code{\link{turtle_status}}
