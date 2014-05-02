@@ -37,8 +37,8 @@ turtle_status <- function()
    
    list(DisplayOptions=list(
          col=get("col", envir=.turtle_data),
-         lty=get("lty", envir=.turtle_data),
-         lwd=get("lwd", envir=.turtle_data),
+#         lty=get("lty", envir=.turtle_data),
+#         lwd=get("lwd", envir=.turtle_data),
          visible=get("visible", envir=.turtle_data),
          draw=get("draw", envir=.turtle_data)
       ),
