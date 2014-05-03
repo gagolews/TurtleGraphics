@@ -16,14 +16,22 @@
 
 
 #' @title
-#' t.b.d.
+#' Get a Turtle position and direction
 #'
 #' @description
-#' t.b.d.
+#' \code{turtle_getpos} returns a Turtle current position
+#' 
+#' \code{turtle_getangle} returns a Turtle current direction 
 #' 
 #' @details
-#' t.b.d.
-#'  
+#' The turtle must be initialized prior to using
+#' \code{turtle_getpos} and \code{turtle_getangle}, 
+#' see \code{\link{turtle_init}}.
+#' 
+#' The \code{turtle_getpos} returns a vector of length two which
+#' specifying the \code{x} and \code{y} coordinates.
+#' The \code{turtle_getangle} returns the the \code{angle} in which Turtle is rotated.
+#'    
 #' @family TurtleGraphics
 #' @rdname turtle_getpos
 #' @export
