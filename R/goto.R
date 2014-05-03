@@ -16,26 +16,26 @@
 
 
 #' @title
-#' Set a Turtle position and direction
+#' Set a Turtle's position and direction
 #'
 #' @description
-#' Functions \code{turtle_goto} and \code{turtle_setpos} moves a Turtle to a 
+#' Functions \code{turtle_goto} and \code{turtle_setpos} move a Turtle to a 
 #' given location without changing his direction, while \code{turtle_setangle} 
 #' function rotate a Turtle with a given angle. 
 #'
 #' @details
-#' The turtle must be initialized prior to using
+#' The Turtle must be initialized prior to using
 #' \code{turtle_goto}, \code{turtle_setpos} and \code{turtle_setangle}
-#' , see \code{\link{turtle_init}}. Moreover, when given location
-#' (x, y) lies outside the terrarium, the bahavior of these functions depends
-#' on choosen parameter \code{mode}.
+#' , see \code{\link{turtle_init}}. Moreover, when the given location
+#' (x, y) lies outside the terrarium, the behavior of these functions depends
+#' on chosen parameter \code{mode}.
 #' 
-#' The \code{turtle_goto} may draw or not the path between current Turtle 
-#' position and a new location which depends on a user settings, 
+#' The \code{turtle_goto} may draw or not the path between the current Turtle's 
+#' position and the new location. It depends on the user's settings, 
 #' see \code{\link{turtle_up}}, \code{\link{turtle_down}}. In a case of 
-#' \code{turtle_setpos}, however, the path drawing is always unable.
+#' \code{turtle_setpos}, however, the path drawing is always diabled.
 #'   
-#' @param x,y  coordinates specifying new Turtle location
+#' @param x,y  coordinates specifying new Turtle's location
 #' @param angle rotation angle in degrees
 #'
 #' @family TurtleGraphics
