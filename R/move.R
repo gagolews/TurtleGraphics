@@ -179,11 +179,13 @@ turtle_backward <- function(distance)
       if(distWallX / distWallY > tan(tmpAng * pi / 180)){
         # up
         .turtle_cycle_up(distance, curX, curY, curAng, curGp, curDraw,
-                         curWidth, curHeight, curVisible)
+                         curWidth, curHeight, curVisible,
+                         newX, newY, tmpAng)
       }else{
         # right
         .turtle_cycle_right(distance, curX, curY, curAng, curGp, curDraw,
-                            curWidth, curHeight, curVisible)      
+                            curWidth, curHeight, curVisible,
+                            newX, newY, tmpAng)      
       }
     }else{
       if(tmpAng < 180){
@@ -192,11 +194,13 @@ turtle_backward <- function(distance)
         if(distWallY / distWallX > tan((tmpAng - 90) * pi / 180)){
           # right
           .turtle_cycle_right(distance, curX, curY, curAng, curGp, curDraw,
-                              curWidth, curHeight, curVisible)
+                              curWidth, curHeight, curVisible,
+                              newX, newY, tmpAng)
         }else{
           # down
           .turtle_cycle_down(distance, curX, curY, curAng, curGp, curDraw,
-                             curWidth, curHeight, curVisible)      
+                             curWidth, curHeight, curVisible,
+                             newX, newY, tmpAng)      
         }
         
       }else{
@@ -206,11 +210,13 @@ turtle_backward <- function(distance)
           if(distWallX / distWallY > tan((tmpAng - 180) * pi / 180)){
             # down
             .turtle_cycle_down(distance, curX, curY, curAng, curGp, curDraw,
-                               curWidth, curHeight, curVisible)
+                               curWidth, curHeight, curVisible,
+                               newX, newY, tmpAng)
           }else{
             # left
             .turtle_cycle_left(distance, curX, curY, curAng, curGp, curDraw,
-                               curWidth, curHeight, curVisible)      
+                               curWidth, curHeight, curVisible,
+                               newX, newY, tmpAng)      
           }
           
         }else{
@@ -219,11 +225,13 @@ turtle_backward <- function(distance)
           if(distWallY / distWallX > tan((tmpAng - 270) * pi / 180)){
             # left
             .turtle_cycle_left(distance, curX, curY, curAng, curGp, curDraw,
-                               curWidth, curHeight, curVisible)
+                               curWidth, curHeight, curVisible,
+                               newX, newY, tmpAng)
           }else{
             # up
             .turtle_cycle_up(distance, curX, curY, curAng, curGp, curDraw,
-                             curWidth, curHeight, curVisible)      
+                             curWidth, curHeight, curVisible,
+                             newX, newY, tmpAng)      
           }
         }
       }      
@@ -239,18 +247,14 @@ turtle_backward <- function(distance)
 
 # This function shall not be exported:
 .turtle_cycle_up <- function(distance, curX, curY, curAng, curGp, curDraw,
-                             curWidth, curHeight, curVisible)
+                             curWidth, curHeight, curVisible,
+                             newX, newY, tmpAng)
 {
-  newX <- curX + distance * sin(curAng * pi / 180)
-  newY <- curY + distance * cos(curAng * pi / 180)  
-  tmpAng <- curAng %% 360
-  
   distPassed <- (curHeight - curY) / cos(tmpAng * pi / 180)
   nextX <- curX + distPassed * sin(tmpAng * pi / 180)
   distLeft <- distance - distPassed
   
   .turtle_draw_fromto(curX, curY, nextX, curHeight, curGp, curDraw, curVisible)
-  assign("x", nextX, envir=.turtle_data) # jesli jest drwa_ftom_to to tej linijki nie trzeba
   assign("y", 0, envir=.turtle_data)      
   .turtle_draw_cycle(distLeft, nextX, 0, curAng, curGp, curDraw,
                      curWidth, curHeight, curVisible)
@@ -258,31 +262,27 @@ turtle_backward <- function(distance)
 
 # This function shall not be exported:
 .turtle_cycle_down <- function(distance, curX, curY, curAng, curGp, curDraw,
-                               curWidth, curHeight, curVisible)
+                               curWidth, curHeight, curVisible,
+                               newX, newY, tmpAng)
 {
-  newX <- curX + distance * sin(curAng * pi / 180)
-  newY <- curY + distance * cos(curAng * pi / 180)  
-  tmpAng <- (curAng %% 360) - 180
+  tmpAng <- tmpAng - 180
   
   distPassed <- (curY) / cos(tmpAng * pi / 180)
   nextX <- curX - distPassed * sin(tmpAng * pi / 180)
   distLeft <- distance - distPassed
   
   .turtle_draw_fromto(curX, curY, nextX, 0, curGp, curDraw, curVisible)
-  assign("x", nextX, envir=.turtle_data)
   assign("y", curHeight, envir=.turtle_data)      
   .turtle_draw_cycle(distLeft, nextX, curHeight, curAng, curGp, curDraw,
                      curWidth, curHeight, curVisible)
-  
 }
 
 # This function shall not be exported:
 .turtle_cycle_left <- function(distance, curX, curY, curAng, curGp, curDraw,
-                               curWidth, curHeight, curVisible)
+                               curWidth, curHeight, curVisible,
+                               newX, newY, tmpAng)
 {
-  newX <- curX + distance * sin(curAng * pi / 180)
-  newY <- curY + distance * cos(curAng * pi / 180)
-  tmpAng <- (curAng %% 360) - 270
+  tmpAng <- tmpAng - 270
   
   distPassed <- (curX) / cos(tmpAng * pi / 180)
   nextY <- curY + distPassed * sin(tmpAng * pi / 180)
@@ -290,18 +290,16 @@ turtle_backward <- function(distance)
   
   .turtle_draw_fromto(curX, curY, 0, nextY, curGp, curDraw, curVisible)
   assign("x", curWidth, envir=.turtle_data)
-  assign("y", nextY, envir=.turtle_data)      
   .turtle_draw_cycle(distLeft, curWidth, nextY, curAng, curGp, curDraw,
                      curWidth, curHeight, curVisible)  
 }
 
 # This function shall not be exported:
 .turtle_cycle_right <- function(distance, curX, curY, curAng, curGp, curDraw,
-                                curWidth, curHeight, curVisible)
+                                curWidth, curHeight, curVisible,
+                                newX, newY, tmpAng)
 {
-  newX <- curX + distance * sin(curAng * pi / 180)
-  newY <- curY + distance * cos(curAng * pi / 180)
-  tmpAng <- (curAng %% 360) - 90
+  tmpAng <- tmpAng - 90
 
   distPassed <- (curWidth - curX) / cos(tmpAng * pi / 180)
   nextY <- curY - distPassed * sin(tmpAng * pi / 180)
@@ -309,8 +307,6 @@ turtle_backward <- function(distance)
   
   .turtle_draw_fromto(curX, curY, curWidth, nextY, curGp, curDraw, curVisible)
   assign("x", 0, envir=.turtle_data)
-  assign("y", nextY, envir=.turtle_data)      
   .turtle_draw_cycle(distLeft, 0, nextY, curAng, curGp, curDraw,
-                     curWidth, curHeight, curVisible)
-  
+                     curWidth, curHeight, curVisible) 
 }
