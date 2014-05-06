@@ -9,4 +9,4 @@ TurtleGraphics R package's website is available under this link: http://students
 Enjoy using !
 
 
-![alt tag](https://github.com/Rexamine/TurtleGraphics/blob/master/devel/img/turtle2.png "Turtle")
+![alt tag](https://raw.githubusercontent.com/Rexamine/TurtleGraphics/master/devel/img/turtle2.png "Turtle")
