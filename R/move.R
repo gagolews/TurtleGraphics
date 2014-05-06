@@ -15,27 +15,27 @@
 ##    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-#' @title Move a Turtle forward or backward
+#' @title Move the Turtle forward or backward
 #'
 #' @description
-#' \code{turtle_forward} moves a Turtle in a forward direction, and
-#' \code{turtle_backward} moves a Turtle in a backward direction.
+#' \code{turtle_forward} moves the Turtle in a forward direction, and
+#' \code{turtle_backward} moves the Turtle in a backward direction.
 #' 
 #' 
 #' @details
 #' The turtle must be initialized prior to using
-#' this function, see \code{\link{turtle_init}}. 
+#' these functions, see \code{\link{turtle_init}}. 
 #' 
-#' These functions make use of the turtle's display options specified by
+#' These functions make use of the Turtle's display options specified by
 #' \code{\link{turtle_param}} function
 #' (or if not, use the default options set by \code{\link{turtle_init}}).
 #' 
-#' Note that if function \code{\link{turtle_up}} or \code{\link{turtle_down}}
-#' was called, the Turtle's route will be drawn or not drawn, respectively.
+#' Note that if \code{\link{turtle_up}} or \code{\link{turtle_down}}
+#' was called, the Turtle's route will be or not be drawn, respectively.
 #' 
 #' If you are willing to call these functions in an R loop,
-#' you may want to hide the turtle (see \code{\link{turtle_hide}})
-#' befor making actual moves. This will increase the drawing performance
+#' you may want to hide the turtle temporarily (see \code{\link{turtle_hide}})
+#' before making actual moves. This will increase the drawing performance
 #' significantly.
 #' 
 #' 
@@ -245,6 +245,7 @@ turtle_backward <- function(distance)
   }
 }
 
+
 # This function shall not be exported:
 .turtle_cycle_up <- function(distance, curX, curY, curAng, curGp, curDraw,
                              curWidth, curHeight, curVisible,
@@ -259,6 +260,7 @@ turtle_backward <- function(distance)
   .turtle_draw_cycle(distLeft, nextX, 0, curAng, curGp, curDraw,
                      curWidth, curHeight, curVisible)
 }
+
 
 # This function shall not be exported:
 .turtle_cycle_down <- function(distance, curX, curY, curAng, curGp, curDraw,
@@ -277,6 +279,7 @@ turtle_backward <- function(distance)
                      curWidth, curHeight, curVisible)
 }
 
+
 # This function shall not be exported:
 .turtle_cycle_left <- function(distance, curX, curY, curAng, curGp, curDraw,
                                curWidth, curHeight, curVisible,
@@ -293,6 +296,7 @@ turtle_backward <- function(distance)
   .turtle_draw_cycle(distLeft, curWidth, nextY, curAng, curGp, curDraw,
                      curWidth, curHeight, curVisible)  
 }
+
 
 # This function shall not be exported:
 .turtle_cycle_right <- function(distance, curX, curY, curAng, curGp, curDraw,

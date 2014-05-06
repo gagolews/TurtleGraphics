@@ -4,6 +4,7 @@
 ^README.md$
 ^\.git
 ^\.gitignore$
+^vignettes/figures$
 ^.*\.out
 ^.*\.log
 ^.*\.synctex\.gz

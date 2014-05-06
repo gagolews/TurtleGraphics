@@ -16,22 +16,31 @@
 
 
 #' @title
-#' Get a Turtle's position and direction
+#' Get the Turtle's current position and direction
 #'
 #' @description
-#' \code{turtle_getpos} returns a Turtle's current position
+#' \code{turtle_getpos} returns the Turtle's current position on the plane.
 #' 
-#' \code{turtle_getangle} returns a Turtle's current direction 
+#' \code{turtle_getangle} returns the Turtle's current direction,
+#' in degrees. An angle of 0 represents a north-facing Turtle.
 #' 
 #' @details
-#' The Turtle must be initialized prior to using
-#' \code{turtle_getpos} and \code{turtle_getangle}, 
+#' The terrarium must be initialized prior to using these functions,
 #' see \code{\link{turtle_init}}.
 #' 
-#' The \code{turtle_getpos} returns a vector of length two which
+#' 
+#' 
+#' @return
+#' Both functions return a (named) numeric vector.
+#' \code{turtle_getpos} returns a vector of length two which
 #' specifies the \code{x} and \code{y} coordinates.
 #' The \code{turtle_getangle} returns the \code{angle} in which Turtle is rotated.
 #'    
+#' @examples
+#' turtle_init()
+#' turtle_getpos()["x"] # x coordinate
+#' turtle_getpos()["y"] # y coordinate
+#'  
 #' @family TurtleGraphics
 #' @rdname turtle_getpos
 #' @export

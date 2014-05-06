@@ -1,12 +1,19 @@
 TurtleGraphics
 ==============
 
+** With the TurboTurtle package for R you can learn computer
+programming while having a jolly time! **
+    
+TurtleGraphics R package's website is available
+[here](http://TurtleGraphics.rexamine.com).
 
-Welcome !
 
-TurtleGraphics R package's website is available under this link: http://students.mimuw.edu.pl/~mk291505/ .
-
-Enjoy using !
+Authors:
+* [Anna Cena][http://cena.rexamine.com)
+* [Marek Gągolewski](http://gagolewski.rexamine.com)
+* Michał Kosiński
+* Natalia Potocka
+* Barbara Żogała-Siudem
 
 
 ![alt tag](https://raw.githubusercontent.com/Rexamine/TurtleGraphics/master/devel/img/turtle2.png "Turtle")
