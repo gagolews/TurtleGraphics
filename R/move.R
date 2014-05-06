@@ -159,10 +159,20 @@ turtle_backward <- function(distance)
 .turtle_draw_cycle <- function(distance, curX, curY, curAng, curGp, curDraw,
                                curWidth, curHeight, curVisible)
 {
+  tmpVisible <- curVisible
+  if (curVisible){
+    tmpVisible <- TRUE
+    curVisible <- FALSE
+    .turtle_undraw()
+    assign("visible", FALSE, envir=.turtle_data)
+  }  
   newX <- curX + distance * sin(curAng * pi / 180)
   newY <- curY + distance * cos(curAng * pi / 180)  
   tmpAng <- curAng %% 360
+  
+  # if turtle leaves terrarium:
   if(newX > curWidth | newX < 0 | newY > curHeight | newY < 0){
+    
     if(tmpAng < 90){
       distWallX <- curWidth - curX
       distWallY <- curHeight - curY
@@ -220,6 +230,11 @@ turtle_backward <- function(distance)
     }
   }
   else .turtle_draw_fromto(curX, curY, newX, newY, curGp, curDraw, curVisible)
+
+  if (tmpVisible){
+    .turtle_draw()
+    assign("visible", TRUE, envir=.turtle_data)
+  }
 }
 
 # This function shall not be exported:
@@ -235,7 +250,7 @@ turtle_backward <- function(distance)
   distLeft <- distance - distPassed
   
   .turtle_draw_fromto(curX, curY, nextX, curHeight, curGp, curDraw, curVisible)
-  assign("x", nextX, envir=.turtle_data)
+  assign("x", nextX, envir=.turtle_data) # jesli jest drwa_ftom_to to tej linijki nie trzeba
   assign("y", 0, envir=.turtle_data)      
   .turtle_draw_cycle(distLeft, nextX, 0, curAng, curGp, curDraw,
                      curWidth, curHeight, curVisible)
