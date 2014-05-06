@@ -18,8 +18,8 @@
 #' @title Move a Turtle forward or backward
 #'
 #' @description
-#' \code{move_forward} moves a Turtle in a forward direction, and
-#' \code{back_forward} moves a Turtle in a backward direction.
+#' \code{turtle_forward} moves a Turtle in a forward direction, and
+#' \code{turtle_backward} moves a Turtle in a backward direction.
 #' 
 #' 
 #' @details
