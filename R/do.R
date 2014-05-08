@@ -19,17 +19,23 @@
 #' Evaluate a Turtle expresion 
 #'
 #' @description
-#' \code{turtle_do} evaluate a given expression
+#' \code{turtle_do} evaluate an expression which consists of the 
+#' named 'turtle_*' functions applied to the given arguments 
 #' 
-#' @param expr  expresion to evaluate
+#' @param expr the expression to evaluate (usually enclosed in brackets 
+#' consecutive functions calls describing a Turtle moves to be plotted,
+#' see \code{\link{turtle_move}}, \code{\link{turtle_turn}}) 
+#' 
 #'  
 #' @details
 #' The terrarium must be initialized prior to using
 #' these functions, see \code{\link{turtle_init}}.
 #' 
-#' \code{turtle_do} evaluate a given expresion with hidden Turtle, which 
-#' increase the rate in case of complicated ...   
-#' 
+#' In order to decrease the time that \code{expr} use,
+#' it is evaluated with hidden Turtle.
+#' Basically it means that if a Turtle image is visible (see 
+#' \code{\link{turtle_show}} and \code{\link{turtle_hide}}) \code{turtle_do}
+#' remove it, evaluate the \code{expr} and redraw on the function exit.
 #'    
 #' @examples
 #' turtle_init()
