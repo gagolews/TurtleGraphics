@@ -1,7 +1,7 @@
 TurtleGraphics
 ==============
 
-** With the TurboTurtle package for R you can learn computer
+** With the TurtleGraphics package for R you can learn computer
 programming while having a jolly time! **
     
 TurtleGraphics R package's website is available
@@ -9,7 +9,7 @@ TurtleGraphics R package's website is available
 
 
 Authors:
-* [Anna Cena][http://cena.rexamine.com)
+* [Anna Cena](http://cena.rexamine.com)
 * [Marek Gągolewski](http://gagolewski.rexamine.com)
 * Michał Kosiński
 * Natalia Potocka
