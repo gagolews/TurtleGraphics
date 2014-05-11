@@ -11,7 +11,7 @@ TurtleGraphics R package's website is available
 Authors:
 * [Anna Cena](http://cena.rexamine.com)
 * [Marek Gągolewski](http://gagolewski.rexamine.com)
-* Michał Kosiński
+* Marcin Kosiński
 * Natalia Potocka
 * Barbara Żogała-Siudem
 
