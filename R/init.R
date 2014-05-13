@@ -20,10 +20,10 @@
 #'
 #' @description
 #' This function creates a new empty plot
-#' with the turtle centered on the board and facing to the north.
+#' with the Turtle centered on the board and facing north.
 #' 
 #' @details
-#' The mode argument determines what happens if a turtle
+#' The \code{mode} argument determines what happens if the Turtle
 #' tries to move outside the terrarium.
 #' \code{clip} allows him to do that, but the drawing will be clipped
 #' to the predefined plot region.
