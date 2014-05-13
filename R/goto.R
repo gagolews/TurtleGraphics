@@ -20,7 +20,7 @@
 #'
 #' @description
 #' \code{turtle_goto} and \code{turtle_setpos} move the Turtle to a 
-#' given location without changing its angle of direction,
+#' given location without changing its angle of direction.
 #' 
 #' \code{turtle_setangle} 
 #' rotates the Turtle to a given (absolute) angle,
