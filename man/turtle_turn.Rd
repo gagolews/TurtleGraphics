@@ -3,7 +3,7 @@
 \alias{turtle_left}
 \alias{turtle_right}
 \alias{turtle_turn}
-\title{Turn (Rotate) a Turtle}
+\title{Turn (Rotate) the Turtle}
 \usage{
 turtle_turn(angle, direction = c("left", "right"))
 
@@ -13,17 +13,17 @@ turtle_right(angle)
 }
 \arguments{
 \item{angle}{Rotation angle in degrees.
-A negative value turns the turtle turn in the opposite
+A negative value turns the Turtle in the opposite
 direction than the given one.}
 
-\item{direction}{Direction of turn.
+\item{direction}{Direction of the turn.
    Possible values are "left" and "right"}
 }
 \description{
-Turn turtle in the given direction by the given angle.
+Turn the Turtle in the given direction by the given angle.
 }
 \details{
-The turtle must be initialized prior to using
+The Turtle must be initialized prior to using
 this function, see \code{\link{turtle_init}}.
 }
 \examples{

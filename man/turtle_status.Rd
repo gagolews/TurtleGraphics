@@ -10,10 +10,10 @@ Returns a list with two elements.
 }
 \description{
 \code{turtle_status()} gives information about the current
-turtle's position, direction, and on values of display parameters.
+Turtle's position, direction, and on values of display parameters.
 }
 \details{
-The turtle must be initialized prior to using
+The Turtle must be initialized prior to using
 this function, see \code{\link{turtle_init}}.
 }
 \seealso{

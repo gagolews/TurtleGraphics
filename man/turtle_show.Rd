@@ -9,14 +9,14 @@ turtle_show()
 turtle_hide()
 }
 \description{
-These functions enable or disable displaying the turtle
+These functions enable or disable displaying the Turtle's
 image on the screen.
 }
 \details{
-The turtle must be initialized prior to using
+The Turtle must be initialized prior to using
 this function, see \code{\link{turtle_init}}.
 
-It is recommended to hide the turtle when
+It is recommended to hide the Turtle when
 performing multiple turtle moves, for efficiency reasons.
 }
 \examples{

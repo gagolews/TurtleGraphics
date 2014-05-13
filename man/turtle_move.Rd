@@ -34,7 +34,7 @@ Note that if \code{\link{turtle_up}} or \code{\link{turtle_down}}
 was called, the Turtle's route will be or not be drawn, respectively.
 
 If you are willing to call these functions in an R loop,
-you may want to hide the turtle temporarily (see \code{\link{turtle_hide}})
+you may want to hide the Turtle temporarily (see \code{\link{turtle_hide}})
 before making actual moves. This will increase the drawing performance
 significantly.
 }
