@@ -16,20 +16,20 @@
 
 
 #' @title
-#' Turn (Rotate) a Turtle
+#' Turn (Rotate) the Turtle
 #'
 #' @description
-#' Turn turtle in the given direction by the given angle.
+#' Turn the Turtle in the given direction by the given angle.
 #' 
 #' @details
-#' The turtle must be initialized prior to using
+#' The Turtle must be initialized prior to using
 #' this function, see \code{\link{turtle_init}}. 
 #' 
 #' 
 #' @param angle  Rotation angle in degrees.
-#'    A negative value turns the turtle turn in the opposite
+#'    A negative value turns the Turtle in the opposite
 #'    direction than the given one.
-#' @param direction  Direction of turn.
+#' @param direction  Direction of the turn.
 #'    Possible values are "left" and "right"
 #'
 #' @examples
