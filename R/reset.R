@@ -18,14 +18,14 @@
 #' @title Reset the Turtle's Position and Direction
 #'
 #' @description
-#' This function resets the turtle's position, direction,
+#' This function resets the Turtle's position, direction,
 #' and graphical options.
-#' After a call to this function, the turtle will be situated
+#' After a call to this function, the Turtle will be situated
 #' in the terrarium's center and it will be directed
 #' to the north.
 #' 
 #' @details
-#' The turtle must be initialized prior to using
+#' The Turtle must be initialized prior to using
 #' this function, see \code{\link{turtle_init}}. 
 #' 
 #' The drawing remains unchanged.
