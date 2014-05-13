@@ -3,7 +3,9 @@
 % \VignetteIndexEntry{Turbo Turtle packge}
 \usepackage{subfigure}
 
+
 \begin{document}
+\SweaveOpts{concordance=TRUE}
 
 \begin{center}
 {\LARGE A Guide to the \textsf{TurboTurtle} Package for \textsf{R}}

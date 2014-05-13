@@ -1,0 +1,74 @@
+\documentclass{article}
+%\VignetteEngine{knitr::knitr}
+% \VignetteIndexEntry{Turbo Turtle packge}
+\usepackage{subfigure}
+\usepackage[latin2]{inputenc}
+
+\begin{document}
+\SweaveOpts{concordance=TRUE}
+
+\begin{center}
+{\LARGE A Guide to the \textsf{TurtleGraphics} Package for \textsf{R}}
+
+\bigskip
+{\large A. Cena, M. Kosi\'{n}ski, N. Potocka, B.~\.{Z}oga\l{}a-Siudem}
+
+% \begin{figure}[hbt!]
+% \centering
+% %\includegraphics[width=3in]{figures/turtle.pdf}
+% \end{figure}
+
+\end{center}
+
+
+
+\section{The \textsf{TurtleGraphics} Package Introduction}
+
+The \textsf{TurtleGraphics} package offers to R-users functionality of the ''turtle graphics'' from Logo educational programming language. The main idea standing behind it is encourage the children to learn programming and show that working with computer can be fun and creative.
+
+The \textsf{TurtleGraphics} package allows to create simple and more sophisticated graphics on basis of lines.  
+The main idea is that the Turtle, desribed by its location and orientation, moves with commands that are relative to its own position. The line that it leaves behind can be controlled, by disabling it or setting its color and type.
+
+The \textsf{TurtleGraphics} package offers functions to move forward or backward a given distance and to turn the Turtle in a choosen direction. The graphical parameter of the plot, for example the color, type or visibility of the line, can also be easily changed.   
+
+
+\section{Installation And Usage of The Package}
+
+\subsection{Installation of The Package}
+To install the package \textsf{TurtleGraphics} you should use following instructions.
+<<results=hide, eval=FALSE>>=
+if (!require(devtools)) {
+    install.packages("devtools")
+    require(devtools)
+}
+install_github("Rexamine/TurtleGraphics")
+@
+
+Then you have to load the package with the \textsf{require()} function, as it is shown below.
+<<results=hide>>=
+require("TurtleGraphics")
+@
+ 
+\subsection{Usage of The Package}
+To start using the program call the \textsf{turtle\_init()} function , which create a plot region and places the Turtle in its central point pointing north.
+<<results=hide, fig=FALSE>>=
+turtle_init()
+@
+There are two main group of functions used to move the Turtle. \\
+The first one consists of the \textsf{turtle\_forward()} and the \textsf{turtle\_backward()} functions. In its argument you have to give the distance you desire the Turtle to move. To move the Turtle forward for a distance of 3 units use the \textsf{turtle\_forward()} function.
+<<results=hide, fig=FALSE>>=
+turtle_forward(dist=3)
+@
+To move the Turtle backwards you can use either the \textsf{turtle\_forward()} function with the negative number as an argument or simply use the \textsf{turtle\_backward()} function.
+<<results=hide, fig=FALSE>>=
+turtle_backward(dist=5)
+@
+The other tool that helps to move the Turtle are the \textsf{turtle\_left} and the \textsf{turtle\_right} functions. They change the Turtle's direction by a given angle. For example, to turn the Turtle by 45 degrees to the right use the following: \\
+<<results=hide, fig=FALSE>>=
+turtle_right(angle=45)
+turtle_forward(dist=5)
+@
+
+
+
+\end{document}

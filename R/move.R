@@ -18,12 +18,12 @@
 #' @title Move the Turtle forward or backward
 #'
 #' @description
-#' \code{turtle_forward} moves the Turtle in a forward direction, and
-#' \code{turtle_backward} moves the Turtle in a backward direction.
+#' \code{turtle_forward} moves the Turtle in forward and
+#' \code{turtle_backward} moves the Turtle in backward.
 #' 
 #' 
 #' @details
-#' The turtle must be initialized prior to using
+#' The Turtle must be initialized prior to using
 #' these functions, see \code{\link{turtle_init}}. 
 #' 
 #' These functions make use of the Turtle's display options specified by
