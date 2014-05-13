@@ -18,8 +18,8 @@
 #' @title Set Display Options
 #'
 #' @description
-#' Sets the display options for the turtle's trace.
-#' It is possible to change its color, line type, 
+#' Sets the display options for the Turtle's trace.
+#' It is possible to change its color, line type and
 #' line width.
 #' 
 #'   
@@ -28,10 +28,10 @@
 #' @param lwd  numeric;  Trace line width
 #' 
 #' @details
-#' The turtle must be initialized prior to using
+#' The Turtle must be initialized prior to using
 #' this function, see \code{\link{turtle_init}}. 
 #' 
-#' After running any of the parameter changing functions, the trace of a turtle changes during the next 
+#' After running any of the parameter changing functions, the trace of the Turtle changes during the next 
 #' \code{\link{turtle_forward}} usage.
 #' 
 #' 
