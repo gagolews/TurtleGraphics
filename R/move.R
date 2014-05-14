@@ -15,7 +15,7 @@
 ##    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-#' @title Move the Turtle forward or backward
+#' @title Move the Turtle Forward or Backward
 #'
 #' @description
 #' \code{turtle_forward} moves the Turtle in forward and

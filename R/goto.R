@@ -16,7 +16,7 @@
 
 
 #' @title
-#' Set the Turtle's position and direction
+#' Set the Turtle's Position and Direction
 #'
 #' @description
 #' \code{turtle_goto} and \code{turtle_setpos} move the Turtle to a 

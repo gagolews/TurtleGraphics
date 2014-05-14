@@ -16,7 +16,7 @@
 
 
 #' @title
-#' Get the Turtle's current position and direction
+#' Get the Turtle's Current Position and Direction
 #'
 #' @description
 #' \code{turtle_getpos} returns the Turtle's current position on the plane.
