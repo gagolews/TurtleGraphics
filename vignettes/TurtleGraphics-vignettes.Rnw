@@ -1,6 +1,5 @@
 \documentclass{article}
-%\VignetteEngine{knitr::knitr}
-% \VignetteIndexEntry{Turbo Turtle packge}
+% \VignetteIndexEntry{TurtleGraphics packge}
 \usepackage{subfigure}
 \usepackage[latin2]{inputenc}
 
@@ -15,7 +14,7 @@
 
 \begin{figure}[hbt!]
 \centering
-\includegraphics[width=1in]{C:/Users/Natalia/Desktop/Studia/PRZ/TurboTurtle/devel/img/turtle2.png}
+\includegraphics[width=1in]{img/turtle2.png}
 \end{figure}
 
 \end{center}
@@ -54,11 +53,28 @@ turtle_init()
 @
 There are two main group of functions used to move the Turtle. \\
 The first one consists of the \textsf{turtle\_forward()} and the \textsf{turtle\_backward()} functions. In its argument you have to give the distance you desire the Turtle to move. For example, to move the Turtle forward for a distance of 10 units use the \textsf{turtle\_forward()} function.
-<<fig=TRUE>>=
+
+<<results=hide, echo=FALSE>>=  
+file <- paste("FigureTmp", ".pdf", sep="")  
+pdf(file=file, onefile=FALSE)  
 turtle_init()
-turtle_forward(dist=10)
-turtle_backward(dist=20)
+turtle_forward(dist=10) 
+turtle_turn(45)
+turtle_forward(30)
+dev.off()  
 @
+
+<<results=hide, eval=FALSE>>=
+turtle_init()
+turtle_forward(dist=10) 
+turtle_turn(45)
+turtle_forward(30)
+@
+<<results=tex, echo=FALSE>>=
+cat("\\includegraphics{", file, "}\n\n", sep="")  
+@ 
+
+
 To move the Turtle backwards you can use either the \textsf{turtle\_forward()} function with the negative number as an argument or simply use the \textsf{turtle\_backward()} function.
 <<results=hide, fig=FALSE>>=
 turtle_backward(dist=5)
