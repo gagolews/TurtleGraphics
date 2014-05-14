@@ -3,7 +3,7 @@
 \alias{turtle_goto}
 \alias{turtle_setangle}
 \alias{turtle_setpos}
-\title{Set the Turtle's position and direction}
+\title{Set the Turtle's Position and Direction}
 \usage{
 turtle_goto(x, y)
 

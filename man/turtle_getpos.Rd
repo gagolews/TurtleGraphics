@@ -2,7 +2,7 @@
 \name{turtle_getpos}
 \alias{turtle_getangle}
 \alias{turtle_getpos}
-\title{Get the Turtle's current position and direction}
+\title{Get the Turtle's Current Position and Direction}
 \usage{
 turtle_getpos()
 

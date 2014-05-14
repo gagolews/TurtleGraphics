@@ -3,7 +3,7 @@
 \alias{turtle_backward}
 \alias{turtle_forward}
 \alias{turtle_move}
-\title{Move the Turtle forward or backward}
+\title{Move the Turtle Forward or Backward}
 \usage{
 turtle_move(distance, direction = c("forward", "backward"))
 
