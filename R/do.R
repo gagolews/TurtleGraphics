@@ -16,7 +16,7 @@
 
 
 #' @title
-#' Evaluate a Turtle expresion 
+#' Evaluate the Turtle's Expression 
 #'
 #' @description
 #' \code{turtle_do} evaluate an expression which consists of the 
