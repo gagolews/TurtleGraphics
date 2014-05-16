@@ -57,7 +57,7 @@ There are two main group of functions used to move the Turtle. \\
 The first one consists of the \textsf{turtle\_forward()} and the \textsf{turtle\_backward()} functions. In its argument you have to give the distance you desire the Turtle to move. For example, to move the Turtle forward for a distance of 10 units use the \textsf{turtle\_forward()} function. To move the Turtle backwards you can use either the \textsf{turtle\_forward()} function with the negative number as an argument or simply use the \textsf{turtle\_backward()} function.
 
 <<results=hide, echo=FALSE>>=  
-file <- paste("figures/figure_1", ".pdf", sep="")  
+file <- paste("figure_1", ".pdf", sep="")  
 pdf(file=file, onefile=FALSE)  
 turtle_init()
 turtle_forward(dist=20) 
@@ -75,7 +75,7 @@ turtle_forward(dist=20)
 
 
 <<results=hide, echo=FALSE>>=
-file <- paste("figures/figure_2", ".pdf", sep="")  
+file <- paste("figure_2", ".pdf", sep="")  
 pdf(file=file, onefile=FALSE)  
 turtle_init()
 turtle_forward(dist=20) 
@@ -94,7 +94,7 @@ turtle_backward(dist=10)
 The other tool that helps to move the Turtle are the \textsf{turtle\_left} and the \textsf{turtle\_right} functions. They change the Turtle's direction by a given angle. For example, to turn the Turtle by 45 degrees to the right use the following: \\
 
 <<results=hide, echo=FALSE>>=
-file <- paste("figures/figure_3", ".pdf", sep="")  
+file <- paste("figure_3", ".pdf", sep="")  
 pdf(file=file, onefile=FALSE)  
 turtle_init()
 turtle_forward(dist=20) 
@@ -119,7 +119,7 @@ Now you know the basis and it is mostly it. Not very complicated, is it? Don't w
 To disable the path from being drawn you can simply use the \textsf{turtle\_up()} function. Let's consider simple example. Turn the Turtle to the right by 90 degrees and then use the \textsf{turtle\_up()} function. Now, when you move forward the path is not visible. If you want the path to be drawn again you should call the \textsf{turtle\_down()} function.
 
 <<results=hide, echo=FALSE>>=
-file <- paste("figures/figure_4", ".pdf", sep="")  
+file <- paste("figure_4", ".pdf", sep="")  
 pdf(file=file, onefile=FALSE)  
 turtle_init()
 turtle_forward(dist=20) 
@@ -151,7 +151,7 @@ turtle_forward(dist=5)
 Similarly, you may show or hide the Turtle image, using the \textsf{turtle\_show()} and \textsf{turtle\_hide()} functions respectively.
 
 <<results=hide, echo=FALSE>>=
-file <- paste("figures/figure_5", ".pdf", sep="")  
+file <- paste("figure_5", ".pdf", sep="")  
 pdf(file=file, onefile=FALSE)  
 turtle_init()
 turtle_forward(dist=20) 
@@ -186,7 +186,7 @@ To change the nature of the Turtle's trace you can use the \textsf{turtle\_col()
 The first one, as you can easily guess, changes the color of the path the Turtle is making. For example, if you wish to change the trace into red try
 
 <<results=hide, echo=FALSE>>=
-file <- paste("figures/figure_6", ".pdf", sep="")  
+file <- paste("figure_6", ".pdf", sep="")  
 pdf(file=file, onefile=FALSE)  
 turtle_init()
 turtle_forward(dist=20) 
@@ -222,7 +222,7 @@ Important! Remember that when passing an argument to this function you always ha
 The \textsf{turtle\_lty()} and \textsf{turtle\_lwd()} functions change the type and the width of the line the Turle is making. To change the type of the path as an argument pass a number from $0$ to $6$ -- each means a different type of the line ($0=$blank, $1=$solid (default), $2=$dashed, $3=$dotted, $4=$dotdash, $5=$longdash, $6=$twodash). To change the width of the line use the \textsf{turtle\_lwd()} function. As an argument you pass a width you desire (but don't exaggerate!).
 
 <<results=hide, echo=FALSE>>=
-file <- paste("figures/figure_6", ".pdf", sep="")  
+file <- paste("figure_6", ".pdf", sep="")  
 pdf(file=file, onefile=FALSE)  
 turtle_init()
 turtle_forward(dist=20) 
