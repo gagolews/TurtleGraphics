@@ -1,9 +1,3 @@
-turtle_init(500, 600, 'clip')
-turtle_up()
-turtle_backward(250)
-turtle_down()
-
-
 fractal_tree <- function(s=100, n=2) {
    if (n <= 1) {
       turtle_forward(s)
@@ -30,10 +24,14 @@ fractal_tree <- function(s=100, n=2) {
    }
 }
 
-
-turtle_hide()
+set.seed(123)
+turtle_init(500, 600, 'clip')
+turtle_do({
+turtle_up()
+turtle_backward(250)
+turtle_down()
+turtle_col("darkgreen")
 fractal_tree(100, 12)
-turtle_show()
-
+})
 
 
