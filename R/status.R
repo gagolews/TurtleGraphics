@@ -35,10 +35,13 @@ turtle_status <- function()
 {
    .turtle_check()
    
+   gp <- get("gpar_path", envir=.turtle_data)
+   
    list(DisplayOptions=list(
-         col=get("col", envir=.turtle_data),
-#         lty=get("lty", envir=.turtle_data),
-#         lwd=get("lwd", envir=.turtle_data),
+          
+         col=gp$col,
+         lty=gp$lty,
+         lwd=gp$lwd,
          visible=get("visible", envir=.turtle_data),
          draw=get("draw", envir=.turtle_data)
       ),
