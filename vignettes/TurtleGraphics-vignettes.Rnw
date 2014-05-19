@@ -10,7 +10,7 @@
 {\LARGE A Guide to the \textsf{TurtleGraphics} Package for \textsf{R}}
 
 \bigskip
-{\large A. Cena, M. Kosi\'{n}ski, N. Potocka, B.~\.{Z}oga\l{}a-Siudem}
+{\large A. Cena,  M. G\k{a}golewski, M. Kosi\'{n}ski, N. Potocka, B.~\.{Z}oga\l{}a-Siudem}
 
 \begin{figure}[hbt!]
 \centering
@@ -46,7 +46,7 @@ Then you have to load the package with the \textsf{require()} function, as it is
 require("TurtleGraphics")
 @
  
-\subsection{Usage of The Package}
+\subsection{The Basics}
 \subsubsection{Moving The Turtle}
 To start using the program call the \textsf{turtle\_init()} function. It creates a plot region and places the Turtle in the middle pointing north.
 <<results=hide, eval=FALSE>>=
@@ -55,6 +55,11 @@ turtle_init()
 By default its size is 100 by 100 units. You can easily change it by passing as the arguments \textsf{width} and \textsf{height} (e.g. \textsf{turtle\_init(width=200, height=200)} ). To learn more about this functions try \textsf{help(turtle\_init)}.
 There are two main group of functions used to move the Turtle. \\
 The first one consists of the \textsf{turtle\_forward()} and the \textsf{turtle\_backward()} functions. In its argument you have to give the distance you desire the Turtle to move. For example, to move the Turtle forward for a distance of 10 units use the \textsf{turtle\_forward()} function. To move the Turtle backwards you can use either the \textsf{turtle\_forward()} function with the negative number as an argument or simply use the \textsf{turtle\_backward()} function.
+
+<<results=hide, eval=FALSE>>=
+turtle_init()
+turtle_forward(dist=20) 
+@
 
 <<results=hide, echo=FALSE>>=  
 file <- paste("figure_1", ".pdf", sep="")  
@@ -69,10 +74,8 @@ cat("\\includegraphics{", file, "}\n\n", sep="")
 @
 
 <<results=hide, eval=FALSE>>=
-turtle_init()
-turtle_forward(dist=20) 
+turtle_backward(dist=10)
 @
-
 
 <<results=hide, echo=FALSE>>=
 file <- paste("figure_2", ".pdf", sep="")  
@@ -87,11 +90,13 @@ dev.off()
 cat("\\includegraphics{", file, "}\n\n", sep="")  
 @
 
-<<results=hide, eval=FALSE>>=
-turtle_backward(dist=10)
-@
 
 The other tool that helps to move the Turtle are the \textsf{turtle\_left} and the \textsf{turtle\_right} functions. They change the Turtle's direction by a given angle. For example, to turn the Turtle by 45 degrees to the right use the following: \\
+
+<<results=hide, eval=FALSE>>=
+turtle_right(angle=45)
+turtle_forward(dist=5)
+@
 
 <<results=hide, echo=FALSE>>=
 file <- paste("figure_3", ".pdf", sep="")  
@@ -108,15 +113,19 @@ dev.off()
 cat("\\includegraphics{", file, "}\n\n", sep="")  
 @
 
+\subsubsection{Additional Options}
+Now you know the basis and it is mostly it. Not very complicated, is it? Don't worry though, there are some additional parameters that you can play with.
+
+To disable the path from being drawn you can simply use the \textsf{turtle\_up()} function. Let's consider a simple example. Turn the Turtle to the right by 90 degrees and then use the \textsf{turtle\_up()} function. Now, when you move forward the path is not visible. If you want the path to be drawn again you should call the \textsf{turtle\_down()} function.
+
 <<results=hide, eval=FALSE>>=
+turtle_right(angle=90)
+turtle_up()
+turtle_forward(dist=10)
 turtle_right(angle=45)
+turtle_down()
 turtle_forward(dist=5)
 @
-
-\subsubsection{Additional Options}
-Now you know the basis and it is mostly it. Not very complicated, is it? Don't worry, though there are some additional parameters that you can play with.
-
-To disable the path from being drawn you can simply use the \textsf{turtle\_up()} function. Let's consider simple example. Turn the Turtle to the right by 90 degrees and then use the \textsf{turtle\_up()} function. Now, when you move forward the path is not visible. If you want the path to be drawn again you should call the \textsf{turtle\_down()} function.
 
 <<results=hide, echo=FALSE>>=
 file <- paste("figure_4", ".pdf", sep="")  
@@ -139,16 +148,14 @@ dev.off()
 cat("\\includegraphics{", file, "}\n\n", sep="")  
 @
 
-<<results=hide, eval=FALSE>>=
-turtle_right(angle=90)
-turtle_up()
-turtle_forward(dist=10)
-turtle_right(angle=45)
-turtle_down()
-turtle_forward(dist=5)
-@
+Similarly, you may show or hide the Turtle image, using the \textsf{turtle\_show()} and \textsf{turtle\_hide()} functions respectively. If you call a lot of functions it is strongly recommended to hide the Turtle first as it speeds up the process.
 
-Similarly, you may show or hide the Turtle image, using the \textsf{turtle\_show()} and \textsf{turtle\_hide()} functions respectively.
+<<results=hide, eval=FALSE>>=
+turtle_hide()
+turtle_right(angle=60)
+turtle_forward(dist=15)
+turtle_show()
+@
 
 <<results=hide, echo=FALSE>>=
 file <- paste("figure_5", ".pdf", sep="")  
@@ -175,16 +182,14 @@ dev.off()
 cat("\\includegraphics{", file, "}\n\n", sep="")  
 @
 
-<<results=hide, eval=FALSE>>=
-turtle_hide()
-turtle_right(angle=60)
-turtle_forward(dist=15)
-turtle_show()
-@
-
 To change the nature of the Turtle's trace you can use the \textsf{turtle\_col()}, \textsf{turtle\_lty()} and \textsf{turtle\_lwd()} functions.
 The first one, as you can easily guess, changes the color of the path the Turtle is making. For example, if you wish to change the trace into red try
 
+<<results=hide, eval=FALSE>>=
+turtle_col(col="red")
+turtle_forward(dist=10)
+@
+
 <<results=hide, echo=FALSE>>=
 file <- paste("figure_6", ".pdf", sep="")  
 pdf(file=file, onefile=FALSE)  
@@ -212,17 +217,23 @@ dev.off()
 cat("\\includegraphics{", file, "}\n\n", sep="")  
 @
 
-<<results=hide, eval=FALSE>>=
-turtle_col(col="red")
-turtle_forward(dist=10)
-@
 
 The full list of colors is available under the \textsf{colors()} function.
-Important! Remember that when passing an argument to this function you always have to use the quotation marks. 
-The \textsf{turtle\_lty()} and \textsf{turtle\_lwd()} functions change the type and the width of the line the Turle is making. To change the type of the path as an argument pass a number from $0$ to $6$ -- each means a different type of the line ($0=$blank, $1=$solid (default), $2=$dashed, $3=$dotted, $4=$dotdash, $5=$longdash, $6=$twodash). To change the width of the line use the \textsf{turtle\_lwd()} function. As an argument you pass a width you desire (but don't exaggerate!).
+Important! Remember that when passing an argument to this function you always have to use the quotation marks. \\
+The \textsf{turtle\_lty()} and \textsf{turtle\_lwd()} functions change the type and the width of the line the Turle is making. To change the type of the path as an argument pass a number from $0$ to $6$ -- each means a different type of the line ($0=$blank, $1=$solid (default), $2=$ dashed, $3=$ dotted, $4=$ dotdash, $5=$ longdash, $6=$ twodash). To change the width of the line use the \textsf{turtle\_lwd()} function. As an argument you pass a width you desire (but don't exaggerate!).
+
+<<results=hide, eval=FALSE>>=
+turtle_right(angle=90)
+turtle_col(col="green")
+turtle_forward(dist=5)
+turtle_lty(lty=4)
+turtle_forward(dist=10)
+turtle_lwd(lwd=3)
+turtle_forward(dist=15)
+@
 
 <<results=hide, echo=FALSE>>=
-file <- paste("figure_6", ".pdf", sep="")  
+file <- paste("figure_7", ".pdf", sep="")  
 pdf(file=file, onefile=FALSE)  
 turtle_init()
 turtle_forward(dist=20) 
@@ -255,7 +266,44 @@ dev.off()
 cat("\\includegraphics{", file, "}\n\n", sep="")  
 @
 
+If you got lost in the terrarium don't worry! There is a function \textsf{turtle\_status()} which returns the parameters of your drawing. It tells you whether the Turtle and its path are visible, the width and height of the terrarium, where the Turle is placed right now and at which angle.
+
+<<results=verbatim, eval=TRUE>>=
+turtle_status()
+@
+
+If you just want to know where the Turtle is or at which angle try \textsf{turtle\_getpos()} and \textsf{turtle\_getangle()} functions respectively.
+<<results=verbatim, eval=TRUE>>=
+turtle_getpos()
+turtle_getangle()
+@
+
+If you wish to place the Turtle back at the starting position use the \textsf{turtle\_reset()} function. The \textsf{turtle\_goto()} function on the other hand, makes the Turtle go to the place you tell it to in its arguments passing the $x$ and $y$ coordinates. Mind that this function leaves the trace while using.
 <<results=hide, eval=FALSE>>=
+turtle_reset()
+turtle_goto(x=10,y=80)
+@
+
+<<results=hide, echo=FALSE>>=
+file <- paste("figure_8", ".pdf", sep="")  
+pdf(file=file, onefile=FALSE)  
+turtle_init()
+turtle_forward(dist=20) 
+turtle_backward(dist=10)
+turtle_right(angle=45)
+turtle_forward(dist=5)
+turtle_right(angle=90)
+turtle_up()
+turtle_forward(dist=10)
+turtle_right(angle=45)
+turtle_down()
+turtle_forward(dist=5)
+turtle_hide()
+turtle_right(angle=60)
+turtle_forward(dist=15)
+turtle_show()
+turtle_col(col="red")
+turtle_forward(dist=10)
 turtle_right(angle=90)
 turtle_col(col="green")
 turtle_forward(dist=5)
@@ -263,8 +311,20 @@ turtle_lty(lty=4)
 turtle_forward(dist=10)
 turtle_lwd(lwd=3)
 turtle_forward(dist=15)
+turtle_reset()
+turtle_goto(x=10,y=80)
+dev.off()  
 @
-%%% to do: status, get, goto, do and reset + more sophisticated examples. %%%
+
+<<results=tex, echo=FALSE>>=
+cat("\\includegraphics{", file, "}\n\n", sep="")  
+@
+
+\section{Advanced Usage of the Package}
+Now you know the basics. There some more advanced methods of usage of the package. 
+
+
+%%% to do: do + more sophisticated examples. %%%
 %%% + more colorful and joyful and cheerful drawings
 
 \end{document}

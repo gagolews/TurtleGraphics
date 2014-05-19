@@ -26,7 +26,7 @@
 #' this function, see \code{\link{turtle_init}}. 
 #' 
 #' @return
-#' Returns a list with two elements.
+#' Returns a list with three elements.
 #' 
 #' @family TurtleGraphics
 #' @rdname turtle_status
