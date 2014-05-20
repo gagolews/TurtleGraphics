@@ -14,7 +14,7 @@
 
 \begin{figure}[hbt!]
 \centering
-\includegraphics[width=1in]{/turtle2.png}
+\includegraphics[width=1in]{turtle2.png}
 \end{figure}
 
 \end{center}

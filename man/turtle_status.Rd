@@ -6,7 +6,7 @@
 turtle_status()
 }
 \value{
-Returns a list with two elements.
+Returns a list with three elements.
 }
 \description{
 \code{turtle_status()} gives information about the current
