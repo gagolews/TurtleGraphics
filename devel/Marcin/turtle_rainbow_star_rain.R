@@ -26,7 +26,7 @@ turtle_rainbow_star_rain <- function(times=5, size=1){
 
 turtle_init(800,800)
 turtle_left(90)
-#turtle_rainbow_star_rain(10) - withouth cluster
+#turtle_rainbow_star_rain(10) #- without cluster
 
 
 cl <- makeCluster(detectCores())
@@ -67,7 +67,7 @@ turtle_rainbow_star_rain2 <- function(size=1){
    }}
 turtle_init(500,500)
 turtle_left(90)
-#turtle_rainbow_star_rain(10) - withouth cluster
+#turtle_rainbow_star_rain(10) - without cluster
 
 
 cl <- makeCluster(detectCores())

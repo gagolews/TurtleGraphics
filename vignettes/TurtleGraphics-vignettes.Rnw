@@ -19,10 +19,12 @@
 
 \end{center}
 
+\newpage
+\tableofcontents
 
 
+\newpage
 \section{The \textsf{TurtleGraphics} Package Introduction}
-
 The \textsf{TurtleGraphics} package offers to R-users functionality of the ''turtle graphics'' from Logo educational programming language. The main idea standing behind it is to encourage the children to learn programming and show that working with computer can be fun and creative.
 
 The \textsf{TurtleGraphics} package allows to create etiher simple or more sophisticated graphics on the basis of lines.  
@@ -32,10 +34,11 @@ The \textsf{TurtleGraphics} package offers functions to move forward or backward
 
 We strongly encourage you to try it yourself. Enjoy and have fun!
 
-
+\newpage
 \section{Installation And Usage of The Package}
 
 \subsection{Installation of The Package}
+
 To install the package \textsf{TurtleGraphics} you should use following instructions.
 <<results=hide, eval=FALSE>>=
 install_package("TurtleGraphics")
@@ -48,12 +51,17 @@ require("TurtleGraphics")
  
 \subsection{The Basics}
 \subsubsection{Moving The Turtle}
+
 To start using the program call the \textsf{turtle\_init()} function. It creates a plot region and places the Turtle in the middle pointing north.
+
 <<results=hide, eval=FALSE>>=
 turtle_init()
 @
+
 By default its size is 100 by 100 units. You can easily change it by passing as the arguments \textsf{width} and \textsf{height} (e.g. \textsf{turtle\_init(width=200, height=200)} ). To learn more about this functions try \textsf{help(turtle\_init)}.
-There are two main group of functions used to move the Turtle. \\
+
+There are two main group of functions used to move the Turtle. 
+
 The first one consists of the \textsf{turtle\_forward()} and the \textsf{turtle\_backward()} functions. In its argument you have to give the distance you desire the Turtle to move. For example, to move the Turtle forward for a distance of 10 units use the \textsf{turtle\_forward()} function. To move the Turtle backwards you can use either the \textsf{turtle\_forward()} function with the negative number as an argument or simply use the \textsf{turtle\_backward()} function.
 
 <<results=hide, eval=FALSE>>=
@@ -91,7 +99,7 @@ cat("\\includegraphics{", file, "}\n\n", sep="")
 @
 
 
-The other tool that helps to move the Turtle are the \textsf{turtle\_left} and the \textsf{turtle\_right} functions. They change the Turtle's direction by a given angle. For example, to turn the Turtle by 45 degrees to the right use the following: \\
+The other tool that helps to move the Turtle are the \textsf{turtle\_left} and the \textsf{turtle\_right} functions. They change the Turtle's direction by a given angle. For example, to turn the Turtle by 45 degrees to the right use the following: 
 
 <<results=hide, eval=FALSE>>=
 turtle_right(angle=45)
@@ -217,9 +225,9 @@ dev.off()
 cat("\\includegraphics{", file, "}\n\n", sep="")  
 @
 
-
 The full list of colors is available under the \textsf{colors()} function.
-Important! Remember that when passing an argument to this function you always have to use the quotation marks. \\
+Important! Remember that when passing an argument to this function you always have to use the quotation marks. 
+
 The \textsf{turtle\_lty()} and \textsf{turtle\_lwd()} functions change the type and the width of the line the Turle is making. To change the type of the path as an argument pass a number from $0$ to $6$ -- each means a different type of the line ($0=$blank, $1=$solid (default), $2=$ dashed, $3=$ dotted, $4=$ dotdash, $5=$ longdash, $6=$ twodash). To change the width of the line use the \textsf{turtle\_lwd()} function. As an argument you pass a width you desire (but don't exaggerate!).
 
 <<results=hide, eval=FALSE>>=
@@ -273,12 +281,14 @@ turtle_status()
 @
 
 If you just want to know where the Turtle is or at which angle try \textsf{turtle\_getpos()} and \textsf{turtle\_getangle()} functions respectively.
+
 <<results=verbatim, eval=TRUE>>=
 turtle_getpos()
 turtle_getangle()
 @
 
 If you wish to place the Turtle back at the starting position use the \textsf{turtle\_reset()} function. The \textsf{turtle\_goto()} function on the other hand, makes the Turtle go to the place you tell it to in its arguments passing the $x$ and $y$ coordinates. Mind that this function leaves the trace while using.
+
 <<results=hide, eval=FALSE>>=
 turtle_reset()
 turtle_goto(x=10,y=80)
@@ -320,11 +330,441 @@ dev.off()
 cat("\\includegraphics{", file, "}\n\n", sep="")  
 @
 
+\newpage
 \section{Advanced Usage of the Package}
-Now you know the basics. There some more advanced methods of usage of the package. 
+
+Now you know the basics. There some more advanced methods of usage of the package. There is one more function (\textsf{turtle\_do()}) in the package that is designed for more complicated sequence of commands. The usage is the following: in the argument you put \textsf{expr = } and between the curly brackets you give the sequence. Each command should be separted by a new line. Let's look at the example:
+
+<<results=hide, eval=FALSE>>=
+turtle_init()
+turtle_do(expr = {
+    turtle_move(10)
+    turtle_turn(45)
+    turtle_move(15)
+ })
+ 
+@
+
+<<results=hide, echo=FALSE>>=
+file <- paste("figure_9", ".pdf", sep="")  
+pdf(file=file, onefile=FALSE)  
+turtle_init()
+turtle_do(expr = {
+    turtle_move(10)
+    turtle_turn(45)
+    turtle_move(15)
+ })
+ 
+dev.off()  
+@
+
+<<results=tex, echo=FALSE>>=
+cat("\\includegraphics{", file, "}\n\n", sep="")  
+@
+
+You may ask why bother using such a function if the result is the same as while using three separate commands (in this case this would be \textsf{turtle\_move(10); turtle\_turn(45); turtle\_move(15)}). The thing is that this function hides the Turtle before performing the expression, thus the time that \textsf{expr} use is decreased.
+
+\subsection{Examples}
+
+At the end of this guide we would like to present some colorful and inspiring examples. The code is available in \ref{att1} and it is not explained -- those who are more inquiring will search via Internet how it works.
+
+\subsubsection{Random Lines}
+
+The first example is based on the random lines - every time the result is different.
+
+<<results=hide, echo=FALSE>>=
+file <- paste("figure_10", ".pdf", sep="")  
+pdf(file=file, onefile=FALSE)  
+turtle_init(100, 100, mode = "cycle")
+for(i in 1:10){
+  turtle_left(runif(1,0,360))
+  turtle_forward(runif(1, 0, 1000))  
+}
+dev.off()  
+@
+
+<<results=tex, echo=FALSE>>=
+cat("\\includegraphics{", file, "}\n\n", sep="")  
+@
+
+\subsubsection{The Spiral}
+
+<<results=hide, echo=FALSE>>=
+file <- paste("figure_11", ".pdf", sep="")  
+pdf(file=file, onefile=FALSE)  
+drawSpiral <- function(lineLen){
+   if (lineLen > 0){
+      turtle_forward(lineLen)
+      turtle_right(90)
+      drawSpiral(lineLen-5)      
+   }
+   invisible(NULL)
+}
+turtle_init(500, 500, mode="clip")
+turtle_setpos(x=0, y=0)
+turtle_col("blue")
+turtle_do(drawSpiral(500))
+turtle_setpos(x=250, y=0)
+turtle_left(45)
+turtle_col("green")
+turtle_do(drawSpiral(354))
+turtle_setangle(0)
+dev.off()  
+@
+
+<<results=tex, echo=FALSE>>=
+cat("\\includegraphics{", file, "}\n\n", sep="")  
+@
+
+\subsubsection{The Fractals}
+
+The next three examples are based on fractals - in the assumption they display self-similar pattern.
+
+\paragraph{The Fractal Tree}
+
+<<results=hide, echo=FALSE>>=
+file <- paste("figure_12", ".pdf", sep="")  
+pdf(file=file, onefile=FALSE)  
+fractal_tree <- function(s=100, n=2) {
+   if (n <= 1) {
+      turtle_forward(s)
+      turtle_up()
+      turtle_backward(s)
+      turtle_down()
+   }
+   else {
+      turtle_forward(s)
+      
+      a1 <- runif(1, 10, 60)
+      turtle_left(a1)
+      fractal_tree(s*runif(1, 0.25, 1), n-1)
+      turtle_right(a1)
+      
+      a2 <- runif(1, 10, 60)
+      turtle_right(a2)
+      fractal_tree(s*runif(1, 0.25, 1), n-1)
+      turtle_left(a2)
+      
+      turtle_up()
+      turtle_backward(s)
+      turtle_down()
+   }
+}
+
+set.seed(123)
+turtle_init(500, 600, 'clip')
+turtle_do({
+turtle_up()
+turtle_backward(250)
+turtle_down()
+turtle_col("darkgreen")
+fractal_tree(100, 12)
+})
+dev.off()  
+@
+
+<<results=tex, echo=FALSE>>=
+cat("\\includegraphics{", file, "}\n\n", sep="")  
+@
+
+\paragraph{The Koch Snowflake}
+
+<<results=hide, echo=FALSE>>=
+file <- paste("figure_13", ".pdf", sep="")  
+pdf(file=file, onefile=FALSE)  
+turtle_init(600, 400, 'error')
+turtle_up()
+turtle_left(90)
+turtle_forward(250)
+turtle_right(180)
+turtle_down()
+
+koch <- function(s=50, n=6) {
+   if (n <= 1)
+      turtle_forward(s)
+   else {
+      koch(s/3, n-1)
+      turtle_left(60)
+      koch(s/3, n-1)
+      turtle_right(120)
+      koch(s/3, n-1)
+      turtle_left(60)
+      koch(s/3, n-1)
+   }
+}
 
 
-%%% to do: do + more sophisticated examples. %%%
-%%% + more colorful and joyful and cheerful drawings
+turtle_hide()
+koch(500, 6)
+turtle_show()
+
+dev.off()  
+@
+
+<<results=tex, echo=FALSE>>=
+cat("\\includegraphics{", file, "}\n\n", sep="")  
+@
+
+\paragraph{The Sierpinski Triangle}
+
+<<results=hide, echo=FALSE>>=
+file <- paste("figure_14", ".pdf", sep="")  
+pdf(file=file, onefile=FALSE)  
+drawTriangle<- function(points){
+   turtle_setpos(points[1,1],points[1,2])
+   turtle_goto(points[2,1],points[2,2])
+   turtle_goto(points[3,1],points[3,2])
+   turtle_goto(points[1,1],points[1,2])   
+}
+
+getMid<- function(p1,p2) c((p1[1]+p2[1])/2, c(p1[2]+p2[2])/2)
+
+sierpinski <- function(points, degree){
+   drawTriangle(points)
+   if (degree > 0){
+      p1 <- matrix(c(points[1,], getMid(points[1,], points[2,]),
+                     getMid(points[1,], points[3,])), nrow=3, byrow=TRUE)  
+      
+      sierpinski(p1, degree-1)
+      p2 <- matrix(c(points[2,], getMid(points[1,], points[2,]),
+                     getMid(points[2,], points[3,])), nrow=3, byrow=TRUE)
+      
+      sierpinski(p2, degree-1)
+      p3 <- matrix(c(points[3,], getMid(points[3,], points[2,]),
+                     getMid(points[1,], points[3,])), nrow=3, byrow=TRUE)
+      sierpinski(p3, degree-1)
+   }
+   invisible(NULL)
+}
+turtle_init(520, 500, "clip")
+p <- matrix(c(10, 10, 510, 10, 250, 448), nrow=3, byrow=TRUE)
+turtle_col("red")
+turtle_do(sierpinski(p, 6))
+turtle_setpos(250, 448) 
+
+dev.off()  
+@
+
+<<results=tex, echo=FALSE>>=
+cat("\\includegraphics{", file, "}\n\n", sep="")  
+@
+
+\subsubsection{Turtle Rainbow Star Rain}
+% <<results=hide, echo=FALSE>>=
+% library(parallel)
+% file <- paste("figure_14", ".pdf", sep="")  
+% pdf(file=file, onefile=FALSE)  
+% turtle_rainbow_star_rain2 <- function(size=1){
+%       for (i in 1:(360*size)){
+%          turtle_right(90)
+%          turtle_col(colors()[sample(1:657, 1)])
+%          x <- sample(1:100,1)
+%          turtle_forward(x)
+%          turtle_up()
+%          turtle_backward(x)
+%          turtle_down()
+%          turtle_left(90)
+%          turtle_forward(1/size)
+%          turtle_left(1/size)
+%    }
+% }
+% 
+% turtle_init(500,500)
+% turtle_left(90)
+% cl <- makeCluster(detectCores())
+% clusterEvalQ(cl, library(TurtleGraphics))
+% parLapply(cl, 1, turtle_do(turtle_rainbow_star_rain2(10)))
+% stopCluster(cl)
+% turtle_hide()
+% 
+% dev.off()  
+% @
+% 
+% <<results=tex, echo=FALSE>>=
+% cat("\\includegraphics{", file, "}\n\n", sep="")  
+% @
+
+\newpage
+\section{Source Code}\label{att1}
+\subsubsection{Random Lines}
+
+<<results=hide, echo=FALSE>>=
+turtle_init(100, 100, mode = "cycle")
+for(i in 1:10){
+  turtle_left(runif(1,0,360))
+  turtle_forward(runif(1, 0, 1000))  
+} 
+@
+
+<<results=hide, eval=FALSE>>=
+turtle_init(100, 100, mode = "cycle")
+for(i in 1:10){
+  turtle_left(runif(1,0,360))
+  turtle_forward(runif(1, 0, 1000))  
+}
+@
+
+\subsubsection{The Spiral}
+<<results=hide, eval=FALSE>>=
+drawSpiral <- function(lineLen){
+   if (lineLen > 0){
+      turtle_forward(lineLen)
+      turtle_right(90)
+      drawSpiral(lineLen-5)      
+   }
+   invisible(NULL)
+}
+turtle_init(500, 500, mode="clip")
+turtle_setpos(x=0, y=0)
+turtle_col("blue")
+turtle_do(drawSpiral(500))
+turtle_setpos(x=250, y=0)
+turtle_left(45)
+turtle_col("green")
+turtle_do(drawSpiral(354))
+turtle_setangle(0)
+@
+
+\subsubsection{The Fractals}
+
+\paragraph{The Fractal Tree}
+<<results=hide, eval=FALSE>>=
+fractal_tree <- function(s=100, n=2) {
+   if (n <= 1) {
+      turtle_forward(s)
+      turtle_up()
+      turtle_backward(s)
+      turtle_down()
+   }
+   else {
+      turtle_forward(s)
+      
+      a1 <- runif(1, 10, 60)
+      turtle_left(a1)
+      fractal_tree(s*runif(1, 0.25, 1), n-1)
+      turtle_right(a1)
+      
+      a2 <- runif(1, 10, 60)
+      turtle_right(a2)
+      fractal_tree(s*runif(1, 0.25, 1), n-1)
+      turtle_left(a2)
+      
+      turtle_up()
+      turtle_backward(s)
+      turtle_down()
+   }
+}
+
+set.seed(123)
+turtle_init(500, 600, 'clip')
+turtle_do({
+turtle_up()
+turtle_backward(250)
+turtle_down()
+turtle_col("darkgreen")
+fractal_tree(100, 12)
+})
+@
+
+\paragraph{The Koch Snowflake}
+<<results=hide, eval=FALSE>>=
+turtle_init(600, 400, 'error')
+turtle_up()
+turtle_left(90)
+turtle_forward(250)
+turtle_right(180)
+turtle_down()
+
+koch <- function(s=50, n=6) {
+   if (n <= 1)
+      turtle_forward(s)
+   else {
+      koch(s/3, n-1)
+      turtle_left(60)
+      koch(s/3, n-1)
+      turtle_right(120)
+      koch(s/3, n-1)
+      turtle_left(60)
+      koch(s/3, n-1)
+   }
+}
+
+
+turtle_hide()
+koch(500, 6)
+turtle_show()
+@
+
+\paragraph{The Sierpinski Triangle}
+<<results=hide, eval=FALSE>>=
+drawTriangle<- function(points){
+   turtle_setpos(points[1,1],points[1,2])
+   turtle_goto(points[2,1],points[2,2])
+   turtle_goto(points[3,1],points[3,2])
+   turtle_goto(points[1,1],points[1,2])   
+}
+
+getMid<- function(p1,p2) c((p1[1]+p2[1])/2, c(p1[2]+p2[2])/2)
+
+sierpinski <- function(points, degree){
+   drawTriangle(points)
+   if (degree > 0){
+      p1 <- matrix(c(points[1,], getMid(points[1,], points[2,]),
+                     getMid(points[1,], points[3,])), nrow=3, byrow=TRUE)  
+      
+      sierpinski(p1, degree-1)
+      p2 <- matrix(c(points[2,], getMid(points[1,], points[2,]),
+                     getMid(points[2,], points[3,])), nrow=3, byrow=TRUE)
+      
+      sierpinski(p2, degree-1)
+      p3 <- matrix(c(points[3,], getMid(points[3,], points[2,]),
+                     getMid(points[1,], points[3,])), nrow=3, byrow=TRUE)
+      sierpinski(p3, degree-1)
+   }
+   invisible(NULL)
+}
+turtle_init(520, 500, "clip")
+p <- matrix(c(10, 10, 510, 10, 250, 448), nrow=3, byrow=TRUE)
+turtle_col("red")
+turtle_do(sierpinski(p, 6))
+turtle_setpos(250, 448) 
+@
+
+
+\subsubsection{Turtle Rainbow Star Rain}
+% <<results=hide, echo=FALSE>>=
+% library(parallel)
+% file <- paste("figure_14", ".pdf", sep="")  
+% pdf(file=file, onefile=FALSE)  
+% turtle_rainbow_star_rain2 <- function(size=1){
+%       for (i in 1:(360*size)){
+%          turtle_right(90)
+%          turtle_col(colors()[sample(1:657, 1)])
+%          x <- sample(1:100,1)
+%          turtle_forward(x)
+%          turtle_up()
+%          turtle_backward(x)
+%          turtle_down()
+%          turtle_left(90)
+%          turtle_forward(1/size)
+%          turtle_left(1/size)
+%    }
+% }
+% 
+% turtle_init(500,500)
+% turtle_left(90)
+% cl <- makeCluster(detectCores())
+% clusterEvalQ(cl, library(TurtleGraphics))
+% parLapply(cl, 1, turtle_do(turtle_rainbow_star_rain2(10)))
+% stopCluster(cl)
+% turtle_hide()
+% 
+% dev.off()  
+% @
+% 
+% <<results=tex, echo=FALSE>>=
+% cat("\\includegraphics{", file, "}\n\n", sep="")  
+% @
+
 
 \end{document}
