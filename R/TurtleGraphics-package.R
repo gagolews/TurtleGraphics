@@ -18,16 +18,23 @@
 #' @title Turtle Graphics in R
 #'
 #' @description
-#' TO BE DONE
+#' Learn computer programming while having a jolly time
 #'
 #' @details
-#' TO BE DONE
+#' Move the Turtle with commands that are relative
+#' to its own position, e.g. "move forward 100 pixels" or
+#' "turn right 30 degrees". From these building blocks you can build
+#' more complex shapes like circles, fractals, etc.
+#' Combined with R control flow, functions, and recursion,
+#' the idea of Turtle graphics allows students to get familiar with
+#' computer programming in a very accessible and pleasant way.
 #'
 #' @author
-#' Anna Cena \email{cena@@rexamine.com} [aut]\cr
-#' Marek Gagolewski \email{gagolews@@rexamine.com} [aut]\cr
-#' Marcin Kosinski \email{m.p.kosinski@@gmail.com} [aut]\cr
-#' Barbara Zogala-Siudem \email{zogala@@rexamine.com} [aut, cre]
+#' Anna Cena [aut]\cr
+#' Marek Gagolewski [aut]\cr
+#' Marcin Kosinski [aut]\cr
+#' Natalia Potocka [aut]
+#' Barbara Zogala-Siudem [aut, cre]
 #' 
 #' 
 #' @family TurtleGraphics

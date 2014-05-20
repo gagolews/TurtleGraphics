@@ -34,7 +34,7 @@
 #' Both functions return a (named) numeric vector.
 #' \code{turtle_getpos} returns a vector of length two which
 #' specifies the \code{x} and \code{y} coordinates.
-#' The \code{turtle_getangle} returns the \code{angle} in which Turtle is rotated.
+#' The \code{turtle_getangle} returns the angle.
 #'    
 #' @examples
 #' turtle_init()

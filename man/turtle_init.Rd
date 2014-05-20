@@ -6,29 +6,29 @@
 turtle_init(width = 100, height = 100, mode = c("error", "clip", "cycle"))
 }
 \arguments{
-\item{width}{numeric; plot width}
+\item{width}{numeric; plot width.}
 
-\item{height}{numeric; plot height}
+\item{height}{numeric; plot height.}
 
 \item{mode}{character string; one of \code{"error"}, \code{"clip"},
-   or \code{"cycle"}}
+   or \code{"cycle"}.}
 }
 \description{
 This function creates a new empty plot
-with the Turtle centered on the board and facing north.
+with the Turtle centered on the board and facing to the north.
 }
 \details{
 The \code{mode} argument determines what happens if the Turtle
 tries to move outside the terrarium.
-\code{clip} allows him to do that, but the drawing will be clipped
+\code{clip} allows it to do that, but the drawing will be clipped
 to the predefined plot region.
 \code{error} throws an error.
 \code{cycle} makes the Turtle appear on the other side of the board.
 
 After the \code{turtle_init()} function has been called
-you can e.g. move the turtle with the \code{\link{turtle_forward}}
+you can e.g. move the Turtle with the \code{\link{turtle_forward}}
 function, turn its direction with \code{\link{turtle_right}}
-or set display parameters of the turtle trace,
+or set display parameters of the Turtle's trace,
 see \code{\link{turtle_param}}.
 }
 \seealso{
@@ -37,6 +37,7 @@ Other TurtleGraphics: \code{\link{TurtleGraphics-package}};
   \code{\link{turtle_forward}}, \code{\link{turtle_move}};
   \code{\link{turtle_col}}, \code{\link{turtle_lty}},
   \code{\link{turtle_lwd}}, \code{\link{turtle_param}};
+  \code{\link{turtle_down}}, \code{\link{turtle_up}};
   \code{\link{turtle_do}}; \code{\link{turtle_getangle}},
   \code{\link{turtle_getpos}}; \code{\link{turtle_goto}},
   \code{\link{turtle_setangle}},

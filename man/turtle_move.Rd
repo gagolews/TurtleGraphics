@@ -12,29 +12,30 @@ turtle_forward(distance)
 turtle_backward(distance)
 }
 \arguments{
-\item{distance}{Specifies the distance to make.
+\item{distance}{single numeric value; specifies the distance to make.
 Negative distance results in moving in the opposite direction.}
 
-\item{direction}{Moving direction.
+\item{direction}{character string; moving direction.
        One of \code{"forward"} or \code{"backward"}.}
 }
 \description{
-\code{turtle_forward} moves the Turtle in forward and
-\code{turtle_backward} moves the Turtle in backward.
+\code{turtle_forward} moves the Turtle in forward direction and
+\code{turtle_backward} moves the Turtle back.
 }
 \details{
 The Turtle must be initialized prior to using
 these functions, see \code{\link{turtle_init}}.
 
 These functions make use of the Turtle's display options specified by
-\code{\link{turtle_param}} function
+the \code{\link{turtle_param}} function
 (or if not, use the default options set by \code{\link{turtle_init}}).
 
 Note that if \code{\link{turtle_up}} or \code{\link{turtle_down}}
-was called, the Turtle's route will be or not be drawn, respectively.
+was called, the Turtle's trace will be or not be drawn, respectively.
 
 If you are willing to call these functions in an R loop,
-you may want to hide the Turtle temporarily (see \code{\link{turtle_hide}})
+you may want to hide the Turtle temporarily (see \code{\link{turtle_hide}}
+and \code{\link{turtle_do}})
 before making actual moves. This will increase the drawing performance
 significantly.
 }
@@ -52,6 +53,7 @@ turtle_forward(9)
 Other TurtleGraphics: \code{\link{TurtleGraphics-package}};
   \code{\link{turtle_col}}, \code{\link{turtle_lty}},
   \code{\link{turtle_lwd}}, \code{\link{turtle_param}};
+  \code{\link{turtle_down}}, \code{\link{turtle_up}};
   \code{\link{turtle_do}}; \code{\link{turtle_getangle}},
   \code{\link{turtle_getpos}}; \code{\link{turtle_goto}},
   \code{\link{turtle_setangle}},

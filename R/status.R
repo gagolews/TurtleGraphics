@@ -15,11 +15,11 @@
 ##    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-#' @title Read Turtle's Status
+#' @title Read the Turtle's Status
 #'
 #' @description
-#' \code{turtle_status()} gives information about the current
-#' Turtle's position, direction, and on values of display parameters.
+#' This function gives information about the current
+#' Turtle's position, direction, and on display options.
 #' 
 #' @details
 #' The Turtle must be initialized prior to using
@@ -38,7 +38,6 @@ turtle_status <- function()
    gp <- get("gpar_path", envir=.turtle_data)
    
    list(DisplayOptions=list(
-          
          col=gp$col,
          lty=gp$lty,
          lwd=gp$lwd,

@@ -4,22 +4,30 @@
 \alias{TurtleGraphics-package}
 \title{Turtle Graphics in R}
 \description{
-TO BE DONE
+Learn computer programming while having a jolly time
 }
 \details{
-TO BE DONE
+Move the Turtle with commands that are relative
+to its own position, e.g. "move forward 100 pixels" or
+"turn right 30 degrees". From these building blocks you can build
+more complex shapes like circles, fractals, etc.
+Combined with R control flow, functions, and recursion,
+the idea of Turtle graphics allows students to get familiar with
+computer programming in a very accessible and pleasant way.
 }
 \author{
-Anna Cena \email{cena@rexamine.com} [aut]\cr
-Marek Gagolewski \email{gagolews@rexamine.com} [aut]\cr
-Marcin Kosinski \email{m.p.kosinski@gmail.com} [aut]\cr
-Barbara Zogala-Siudem \email{zogala@rexamine.com} [aut, cre]
+Anna Cena [aut]\cr
+Marek Gagolewski [aut]\cr
+Marcin Kosinski [aut]\cr
+Natalia Potocka [aut]
+Barbara Zogala-Siudem [aut, cre]
 }
 \seealso{
 Other TurtleGraphics: \code{\link{turtle_backward}},
   \code{\link{turtle_forward}}, \code{\link{turtle_move}};
   \code{\link{turtle_col}}, \code{\link{turtle_lty}},
   \code{\link{turtle_lwd}}, \code{\link{turtle_param}};
+  \code{\link{turtle_down}}, \code{\link{turtle_up}};
   \code{\link{turtle_do}}; \code{\link{turtle_getangle}},
   \code{\link{turtle_getpos}}; \code{\link{turtle_goto}},
   \code{\link{turtle_setangle}},

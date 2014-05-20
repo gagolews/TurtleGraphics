@@ -12,12 +12,12 @@ turtle_left(angle)
 turtle_right(angle)
 }
 \arguments{
-\item{angle}{Rotation angle in degrees.
+\item{angle}{single numeric value; rotation angle in degrees.
 A negative value turns the Turtle in the opposite
 direction than the given one.}
 
-\item{direction}{Direction of the turn.
-   Possible values are "left" and "right"}
+\item{direction}{character string; direction of the turn.
+   Possible values are \code{"left"} and \code{"right"}.}
 }
 \description{
 Turn the Turtle in the given direction by the given angle.
@@ -38,6 +38,7 @@ Other TurtleGraphics: \code{\link{TurtleGraphics-package}};
   \code{\link{turtle_forward}}, \code{\link{turtle_move}};
   \code{\link{turtle_col}}, \code{\link{turtle_lty}},
   \code{\link{turtle_lwd}}, \code{\link{turtle_param}};
+  \code{\link{turtle_down}}, \code{\link{turtle_up}};
   \code{\link{turtle_do}}; \code{\link{turtle_getangle}},
   \code{\link{turtle_getpos}}; \code{\link{turtle_goto}},
   \code{\link{turtle_setangle}},
