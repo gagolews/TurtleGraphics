@@ -26,11 +26,11 @@
 #' this function, see \code{\link{turtle_init}}. 
 #' 
 #' 
-#' @param angle  Rotation angle in degrees.
+#' @param angle  single numeric value; rotation angle in degrees.
 #'    A negative value turns the Turtle in the opposite
 #'    direction than the given one.
-#' @param direction  Direction of the turn.
-#'    Possible values are "left" and "right"
+#' @param direction character string; direction of the turn.
+#'    Possible values are \code{"left"} and \code{"right"}.
 #'
 #' @examples
 #' turtle_init()
@@ -49,7 +49,7 @@ turtle_turn <- function(angle, direction = c("left", "right"))
    stopifnot(is.numeric(angle), length(angle) == 1, is.finite(angle))
    
    if (angle < 0)
-      warning("Negative `angle` turns the turtle in the opposite direction.")
+      warning("Negative `angle` turns the Turtle in the opposite direction.")
    
    if (direction == "left")
       angle = -angle

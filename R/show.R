@@ -26,7 +26,8 @@
 #' this function, see \code{\link{turtle_init}}. 
 #' 
 #' It is recommended to hide the Turtle when
-#' performing multiple turtle moves, for efficiency reasons.
+#' performing multiple Turtle moves, for efficiency reasons,
+#' see also \code{\link{turtle_do}}.
 #'
 #' @examples
 #' turtle_init()

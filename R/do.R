@@ -16,33 +16,32 @@
 
 
 #' @title
-#' Evaluate the Turtle's Expression 
+#' Evaluate a Larger Portion of Turtle Drawing Code
 #'
 #' @description
-#' \code{turtle_do} evaluate an expression which consists of the 
-#' named 'turtle_*' functions applied to the given arguments 
+#' \code{turtle_do} evaluates an R expression 
+#' with the Turtle temporarily hidden (for performance reasons).
 #' 
-#' @param expr the expression to evaluate (usually enclosed in brackets 
-#' consecutive functions calls describing a Turtle moves to be plotted,
-#' see \code{\link{turtle_move}}, \code{\link{turtle_turn}}) 
+#' @param expr expression to evaluate
 #' 
 #'  
 #' @details
 #' The terrarium must be initialized prior to using
 #' these functions, see \code{\link{turtle_init}}.
 #' 
-#' In order to decrease the time that \code{expr} use,
-#' it is evaluated with hidden Turtle.
+#' In order to decrease the evaluation time of \code{expr},
+#' it is evaluated with Turtle temporarily hidden.
 #' Basically it means that if a Turtle image is visible (see 
 #' \code{\link{turtle_show}} and \code{\link{turtle_hide}}) \code{turtle_do}
-#' remove it, evaluate the \code{expr} and redraw on the function exit.
+#' removes it, evaluates \code{expr} and redraws it on the function exit.
 #'    
 #' @examples
 #' turtle_init()
-#' turtle_do(expr = {
-#'    turtle_move(100)
-#'    turtle_turn(45)
-#'    turtle_move(100)
+#' turtle_do({
+#'    for (i in 1:4) {
+#'       turtle_forward(50)
+#'       turtle_right(90)
+#'    }
 #' })
 #' 
 #' @family TurtleGraphics
@@ -58,7 +57,7 @@ turtle_do <- function(expr){
    
    if (curVisible)
       turtle_show()
+ 
    invisible(NULL)
 }
-   
    

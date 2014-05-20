@@ -12,13 +12,13 @@ turtle_setpos(x, y)
 turtle_setangle(angle)
 }
 \arguments{
-\item{x,y}{coordinates specifying new Turtle's location}
+\item{x,y}{numeric; coordinates specifying new Turtle's location.}
 
-\item{angle}{rotation angle in degrees}
+\item{angle}{numeric; rotation angle in degrees.}
 }
 \description{
 \code{turtle_goto} and \code{turtle_setpos} move the Turtle to a
-given location without changing its angle of direction.
+given location without changing its direction.
 
 \code{turtle_setangle}
 rotates the Turtle to a given (absolute) angle,
@@ -44,6 +44,7 @@ Other TurtleGraphics: \code{\link{TurtleGraphics-package}};
   \code{\link{turtle_forward}}, \code{\link{turtle_move}};
   \code{\link{turtle_col}}, \code{\link{turtle_lty}},
   \code{\link{turtle_lwd}}, \code{\link{turtle_param}};
+  \code{\link{turtle_down}}, \code{\link{turtle_up}};
   \code{\link{turtle_do}}; \code{\link{turtle_getangle}},
   \code{\link{turtle_getpos}}; \code{\link{turtle_hide}},
   \code{\link{turtle_show}}; \code{\link{turtle_init}};

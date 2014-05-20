@@ -23,17 +23,14 @@
 #' line width.
 #' 
 #'   
-#' @param col  numeric or character; Trace color
-#' @param lty  numeric;  Trace line type
-#' @param lwd  numeric;  Trace line width
+#' @param col  numeric or character; trace color, see e.g. \code{\link{colors}}
+#'      and \code{\link{gpar}}.
+#' @param lty  numeric; trace line type, see \code{\link{gpar}}.
+#' @param lwd  numeric; trace line width, see \code{\link{gpar}}.
 #' 
 #' @details
 #' The Turtle must be initialized prior to using
 #' this function, see \code{\link{turtle_init}}. 
-#' 
-#' After running any of the parameter changing functions, the trace of the Turtle changes during the next 
-#' \code{\link{turtle_forward}} usage.
-#' 
 #' 
 #' @examples
 #' turtle_init()
@@ -78,13 +75,10 @@ turtle_param <- function(col=NULL, lwd=NULL, lty=NULL)
    
    if (!is.null(lwd)) {
       stopifnot(is.numeric(lwd), length(lwd) == 1, is.finite(lwd), lwd > 0)
-      
       gp <- get("gpar_path", envir=.turtle_data)
       gp$lwd <- lwd
       assign(envir=.turtle_data, "gpar_path", gp)
    }
-      
-
   
    invisible(NULL)
 }
@@ -116,15 +110,18 @@ turtle_lty <- function(lty)
 
 
 #' @title
-#' t.b.d.
+#' Turn on or off Turtle Trace Drawing
 #' 
 #' @description
-#' t.b.d
+#' When the Turtle moves, it may or may not
+#' leave a visible trace. These functions
+#' control such a behavior.
 #' 
 #' @details
-#' t.b.d.
+#' The Turtle must be initialized prior to using
+#' this function, see \code{\link{turtle_init}}. 
 #' 
-#' 
+#' @family TurtleGraphics
 #' @rdname turtle_up
 #' @export
 turtle_up <- function()

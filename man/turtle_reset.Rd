@@ -8,13 +8,14 @@ turtle_reset()
 \description{
 This function resets the Turtle's position, direction,
 and graphical options.
-After a call to this function, the Turtle will be situated
-in the terrarium's center and it will be directed
-to the north.
 }
 \details{
 The Turtle must be initialized prior to using
 this function, see \code{\link{turtle_init}}.
+
+After a call to this function, the Turtle will be placed
+in the terrarium's center and it will be directed
+to the north.
 
 The drawing remains unchanged.
 }
@@ -32,6 +33,7 @@ Other TurtleGraphics: \code{\link{TurtleGraphics-package}};
   \code{\link{turtle_forward}}, \code{\link{turtle_move}};
   \code{\link{turtle_col}}, \code{\link{turtle_lty}},
   \code{\link{turtle_lwd}}, \code{\link{turtle_param}};
+  \code{\link{turtle_down}}, \code{\link{turtle_up}};
   \code{\link{turtle_do}}; \code{\link{turtle_getangle}},
   \code{\link{turtle_getpos}}; \code{\link{turtle_goto}},
   \code{\link{turtle_setangle}},

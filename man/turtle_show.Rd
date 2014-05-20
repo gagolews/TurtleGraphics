@@ -17,7 +17,8 @@ The Turtle must be initialized prior to using
 this function, see \code{\link{turtle_init}}.
 
 It is recommended to hide the Turtle when
-performing multiple turtle moves, for efficiency reasons.
+performing multiple Turtle moves, for efficiency reasons,
+see also \code{\link{turtle_do}}.
 }
 \examples{
 turtle_init()
@@ -32,6 +33,7 @@ Other TurtleGraphics: \code{\link{TurtleGraphics-package}};
   \code{\link{turtle_forward}}, \code{\link{turtle_move}};
   \code{\link{turtle_col}}, \code{\link{turtle_lty}},
   \code{\link{turtle_lwd}}, \code{\link{turtle_param}};
+  \code{\link{turtle_down}}, \code{\link{turtle_up}};
   \code{\link{turtle_do}}; \code{\link{turtle_getangle}},
   \code{\link{turtle_getpos}}; \code{\link{turtle_goto}},
   \code{\link{turtle_setangle}},

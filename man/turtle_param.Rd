@@ -15,11 +15,12 @@ turtle_lwd(lwd)
 turtle_lty(lty)
 }
 \arguments{
-\item{col}{numeric or character; Trace color}
+\item{col}{numeric or character; trace color, see e.g. \code{\link{colors}}
+and \code{\link{gpar}}.}
 
-\item{lty}{numeric;  Trace line type}
+\item{lty}{numeric; trace line type, see \code{\link{gpar}}.}
 
-\item{lwd}{numeric;  Trace line width}
+\item{lwd}{numeric; trace line width, see \code{\link{gpar}}.}
 }
 \description{
 Sets the display options for the Turtle's trace.
@@ -29,9 +30,6 @@ line width.
 \details{
 The Turtle must be initialized prior to using
 this function, see \code{\link{turtle_init}}.
-
-After running any of the parameter changing functions, the trace of the Turtle changes during the next
-\code{\link{turtle_forward}} usage.
 }
 \examples{
 turtle_init()
@@ -48,6 +46,7 @@ turtle_forward(5)
 Other TurtleGraphics: \code{\link{TurtleGraphics-package}};
   \code{\link{turtle_backward}},
   \code{\link{turtle_forward}}, \code{\link{turtle_move}};
+  \code{\link{turtle_down}}, \code{\link{turtle_up}};
   \code{\link{turtle_do}}; \code{\link{turtle_getangle}},
   \code{\link{turtle_getpos}}; \code{\link{turtle_goto}},
   \code{\link{turtle_setangle}},

@@ -20,7 +20,7 @@
 #'
 #' @description
 #' \code{turtle_goto} and \code{turtle_setpos} move the Turtle to a 
-#' given location without changing its angle of direction.
+#' given location without changing its direction.
 #' 
 #' \code{turtle_setangle} 
 #' rotates the Turtle to a given (absolute) angle,
@@ -40,8 +40,8 @@
 #' see \code{\link{turtle_up}}, \code{\link{turtle_down}}. In case of 
 #' \code{turtle_setpos}, however, the path drawing is always disabled.
 #'   
-#' @param x,y  coordinates specifying new Turtle's location
-#' @param angle rotation angle in degrees
+#' @param x,y  numeric; coordinates specifying new Turtle's location.
+#' @param angle numeric; rotation angle in degrees.
 #'
 #' @family TurtleGraphics
 #' @rdname turtle_goto
@@ -63,12 +63,14 @@ turtle_goto <- function(x, y)
    curWidth    <- get("width", envir=.turtle_data)
    curHeight   <- get("height", envir=.turtle_data)
    
-   if (curMode == 'clip' || (x >= 0 && x<= curWidth && y>=0 && y<=curHeight)) {
+   if (curMode == 'clip' ||
+     (x >= 0 && x<= curWidth && y>=0 && y<=curHeight)) {
       .turtle_draw_fromto(curX, curY, x, y, curGp, curDraw, curVisible)      
    }
    else {
-      stop('Given cooridnates lie outside the terrarium. :-(')
+      stop('Given coordinates lie outside the terrarium. :-(')
    }
+   
    invisible(NULL)
 }
 
@@ -93,8 +95,9 @@ turtle_setpos <- function(x, y)
       .turtle_redraw()      
    }
    else {
-      stop('Given cooridnates lie outside the terrarium. :-(')
+      stop('Given coordinates lie outside the terrarium. :-(')
    }
+   
    invisible(NULL)
 }
 
