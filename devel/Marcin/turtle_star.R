@@ -2,7 +2,6 @@
 
 turtle_star <- function(intensity=1){
    
-   y <- numeric(360*intensity)
    y <- sample(1:657, 360*intensity, replace=TRUE)
    
    
@@ -25,5 +24,5 @@ library(TurtleGraphics)
 turtle_init(500,500)
 turtle_left(90)
 turtle_hide()
-turtle_rainbow_star_rain2(10) #- withouth cluster
+turtle_star(5) #- without cluster
 turtle_show()
