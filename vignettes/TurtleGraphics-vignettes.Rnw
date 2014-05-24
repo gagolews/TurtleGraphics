@@ -623,7 +623,7 @@ The other example of recursion is a fractal. Usually, a fractal is an image whic
 \section{Examples}\label{ex}
 
 At the end of this guide we would like to present some colorful and inspiring examples.
-\subsubsection{Random Lines}
+\subsection{Random Lines}
 
 The first example is based on the random lines - every time the result is different.\\
 <<results=hide, echo=FALSE>>=
@@ -653,7 +653,7 @@ for(i in 1:10){
 \newpage
 
 
-\subsubsection{The Spiral}
+\subsection{The Spiral}
 <<results=hide, echo=FALSE>>=
 file <- paste("figure_11", ".pdf", sep="")  
 pdf(file=file, onefile=FALSE)  
@@ -704,7 +704,7 @@ turtle_setangle(0)
 @
 \newpage
 
-\subsubsection{The Turtle Rainbow Star}
+\subsection{The Turtle Rainbow Star}
 <<results=hide, echo=FALSE>>=
 file <- paste("figure_15", ".pdf", sep="")  
 pdf(file=file, onefile=FALSE)  
@@ -760,7 +760,7 @@ turtle_show()
 @
 \newpage
 
-\subsubsection{The Turtle Brownian}
+\subsection{The Turtle Brownian}
 This example is inspired by Brownian motion.\\
 <<results=hide, echo=FALSE>>=
 file <- paste("figure_16", ".pdf", sep="")  
@@ -804,7 +804,7 @@ turtle_do(turtle_brownian(1000, length=25))
 @
 \newpage
 
-\subsubsection{The Fractal Tree}
+\subsection{The Fractal Tree}
 <<results=hide, echo=FALSE>>=
 file <- paste("figure_12", ".pdf", sep="")  
 pdf(file=file, onefile=FALSE)  
@@ -888,7 +888,7 @@ fractal_tree(100, 12)
 @
 \newpage
 
-\subsubsection{The Koch Snowflake}
+\subsection{The Koch Snowflake}
 
 <<results=hide, echo=FALSE>>=
 file <- paste("figure_13", ".pdf", sep="")  
@@ -957,7 +957,7 @@ turtle_show()
 @
 \newpage
 
-\subsubsection{The Sierpinski Triangle}
+\subsection{The Sierpinski Triangle}
 
 <<results=hide, echo=FALSE>>=
 file <- paste("figure_14", ".pdf", sep="")  
