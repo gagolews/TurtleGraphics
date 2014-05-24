@@ -16,4 +16,4 @@ Authors:
 * Barbara Żogała-Siudem
 
 
-![alt tag](https://raw.githubusercontent.com/Rexamine/TurtleGraphics/master/devel/img/turtle2.png "Turtle")
+![alt tag](https://raw.githubusercontent.com/Rexamine/TurtleGraphics/master/devel/Ania/turtle2.png "Turtle")
