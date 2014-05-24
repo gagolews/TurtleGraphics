@@ -1,0 +1,28 @@
+\contentsline {section}{\numberline {1}The \textsf {TurtleGraphics} Package Introduction}{2}{section.1}
+\contentsline {section}{\numberline {2}Installation And Usage of The Package}{2}{section.2}
+\contentsline {subsection}{\numberline {2.1}Installation of the Package}{2}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}The Basics}{2}{subsection.2.2}
+\contentsline {subsubsection}{\numberline {2.2.1}Moving the Turtle}{2}{subsubsection.2.2.1}
+\contentsline {paragraph}{\textsf {turtle\_init}.}{2}{section*.2}
+\contentsline {paragraph}{\textsf {turtle\_forward} and \textsf {turtle\_backward}.}{2}{section*.3}
+\contentsline {paragraph}{\textsf {turtle\_right} and \textsf {turtle\_left}.}{3}{section*.4}
+\contentsline {subsubsection}{\numberline {2.2.2}Additional Options}{4}{subsubsection.2.2.2}
+\contentsline {paragraph}{\textsf {turtle\_up} and \textsf {turtle\_down}.}{4}{section*.5}
+\contentsline {paragraph}{\textsf {turtle\_hide} and \textsf {turtle\_show}.}{5}{section*.6}
+\contentsline {paragraph}{\textsf {turtle\_col}, \textsf {turtle\_lty} and \textsf {turtle\_lwd}.}{6}{section*.7}
+\contentsline {paragraph}{\textsf {turtle\_status}, \textsf {turtle\_getpos} and \textsf {turtle\_getangle}.}{7}{section*.8}
+\contentsline {paragraph}{\textsf {turtle\_reset} and \textsf {turtle\_goto}.}{8}{section*.9}
+\contentsline {subsection}{\numberline {2.3}Advanced Usage of the Package}{9}{subsection.2.3}
+\contentsline {section}{\numberline {3}Introduction to \textsf {R}}{11}{section.3}
+\contentsline {subsection}{\numberline {3.1}The \textsf {for} loop.}{11}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}\textsf {If}}{11}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Functions}{13}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}Recursion}{14}{subsection.3.4}
+\contentsline {section}{\numberline {4}Examples}{15}{section.4}
+\contentsline {subsubsection}{\numberline {4.0.1}Random Lines}{15}{subsubsection.4.0.1}
+\contentsline {subsubsection}{\numberline {4.0.2}The Spiral}{16}{subsubsection.4.0.2}
+\contentsline {subsubsection}{\numberline {4.0.3}The Turtle Rainbow Star}{17}{subsubsection.4.0.3}
+\contentsline {subsubsection}{\numberline {4.0.4}The Turtle Brownian}{18}{subsubsection.4.0.4}
+\contentsline {subsubsection}{\numberline {4.0.5}The Fractal Tree}{19}{subsubsection.4.0.5}
+\contentsline {subsubsection}{\numberline {4.0.6}The Koch Snowflake}{21}{subsubsection.4.0.6}
+\contentsline {subsubsection}{\numberline {4.0.7}The Sierpinski Triangle}{22}{subsubsection.4.0.7}
