@@ -13,7 +13,7 @@ fractal_tree <- function(s=100, n=2) {
       fractal_tree(s*runif(1, 0.25, 1), n-1)
       turtle_right(a1)
       
-      a2 <- runif(1, 10, 60)
+      a2 <- runif(1, 20, 80)
       turtle_right(a2)
       fractal_tree(s*runif(1, 0.25, 1), n-1)
       turtle_left(a2)
@@ -24,14 +24,14 @@ fractal_tree <- function(s=100, n=2) {
    }
 }
 
-set.seed(123)
+# set.seed(1234)
 turtle_init(500, 600, 'clip')
 turtle_do({
 turtle_up()
 turtle_backward(250)
 turtle_down()
-turtle_col("darkgreen")
-fractal_tree(100, 12)
+turtle_col("darkblue")
+fractal_tree(100, 10)
 })
 
 
