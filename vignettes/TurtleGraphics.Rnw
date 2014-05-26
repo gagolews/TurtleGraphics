@@ -1,5 +1,5 @@
 \documentclass{article}
-% \VignetteIndexEntry{TurtleGraphics packge}
+% \VignetteIndexEntry{TurtleGraphics package}
 \usepackage{subfigure}
 \usepackage[latin2]{inputenc}
 \usepackage[top=1.5cm, bottom=1.5cm, left=2.5cm, right=2.5cm]{geometry}
