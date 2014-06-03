@@ -21,5 +21,5 @@ Description: Move the Turtle with commands that are relative
     the idea of Turtle graphics allows students to get familiar with
     computer programming in a very accessible and pleasant way.
 License: GPL (>= 3)
-URL: http://TurboTurtle.rexamine.com
+URL: http://TurtleGraphics.rexamine.com
 BugReports: https://github.com/Rexamine/TurtleGraphics/issues
