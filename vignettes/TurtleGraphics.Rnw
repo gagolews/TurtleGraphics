@@ -1,5 +1,5 @@
 \documentclass{article}
-% \VignetteIndexEntry{TurtleGraphics packge}
+% \VignetteIndexEntry{TurtleGraphics package}
 \usepackage{subfigure}
 \usepackage[latin2]{inputenc}
 \usepackage[top=1.5cm, bottom=1.5cm, left=2.5cm, right=2.5cm]{geometry}
@@ -27,12 +27,22 @@
 
 \newpage
 \section{The \textsf{TurtleGraphics} Package Introduction}
-The \textsf{TurtleGraphics} package offers to R-users functionality of the ''turtle graphics'' from Logo educational programming language. The main idea standing behind it is to encourage the children to learn programming and show that working with computer can be fun and creative.
+The \textsf{TurtleGraphics} package offers R users the so-called
+``turtle graphics'' facilities known from the Logo
+programming language. The key idea behind the package
+is to encourage children to learn
+programming and demonstrate that working with computers can be fun and creative.
 
-The \textsf{TurtleGraphics} package allows to create etiher simple or more sophisticated graphics on the basis of lines.  
-The main idea is that the Turtle, described by its location and orientation, moves with commands that are relative to its own position. The line that it leaves behind can be controlled, by disabling it or by setting its color and type.
+The \textsf{TurtleGraphics} package allows to create either simple
+or more sophisticated graphics on the basis of lines.
+The Turtle, described by its location and orientation,
+moves with commands that are relative to its position. The line that it
+leaves behind can be controlled by disabling it or by setting its color and type.
 
-The \textsf{TurtleGraphics} package offers functions to move forward or backward a given distance and to turn the Turtle in a choosen direction. The graphical parameter of the plot, for example the color, type or visibility of the line, can also be easily changed.  
+The \textsf{TurtleGraphics} package offers functions to move forward or
+backward by a given distance and to turn the Turtle by a chosen angle.
+The graphical options of the plot, for example the color, type or
+visibility of the line, can also be easily changed.
 
 We strongly encourage you to try it yourself. Enjoy and have fun!
 
@@ -41,65 +51,87 @@ We strongly encourage you to try it yourself. Enjoy and have fun!
 
 \subsection{Installation of the Package}
 
-To install the package \textsf{TurtleGraphics} you should use following instructions.
+To install the \textsf{TurtleGraphics} package use the following calls.
+
 <<results=hide, eval=FALSE>>=
 install.packages("TurtleGraphics")
 @
 
-Then you have to load the package with the \textsf{require()} function, as it is shown below.
+Then you load the package with the \textsf{require()} function, as it is shown below.
+
 <<results=hide>>=
 require("TurtleGraphics")
 @
- 
+
 \subsection{The Basics}
 \subsubsection{Moving the Turtle}
 \paragraph{\textsf{turtle\_init}.}
-To start using the program call the \textsf{turtle\_init()} function. It creates a plot region (sometimes called ''Terrarium'') and places the Turtle in the middle pointing north.
+To start, call the \textsf{turtle\_init()} function.
+It creates a plot region and places the Turtle
+in the Terrarium's center, facing north.
 
 <<results=hide, eval=FALSE>>=
 turtle_init()
 @
 
-By default its size is 100 by 100 units. You can easily change it by passing as the arguments \textsf{width} and \textsf{height} (e.g. \textsf{turtle\_init(width=200, height=200)} ). There is one more argument that you can pass to this function. It defines the mode of the Terrarium and what happens if the Turtle moves outside the plot region. If you choose the \textsf{"clip"} option, which is default, then the Turtle can go outside the board but it (the Turtle) will not be seen. The \textsf{"error"} option does not let the Turtle out of the Terrarium and if you try to it will return an error. The third option --  \textsf{"cycle"} -- makes the Turtle come on the other side of the board in case of crossing its boarder.
+By default its size is 100 by 100 units.
+You can easily change it by passing as the arguments \textsf{width}
+and \textsf{height} (e.g. \textsf{turtle\_init(width=200, height=200)}).
+
+To define what happens if the Turtle moves outside the plot region,
+you can set the \textsf{mode} option.
+The default value, \textsf{"clip"},
+means that the Turtle can freely go outside the board (but it will not be seen).
+The \textsf{"error"} option does not let the Turtle out of the Terrarium
+-- if the Turtle tries to escape, an error is thrown.
+The third value,  \textsf{"cycle"}, makes the Turtle come out
+on the other side of the board in case of crossing its border.
 
 \paragraph{\textsf{turtle\_forward} and \textsf{turtle\_backward}.}
 
-There are two main group of functions used to move the Turtle. 
+There are two main groups of functions used to move the Turtle.
 
-The first one consists of the \textsf{turtle\_forward()} and the \textsf{turtle\_backward()} functions. In its argument you have to give the distance you desire the Turtle to move. For example, to move the Turtle forward for a distance of 10 units use the \textsf{turtle\_forward()} function. To move the Turtle backwards you can use either the \textsf{turtle\_forward()} function with the negative number as an argument or simply use the \textsf{turtle\_backward()} function.
+The first one consists of the \textsf{turtle\_forward()}
+and the \textsf{turtle\_backward()} functions.
+In its argument you have to give the distance you desire the Turtle to move.
+For example, to move the Turtle forward by a distance of 10 units,
+use the \textsf{turtle\_forward()} function.
+To move the Turtle backwards you can use either the \textsf{turtle\_forward()}
+function with the negative number as an argument or simply
+use the \textsf{turtle\_backward()} function.
 
 
-<<results=hide, echo=FALSE>>=  
-file <- paste("figure_1", ".pdf", sep="")  
-pdf(file=file, onefile=FALSE)  
+<<results=hide, echo=FALSE>>=
+file <- paste("figure_1", ".pdf", sep="")
+pdf(file=file, onefile=FALSE)
 turtle_init()
-turtle_forward(dist=30) 
-dev.off()  
+turtle_forward(dist=30)
+dev.off()
 @
 
 \begin{center}
 <<results=tex, echo=FALSE>>=
-cat("\\includegraphics[width=10cm]{", file, "}\n\n", sep="")  
+cat("\\includegraphics[width=10cm]{", file, "}\n\n", sep="")
 @
 \end{center}
 
 <<results=hide, eval=FALSE>>=
 turtle_init()
-turtle_forward(dist=30) 
+turtle_forward(dist=30)
 @
 
 <<results=hide, echo=FALSE>>=
-file <- paste("figure_2", ".pdf", sep="")  
-pdf(file=file, onefile=FALSE)  
+file <- paste("figure_2", ".pdf", sep="")
+pdf(file=file, onefile=FALSE)
 turtle_init()
-turtle_forward(dist=30) 
+turtle_forward(dist=30)
 turtle_backward(dist=10)
-dev.off()  
+dev.off()
 @
 
 \begin{center}
 <<results=tex, echo=FALSE>>=
-cat("\\includegraphics[width=10cm]{", file, "}\n\n", sep="")  
+cat("\\includegraphics[width=10cm]{", file, "}\n\n", sep="")
 @
 \end{center}
 <<results=hide, eval=FALSE>>=
@@ -107,11 +139,12 @@ turtle_backward(dist=10)
 @
 
 \paragraph{\textsf{turtle\_right} and \textsf{turtle\_left}.}
-The other tool that helps to move the Turtle are the \textsf{turtle\_left} and the \textsf{turtle\_right} functions. They change the Turtle's direction by a given angle.
+The other group of functions deal with the Turtle's rotation.
+\textsf{turtle\_left} and the \textsf{turtle\_right} change the Turtle's direction by a given angle.
 
 <<results=hide, echo=FALSE>>=
-file <- paste("figure_3", ".pdf", sep="")  
-pdf(file=file, onefile=FALSE)  
+file <- paste("figure_3", ".pdf", sep="")
+pdf(file=file, onefile=FALSE)
 turtle_init()
 turtle_forward(dist=30)
 turtle_backward(dist=10)
@@ -124,12 +157,12 @@ turtle_forward(dist=14)
 turtle_left(angle=135)
 turtle_forward(dist=10)
 
-dev.off()  
+dev.off()
 @
 
 \begin{center}
 <<results=tex, echo=FALSE>>=
-cat("\\includegraphics[width=10cm]{", file, "}\n\n", sep="")  
+cat("\\includegraphics[width=10cm]{", file, "}\n\n", sep="")
 @
 \end{center}
 
@@ -145,15 +178,20 @@ turtle_forward(dist=10)
 @
 
 \subsubsection{Additional Options}
-Now you know the basics and it is mostly it. Not very complicated, is it? Don't worry though, there are some additional parameters that you can play with.
+Let's discuss some additional features that you can play with.
 
 \paragraph{\textsf{turtle\_up} and \textsf{turtle\_down}.}
-To disable the path from being drawn you can simply use the \textsf{turtle\_up()} function. Let's consider a simple example. Turn the Turtle to the right by 90 degrees and then use the \textsf{turtle\_up()} function. Now, when you move forward the path is not visible. If you want the path to be drawn again you should call the \textsf{turtle\_down()} function.
+To disable the path from being drawn you can use the
+\textsf{turtle\_up()} function. Let's consider a simple example.
+Turn the Turtle to the right by 90 degrees and then use
+the \textsf{turtle\_up()} function.
+Now, when you move forward, the path is not visible.
+If you want the path to be drawn again you should call the \textsf{turtle\_down()} function.
 
 
 <<results=hide, echo=FALSE>>=
-file <- paste("figure_4", ".pdf", sep="")  
-pdf(file=file, onefile=FALSE)  
+file <- paste("figure_4", ".pdf", sep="")
+pdf(file=file, onefile=FALSE)
 turtle_init()
 turtle_forward(dist=30)
 turtle_backward(dist=10)
@@ -173,12 +211,12 @@ turtle_forward(dist=17)
 turtle_down()
 turtle_left(angle=180)
 turtle_forward(dist=34)
-dev.off()  
+dev.off()
 @
 
 \begin{center}
 <<results=tex, echo=FALSE>>=
-cat("\\includegraphics[width=10cm]{", file, "}\n\n", sep="")  
+cat("\\includegraphics[width=10cm]{", file, "}\n\n", sep="")
 @
 \end{center}
 
@@ -194,11 +232,15 @@ turtle_forward(dist=34)
 @
 
 \paragraph{\textsf{turtle\_hide} and \textsf{turtle\_show}.}
-Similarly, you may show or hide the Turtle image, using the \textsf{turtle\_show()} and \textsf{turtle\_hide()} functions respectively. If you call a lot of functions it is strongly recommended to hide the Turtle first as it speeds up the process.
+Similarly, you may show or hide the Turtle image,
+using the \textsf{turtle\_show()} and \textsf{turtle\_hide()} functions,
+respectively. If you are calling a lot of functions it is strongly
+recommended to hide the Turtle first as it speeds up the drawing process,
+see also \textsf{turtle\_do()}.
 
 <<results=hide, echo=FALSE>>=
-file <- paste("figure_5", ".pdf", sep="")  
-pdf(file=file, onefile=FALSE)  
+file <- paste("figure_5", ".pdf", sep="")
+pdf(file=file, onefile=FALSE)
 turtle_init()
 turtle_forward(dist=30)
 turtle_backward(dist=10)
@@ -223,12 +265,12 @@ turtle_hide()
 turtle_left(angle=150)
 turtle_forward(dist=20)
 turtle_show()
-dev.off()  
+dev.off()
 @
 
 \begin{center}
 <<results=tex, echo=FALSE>>=
-cat("\\includegraphics[width=10cm]{", file, "}\n\n", sep="")  
+cat("\\includegraphics[width=10cm]{", file, "}\n\n", sep="")
 @
 \end{center}
 
@@ -240,13 +282,16 @@ turtle_show()
 @
 
 \paragraph{\textsf{turtle\_col}, \textsf{turtle\_lty}  and \textsf{turtle\_lwd}.}
-To change the nature of the Turtle's trace you can use the \textsf{turtle\_col()}, \textsf{turtle\_lty()} and \textsf{turtle\_lwd()} functions.
-The first one, as you can easily guess, changes the color of the path the Turtle is making. For example, if you wish to change the trace into green try
+To change the style of the Turtle's trace you can use
+the \textsf{turtle\_col()}, \textsf{turtle\_lty()},
+and \textsf{turtle\_lwd()} functions.
+The first one, as you can easily guess, changes the color
+of the path. For example, if you wish to change the trace into green, try:
 
 
 <<results=hide, echo=FALSE>>=
-file <- paste("figure_6", ".pdf", sep="")  
-pdf(file=file, onefile=FALSE)  
+file <- paste("figure_6", ".pdf", sep="")
+pdf(file=file, onefile=FALSE)
 turtle_init()
 turtle_forward(dist=30)
 turtle_backward(dist=10)
@@ -273,12 +318,12 @@ turtle_show()
 turtle_col(col="green")
 turtle_left(angle=60)
 turtle_forward(dist=20)
-dev.off()  
+dev.off()
 @
 
 \begin{center}
 <<results=tex, echo=FALSE>>=
-cat("\\includegraphics[width=10cm]{", file, "}\n\n", sep="")  
+cat("\\includegraphics[width=10cm]{", file, "}\n\n", sep="")
 @
 \end{center}
 
@@ -289,13 +334,19 @@ turtle_forward(dist=20)
 @
 
 The full list of colors is available under the \textsf{colors()} function.
-Important! Remember that when passing an argument to this function you always have to use the quotation marks. 
 
-The \textsf{turtle\_lty()} and \textsf{turtle\_lwd()} functions change the type and the width of the line the Turle is making. To change the type of the path as an argument pass a number from $0$ to $6$ -- each means a different type of the line ($0=$blank, $1=$solid (default), $2=$ dashed, $3=$ dotted, $4=$ dotdash, $5=$ longdash, $6=$ twodash). To change the width of the line use the \textsf{turtle\_lwd()} function. As an argument you pass a width you desire (but don't exaggerate!).
+
+The \textsf{turtle\_lty()} and \textsf{turtle\_lwd()} functions change
+the type and the width of the line.
+To change the type of the path pass as an argument a number from $0$ to $6$
+-- each denotes a different type of the line ($0=$blank,
+$1=$solid (default), $2=$ dashed, $3=$ dotted, $4=$ dotdash, $5=$ longdash, $6=$ twodash).
+To change the width of the line use the \textsf{turtle\_lwd()} function.
+% As an argument you pass a width you desire (but don't exaggerate!).
 
 <<results=hide, echo=FALSE, height=4>>=
-file <- paste("figure_7", ".pdf", sep="")  
-pdf(file=file, onefile=FALSE)  
+file <- paste("figure_7", ".pdf", sep="")
+pdf(file=file, onefile=FALSE)
 turtle_init()
 turtle_forward(dist=30)
 turtle_backward(dist=10)
@@ -328,12 +379,12 @@ turtle_lty(lty=4)
 turtle_forward(dist=17)
 turtle_lwd(lwd=3)
 turtle_forward(dist=15)
-dev.off()  
+dev.off()
 @
 
 \begin{center}
 <<results=tex, echo=FALSE>>=
-cat("\\includegraphics[width=10cm]{", file, "}\n\n", sep="")  
+cat("\\includegraphics[width=10cm]{", file, "}\n\n", sep="")
 @
 \end{center}
 
@@ -346,13 +397,19 @@ turtle_forward(dist=15)
 @
 
 \paragraph{\textsf{turtle\_status}, \textsf{turtle\_getpos}  and \textsf{turtle\_getangle}.}
-If you got lost in the terrarium don't worry! There is a function \textsf{turtle\_status()} which returns the parameters of your drawing. It tells you whether the Turtle and its path are visible, the width and height of the terrarium, where the Turle is placed right now and at which angle.
+If you got lost in the terrarium don't worry!
+Just use the \textsf{turtle\_status()} function: it returns
+the current drawing settings. It tells you whether
+the Turtle and its path are visible,
+the width and height of the terrarium, where the Turtle is placed
+right now and at which angle.
 
 <<results=verbatim, eval=TRUE>>=
 turtle_status()
 @
 
-If you just want to know where the Turtle is or at which angle try \textsf{turtle\_getpos()} and \textsf{turtle\_getangle()} functions respectively.
+If you just want to know where the Turtle is or at which angle it points
+try \textsf{turtle\_getpos()} and \textsf{turtle\_getangle()} functions, respectively.
 
 <<results=verbatim, eval=TRUE>>=
 turtle_getpos()
@@ -360,11 +417,16 @@ turtle_getangle()
 @
 
 \paragraph{\textsf{turtle\_reset} and \textsf{turtle\_goto}.}
-If you wish to place the Turtle back at the starting position and delete all of the graphical parameters you set use the \textsf{turtle\_reset()} function. The \textsf{turtle\_goto()} function on the other hand, makes the Turtle go to the place you tell it to in its arguments passing the $x$ and $y$ coordinates. Mind that this function leaves the trace while using.
+If you wish to place the Turtle back at the starting position
+and reset all of the graphical parameters, call the \textsf{turtle\_reset()}
+function.
+
+The \textsf{turtle\_goto()} function, on the other hand, asks the Turtle to
+go to the desired position.
 
 <<results=hide, echo=FALSE>>=
-file <- paste("figure_8", ".pdf", sep="")  
-pdf(file=file, onefile=FALSE)  
+file <- paste("figure_8", ".pdf", sep="")
+pdf(file=file, onefile=FALSE)
 turtle_init()
 turtle_forward(dist=30)
 turtle_backward(dist=10)
@@ -400,12 +462,12 @@ turtle_reset()
 turtle_goto(x=10,y=50)
 turtle_goto(x=90,y=50)
 turtle_reset()
-dev.off()  
+dev.off()
 @
 
 \begin{center}
 <<results=tex, echo=FALSE>>=
-cat("\\includegraphics[width=10cm]{", file, "}\n\n", sep="")  
+cat("\\includegraphics[width=10cm]{", file, "}\n\n", sep="")
 @
 \end{center}
 
@@ -418,7 +480,10 @@ turtle_reset()
 
 \subsection{Advanced Usage of the Package}
 
-Now you know the basics. There some more advanced methods of usage of the package. There is one more function (\textsf{turtle\_do()}) in the package that is designed for more complicated sequence of commands. The usage is the following: in the argument you put \textsf{expr = } and between the curly brackets you give the sequence. Each command should be separted by a new line. Let's look at the example:
+Now you familiar with the basics. There are some more advanced
+ways to use the package. The (\textsf{turtle\_do()}) function
+is designed for calling more complicated plot expressions.
+
 
 <<results=hide, eval=FALSE>>=
 turtle_init()
@@ -427,45 +492,64 @@ turtle_do(expr = {
     turtle_turn(45)
     turtle_move(15)
  })
- 
+
 @
 
 <<results=hide, echo=FALSE>>=
-file <- paste("figure_9", ".pdf", sep="")  
-pdf(file=file, onefile=FALSE)  
+file <- paste("figure_9", ".pdf", sep="")
+pdf(file=file, onefile=FALSE)
 turtle_init()
 turtle_do(expr = {
     turtle_move(10)
     turtle_turn(45)
     turtle_move(15)
 })
- 
-dev.off()  
+
+dev.off()
 @
 
 \begin{center}
 <<results=tex, echo=FALSE>>=
-cat("\\includegraphics[width=10cm]{", file, "}\n\n", sep="")  
+cat("\\includegraphics[width=10cm]{", file, "}\n\n", sep="")
 @
 \end{center}
 
 
-You may ask why bother using such a function if the result is the same as while using three separate commands (in this case this would be \textsf{turtle\_move(10); turtle\_turn(45); turtle\_move(15)}). The thing is that this function hides the Turtle before performing the expression, thus the time that \textsf{expr} use is decreased.
+You may ask why bother using such a function
+if the result is the same as while using three separate commands
+(in this case this would be \textsf{turtle\_move(10); turtle\_turn(45); turtle\_move(15)}).
+The thing is that this function hides the Turtle before evaluating
+the expression, thus the time that \textsf{expr} uses is decreased.
 
 
 \newpage
 \section{Introduction to \textsf{R}}
 
 \subsection{The \textsf{for} loop.}
-This section shows how to connect the functions listed above with the options that \textsf{R} provides us with. For example, sometimes you would like to repeat some actions several times. If it is once or twice then it is easy to type it. But if you wish to use the same functions for, let's say, 360 times then it turns out to be quite difficult. 
+This section shows how to connect the functions
+listed above with the options that \textsf{R} provides us with.
+For example, sometimes you would like to repeat some action several times.
+% If it is once or twice then it is easy to type it. But if you wish to use the same
+% functions for, let's say, 360 times then it turns out to be quite difficult.
+% Fortunately, \textsf{R} has the tools to deal with it.
+% In case you want to repeat actions several times
+In such a case, we can use the \textsf{for} loop.
+The syntax is as follows: \textsf{for(i in 1:100)\{ expr\}}.
+Such an expression will evaluate \textsf{expr} 100 times.
+For example:
+% \textsf{i} is the counter that counts the turns of the loop.
+% \textsf{1:100} defines when the counter should start counting
+% and when it should stop. In
+% this case the counter \textsf{i} starts in 1 and it increases
+% by 1 each time the loop turns.
+% The loop will stop turning when \textsf{i} reaches 100.
 
-Fortunately, \textsf{R} has the tools to deal with it. In case you want to repeat actions several times we can use the so called loop. The syntax is the following: \textsf{for(i in 1:100)\{\}}. \textsf{i} is the counter that counts the turns of the loop. \textsf{1:100} defines when the counter should start counting and when it should stop. In this case the counter \textsf{i} starts in 1 and it increases by 1 each time the loop turns. The loop will stop turning when \textsf{i} reaches 100.
-
-Between the curly rackets (\textsf{\{\}}) you write the functions you would like to repeat, each separated by a new line. For example:
+% Between the curly rackets (\textsf{\{\}}) you write the functions
+% you would like to repeat, each separated by a new line. For example:
 
 <<results=hide, echo=FALSE>>=
-file <- paste("figure_01", ".pdf", sep="")  
-pdf(file=file, onefile=FALSE)  
+file <- paste("figure_01", ".pdf", sep="")
+pdf(file=file, onefile=FALSE)
 turtle_init()
 turtle_up()
 turtle_goto(x=30,y=50)
@@ -476,12 +560,12 @@ for(i in 1:180){
    turtle_right(angle=2)
 }
 turtle_show()
-dev.off()  
+dev.off()
 @
 
 \begin{center}
 <<results=tex, echo=FALSE>>=
-cat("\\includegraphics[width=10cm]{", file, "}\n\n", sep="")  
+cat("\\includegraphics[width=10cm]{", file, "}\n\n", sep="")
 @
 \end{center}
 
@@ -498,41 +582,54 @@ for(i in 1:180){
 turtle_show()
 @
 
-Sometimes it takes time to make the loop, especially when it turns many times. That is why we strongly recommend to hide the Turtle beforehand. As you can see thanks to usage of the loop a circle was drawn.
+
+We strongly recommend to call each \textsf{for} loop always
+within \textsf{turtle\_do()}.
 
 \subsection{\textsf{If}}
-There are some cases when you would like to call a function when some condition is fulfilled. The \textsf{if} expression enables you to do it. The syntax is the following: \textsf{if(condition) \{\}}. The condition is always logical. When the condition is fulfilled the sequance of actions you put between the curly bracket is called. Let's see an example.
+There are some cases when you would like to call
+a function when some condition is fulfilled.
+The \textsf{if} expression enables you to do it.
+The syntax is the following: \textsf{if(condition) \{\}}.
+When the \textsf{condition} is fulfilled the sequence of actions
+you put between the curly bracket is called. Let's see an example.
 
 <<results=hide, echo=FALSE>>=
-file <- paste("figure_03", ".pdf", sep="")  
-pdf(file=file, onefile=FALSE)  
+file <- paste("figure_03", ".pdf", sep="")
+pdf(file=file, onefile=FALSE)
 turtle_init()
 turtle_forward(dist=10)
 turtle_right(angle=45)
 turtle_forward(dist=15)
-dev.off()  
+dev.off()
 @
 
 \begin{center}
 <<results=tex, echo=FALSE>>=
-cat("\\includegraphics[width=10cm]{", file, "}\n\n", sep="")  
+cat("\\includegraphics[width=10cm]{", file, "}\n\n", sep="")
 @
 \end{center}
 
 <<results=hide,eval=FALSE>>==
 turtle_init()
 turtle_forward(dist=10)
-x <- 1
-if(x>0.5){
+x <- 1 # or e.g. runif(1) - a random number
+if (x>0.5) {
    turtle_right(angle=45)
    turtle_col(col="red")
 }
 turtle_forward(dist=15)
 @
-As you can see the condition is fulfilled so the Turtle turns right. What if you would like to perform some actions when the condition is fulfilled and some other actions in case it is not? There is an answer to it too. After the closing curly bracket you write \textsf{else \{\}} and again between the brackets there are the functions you would like to call.
+
+As you can see the condition is fulfilled so the Turtle turns right.
+What if you would like to perform some actions when the condition
+is fulfilled and some other actions otherwise? There is an answer to it too.
+After the closing curly braces you write \textsf{else \{\}}
+and again between the brackets there are the functions you would like to call.
+
 <<results=hide, echo=FALSE>>=
-file <- paste("figure_04", ".pdf", sep="")  
-pdf(file=file, onefile=FALSE)  
+file <- paste("figure_04", ".pdf", sep="")
+pdf(file=file, onefile=FALSE)
 turtle_init()
 turtle_forward(dist=10)
 x <- runif(1) #this function returns a random value between 0 and 1, see ?runif
@@ -545,12 +642,12 @@ if(x>0.5){
    turtle_col(col="purple")
 }
 turtle_forward(dist=15)
-dev.off()  
+dev.off()
 @
 
 \begin{center}
 <<results=tex, echo=FALSE>>=
-cat("\\includegraphics[width=10cm]{", file, "}\n\n", sep="")  
+cat("\\includegraphics[width=10cm]{", file, "}\n\n", sep="")
 @
 \end{center}
 
@@ -568,12 +665,18 @@ if(x>0.5){
 }
 turtle_forward(dist=15)
 @
-Now each time you call the above synax the result can be different.
+
+% \noindent
+% Now each time you call the above synax the result can be different.
 
 \subsection{Functions}
-Another way to use the functions listed above is to make a function that uses them. For example, if you'd like to make a sqaure you can write a functions that will do that for you. The syntax is the following:
+Sometimes it is desirable to ``store'' a sequence of expressions
+for further use. For example, if you'd like to draw many squares,
+you can write a custom function so that it can be called many times.
+For example:
+
 <<results=hide,eval=FALSE>>==
-turtle_square<-function(r=10){
+turtle_square <- function(r){
    for(i in 1:4){
       turtle_forward(r)
       turtle_right(90)
@@ -581,43 +684,71 @@ turtle_square<-function(r=10){
 }
 @
 
-\textsf{turtle\_square} is the name of the function. After the word \textsf{function} you list the parameters in brackets. If there are more than one parameter you list them separating by comma. You can make the parameters default as in the example: \textsf{r=10} but you can also leave it to the decision of the user. Then it would be \textsf{function(r)}. You have to compile the function and then you can use it as all the other functions:
+\textsf{turtle\_square} is the name of the function.
+The parameters of the function are listed within the round brackets (separated
+by commas).
+
+
 <<results=hide, echo=FALSE>>=
-file <- paste("figure_02", ".pdf", sep="")  
-pdf(file=file, onefile=FALSE)  
-turtle_square<-function(r=10){
+file <- paste("figure_02", ".pdf", sep="")
+pdf(file=file, onefile=FALSE)
+turtle_square<-function(r){
    for(i in 1:4){
       turtle_forward(r)
       turtle_right(90)
    }
 }
 turtle_init()
-turtle_square()
-turtle_left(angle=90)
-turtle_forward(dist=30)
-turtle_square(r=5)
-dev.off()  
+turtle_square(10)
+turtle_left(90)
+turtle_forward(30)
+turtle_square(5)
+dev.off()
 @
 
 \begin{center}
 <<results=tex, echo=FALSE>>=
-cat("\\includegraphics[width=10cm]{", file, "}\n\n", sep="")  
+cat("\\includegraphics[width=10cm]{", file, "}\n\n", sep="")
 @
 \end{center}
 <<results=hide,eval=FALSE>>==
 turtle_init()
 turtle_square()
-turtle_left(angle=90)
-turtle_forward(dist=30)
-turtle_square(r=5)
+turtle_left(90)
+turtle_forward(30)
+turtle_square(5)
 @
 
 \subsection{Recursion}
-The last thing you should know while using this package is recursion. It is a process of repeating actions in the self-similar pattern. You have a base case and all the other cases are reduced to the base case that is defined by some rules (they are called recursive step). 
+The last thing you should know while using this package is recursion.
+It is a process of repeating actions in the self-similar pattern.
+% You have a base case and all the other cases are reduced to the base case
+% that is defined by some rules (they are called recursive step).
 
-Let's consider a simple example. Your base step is to walk 1 meter (so you know only how to walk 1 meter). The recursive step would be walking half way than you have to. So if your task is to walk, let's say, 16 meters than by recursion you have to walk 8 meters (but you don't do that, you don't know how). Then by recursion your task is to walk 4 meters. And again by recursion you have to walk 2 meters. And now by recursion you have to walk 1 meter. But you know how to do it! Great! Now you walk 1 meter. But if you walked 1 meter you can do another one and now you know how to walk 2 meters. If you know that, you can walk 2 meters twice and so you can walk 4 meters. And again you know how to do 4 meters, so you can walk it again and now you can move by 8 meters. And now you can do that one more time so you walk the entire 16 meters. Congratulations you have accomplished the task!
+% Let's consider a simple example. Your base step is to walk 1 meter
+% (so you know only how to walk 1 meter).
+% The recursive step would be walking half way than you have to.
+% So if your task is to walk, let's say,
+% 16 meters than by recursion you have to walk 8 meters (
+% but you don't do that, you don't know how).
+% Then by recursion your task is to walk 4 meters.
+% And again by recursion you have to walk 2 meters.
+% And now by recursion you have to walk 1 meter.
+% But you know how to do it! Great! Now you walk 1 meter.
+% But if you walked 1 meter you can do another one and now you know how
+% to walk 2 meters. If you know that,
+% you can walk 2 meters twice and so you can walk 4 meters.
+% And again you know how to do 4 meters, so you can walk it
+% again and now you can move by 8 meters. And now you can do
+% that one more time so you walk the entire 16 meters.
+% Congratulations you have accomplished the task!
 
-The other example of recursion is a fractal. Usually, a fractal is an image which at every scale shows the same pattern. In the example section (\ref{ex}) you have 3 characteristic examples of the fractals -- the fractal tree, the Koch snowflake and the Sierpinski triangle.
+Fractals make perfect examples of the power of recursion.
+Usually, a fractal is an image
+which at every scale exhibits the same (or very similar) structure.
+In Section \ref{ex} you have some
+typical examples of fractals --
+the fractal tree, the Koch snowflake and the Sierpi\'{n}ski triangle.
 
 \newpage
 \section{Examples}\label{ex}
@@ -625,22 +756,23 @@ The other example of recursion is a fractal. Usually, a fractal is an image whic
 At the end of this guide we would like to present some colorful and inspiring examples.
 \subsection{Random Lines}
 
-The first example is based on the random lines - every time the result is different.\\
+The first example generates random lines.
+
 <<results=hide, echo=FALSE>>=
-file <- paste("figure_10", ".pdf", sep="")  
-pdf(file=file, onefile=FALSE)  
+file <- paste("figure_10", ".pdf", sep="")
+pdf(file=file, onefile=FALSE)
 set.seed(124)
 turtle_init(100, 100, mode = "cycle")
 for(i in 1:10){
   turtle_left(runif(1,0,360))
-  turtle_forward(runif(1, 0, 1000))  
+  turtle_forward(runif(1, 0, 1000))
 }
-dev.off()  
+dev.off()
 @
 
 \begin{center}
 <<results=tex, echo=FALSE>>=
-cat("\\includegraphics[width=10cm]{", file, "}\n\n", sep="")  
+cat("\\includegraphics[width=10cm]{", file, "}\n\n", sep="")
 @
 \end{center}
 
@@ -648,7 +780,7 @@ cat("\\includegraphics[width=10cm]{", file, "}\n\n", sep="")
 turtle_init(100, 100, mode = "cycle")
 for(i in 1:10){
   turtle_left(runif(1,0,360))
-  turtle_forward(runif(1, 0, 1000))  
+  turtle_forward(runif(1, 0, 1000))
 }
 @
 \newpage
@@ -656,13 +788,13 @@ for(i in 1:10){
 
 \subsection{The Spiral}
 <<results=hide, echo=FALSE>>=
-file <- paste("figure_11", ".pdf", sep="")  
-pdf(file=file, onefile=FALSE)  
+file <- paste("figure_11", ".pdf", sep="")
+pdf(file=file, onefile=FALSE)
 drawSpiral <- function(lineLen){
    if (lineLen > 0){
       turtle_forward(lineLen)
       turtle_right(90)
-      drawSpiral(lineLen-5)      
+      drawSpiral(lineLen-5)
    }
    invisible(NULL)
 }
@@ -675,12 +807,12 @@ turtle_left(45)
 turtle_col("green")
 turtle_do(drawSpiral(354))
 turtle_setangle(0)
-dev.off()  
+dev.off()
 @
 
 \begin{center}
 <<results=tex, echo=FALSE>>=
-cat("\\includegraphics[width=10cm]{", file, "}\n\n", sep="")  
+cat("\\includegraphics[width=10cm]{", file, "}\n\n", sep="")
 @
 \end{center}
 
@@ -689,7 +821,7 @@ drawSpiral <- function(lineLen){
    if (lineLen > 0){
       turtle_forward(lineLen)
       turtle_right(90)
-      drawSpiral(lineLen-5)      
+      drawSpiral(lineLen-5)
    }
    invisible(NULL)
 }
@@ -707,8 +839,8 @@ turtle_setangle(0)
 
 \subsection{The Turtle Rainbow Star}
 <<results=hide, echo=FALSE>>=
-file <- paste("figure_15", ".pdf", sep="")  
-pdf(file=file, onefile=FALSE)  
+file <- paste("figure_15", ".pdf", sep="")
+pdf(file=file, onefile=FALSE)
 turtle_star <- function(intensity=1){
    y <- sample(1:657, 360*intensity, replace=TRUE)
    for (i in 1:(360*intensity)){
@@ -730,12 +862,12 @@ turtle_hide()
 turtle_star(5)
 turtle_show()
 
-dev.off()  
+dev.off()
 @
 
 \begin{center}
 <<results=tex, echo=FALSE>>=
-cat("\\includegraphics[width=10cm]{", file, "}\n\n", sep="")  
+cat("\\includegraphics[width=10cm]{", file, "}\n\n", sep="")
 @
 \end{center}
 
@@ -763,10 +895,11 @@ turtle_show()
 \newpage
 
 \subsection{The Turtle Brownian}
-This example is inspired by Brownian motion.\\
+This example is inspired by Brownian motion.
+
 <<results=hide, echo=FALSE>>=
-file <- paste("figure_16", ".pdf", sep="")  
-pdf(file=file, onefile=FALSE)  
+file <- paste("figure_16", ".pdf", sep="")
+pdf(file=file, onefile=FALSE)
 turtle_brownian <- function(steps=100, length=10){
    turtle_lwd(2)
    angles <- sample(c(90,270,180,0), steps,replace=TRUE)
@@ -776,17 +909,17 @@ turtle_brownian <- function(steps=100, length=10){
       turtle_col(colors()[coll[i]])
       turtle_forward(length)
    }
-   
+
 }
 set.seed(124)
 turtle_init(800,800, mode="clip")
 turtle_do(turtle_brownian(1000, length=25))
-dev.off()  
+dev.off()
 @
 
 \begin{center}
 <<results=tex, echo=FALSE>>=
-cat("\\includegraphics[width=10cm]{", file, "}\n\n", sep="")  
+cat("\\includegraphics[width=10cm]{", file, "}\n\n", sep="")
 @
 \end{center}
 
@@ -808,9 +941,10 @@ turtle_do(turtle_brownian(1000, length=25))
 \newpage
 
 \subsection{The Fractal Tree}
+
 <<results=hide, echo=FALSE>>=
-file <- paste("figure_12", ".pdf", sep="")  
-pdf(file=file, onefile=FALSE)  
+file <- paste("figure_12", ".pdf", sep="")
+pdf(file=file, onefile=FALSE)
 fractal_tree <- function(s=100, n=2) {
    if (n <= 1) {
       turtle_forward(s)
@@ -820,17 +954,17 @@ fractal_tree <- function(s=100, n=2) {
    }
    else {
       turtle_forward(s)
-      
+
       a1 <- runif(1, 10, 60)
       turtle_left(a1)
       fractal_tree(s*runif(1, 0.25, 1), n-1)
       turtle_right(a1)
-      
+
       a2 <- runif(1, 10, 60)
       turtle_right(a2)
       fractal_tree(s*runif(1, 0.25, 1), n-1)
       turtle_left(a2)
-      
+
       turtle_up()
       turtle_backward(s)
       turtle_down()
@@ -846,12 +980,12 @@ turtle_down()
 turtle_col("darkgreen")
 fractal_tree(100, 12)
 })
-dev.off()  
+dev.off()
 @
 
 \begin{center}
 <<results=tex, echo=FALSE>>=
-cat("\\includegraphics[width=10cm]{", file, "}\n\n", sep="")  
+cat("\\includegraphics[width=10cm]{", file, "}\n\n", sep="")
 @
 \end{center}
 \newpage
@@ -894,8 +1028,8 @@ fractal_tree(100, 12)
 \subsection{The Koch Snowflake}
 
 <<results=hide, echo=FALSE>>=
-file <- paste("figure_13", ".pdf", sep="")  
-pdf(file=file, onefile=FALSE)  
+file <- paste("figure_13", ".pdf", sep="")
+pdf(file=file, onefile=FALSE)
 turtle_init(600, 400, "error")
 turtle_up()
 turtle_left(90)
@@ -922,12 +1056,12 @@ turtle_hide()
 koch(500, 6)
 turtle_show()
 
-dev.off()  
+dev.off()
 @
 
 \begin{center}
 <<results=tex, echo=FALSE>>=
-cat("\\includegraphics[width=10cm]{", file, "}\n\n", sep="")  
+cat("\\includegraphics[width=10cm]{", file, "}\n\n", sep="")
 @
 \end{center}
 
@@ -963,13 +1097,13 @@ turtle_show()
 \subsection{The Sierpinski Triangle}
 
 <<results=hide, echo=FALSE>>=
-file <- paste("figure_14", ".pdf", sep="")  
-pdf(file=file, onefile=FALSE)  
+file <- paste("figure_14", ".pdf", sep="")
+pdf(file=file, onefile=FALSE)
 drawTriangle<- function(points){
    turtle_setpos(points[1,1],points[1,2])
    turtle_goto(points[2,1],points[2,2])
    turtle_goto(points[3,1],points[3,2])
-   turtle_goto(points[1,1],points[1,2])   
+   turtle_goto(points[1,1],points[1,2])
 }
 
 getMid<- function(p1,p2) c((p1[1]+p2[1])/2, c(p1[2]+p2[2])/2)
@@ -978,12 +1112,12 @@ sierpinski <- function(points, degree){
    drawTriangle(points)
    if (degree > 0){
       p1 <- matrix(c(points[1,], getMid(points[1,], points[2,]),
-                     getMid(points[1,], points[3,])), nrow=3, byrow=TRUE)  
-      
+                     getMid(points[1,], points[3,])), nrow=3, byrow=TRUE)
+
       sierpinski(p1, degree-1)
       p2 <- matrix(c(points[2,], getMid(points[1,], points[2,]),
                      getMid(points[2,], points[3,])), nrow=3, byrow=TRUE)
-      
+
       sierpinski(p2, degree-1)
       p3 <- matrix(c(points[3,], getMid(points[3,], points[2,]),
                      getMid(points[1,], points[3,])), nrow=3, byrow=TRUE)
@@ -995,14 +1129,14 @@ turtle_init(520, 500, "clip")
 p <- matrix(c(10, 10, 510, 10, 250, 448), nrow=3, byrow=TRUE)
 turtle_col("red")
 turtle_do(sierpinski(p, 6))
-turtle_setpos(250, 448) 
+turtle_setpos(250, 448)
 
-dev.off()  
+dev.off()
 @
 
 \begin{center}
 <<results=tex, echo=FALSE>>=
-cat("\\includegraphics[width=10cm]{", file, "}\n\n", sep="")  
+cat("\\includegraphics[width=10cm]{", file, "}\n\n", sep="")
 @
 \end{center}
 
@@ -1011,7 +1145,7 @@ drawTriangle<- function(points){
    turtle_setpos(points[1,1],points[1,2])
    turtle_goto(points[2,1],points[2,2])
    turtle_goto(points[3,1],points[3,2])
-   turtle_goto(points[1,1],points[1,2])   
+   turtle_goto(points[1,1],points[1,2])
 }
 
 getMid<- function(p1,p2) c((p1[1]+p2[1])/2, c(p1[2]+p2[2])/2)
@@ -1020,12 +1154,12 @@ sierpinski <- function(points, degree){
    drawTriangle(points)
    if (degree > 0){
       p1 <- matrix(c(points[1,], getMid(points[1,], points[2,]),
-                     getMid(points[1,], points[3,])), nrow=3, byrow=TRUE)  
-      
+                     getMid(points[1,], points[3,])), nrow=3, byrow=TRUE)
+
       sierpinski(p1, degree-1)
       p2 <- matrix(c(points[2,], getMid(points[1,], points[2,]),
                      getMid(points[2,], points[3,])), nrow=3, byrow=TRUE)
-      
+
       sierpinski(p2, degree-1)
       p3 <- matrix(c(points[3,], getMid(points[3,], points[2,]),
                      getMid(points[1,], points[3,])), nrow=3, byrow=TRUE)
@@ -1037,7 +1171,7 @@ turtle_init(520, 500, "clip")
 p <- matrix(c(10, 10, 510, 10, 250, 448), nrow=3, byrow=TRUE)
 turtle_col("red")
 turtle_do(sierpinski(p, 6))
-turtle_setpos(250, 448) 
+turtle_setpos(250, 448)
 @
 
 
