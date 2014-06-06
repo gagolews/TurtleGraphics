@@ -43,7 +43,7 @@ We strongly encourage you to try it yourself. Enjoy and have fun!
 
 To install the package \textsf{TurtleGraphics} you should use following instructions.
 <<results=hide, eval=FALSE>>=
-install_package("TurtleGraphics")
+install.packages("TurtleGraphics")
 @
 
 Then you have to load the package with the \textsf{require()} function, as it is shown below.

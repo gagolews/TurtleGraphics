@@ -1,0 +1,39 @@
+We would like to encourage you and your children (yes, your children) to use our new R package - TurtleGraphics !
+
+
+TurtleGraphics package offers to R-users functionality of the "turtle graphics" from Logo educational programming language. The main idea standing behind it is to inspire the children to learn programming and show that working with computer can be entertaining and creative.
+
+It is very elementary, clear and requires basic algorithm thinking skills, that even children are able to form them. You can learn it in just five short steps.
+
+1. `turtle_init()` - To start using the program call the `turtle_init()` function. It creates a plot region (sometimes called "Terrarium") and places the Turtle in the middle pointing north.
+2. `turtle_forward()` and `turtle_backward()` - In its argument you
+have to give the distance you desire the Turtle to move. For example, to move the Turtle forward for a distance of 10 units use the `turtle_forward()` function. To move the Turtle backwards you can use the `turtle_backward()` function.
+3. `turtle_turn()` - `turtle_right()` and `turtle_left()`. They change the Turtle's direction by a given angle. 
+4. `turtle_up()` and `turtle_down()` - To disable the path from being drawn you can simply use the `turtle_up()` function. Let's consider a simple example. Turn the Turtle to the right by 90 degrees and then use the `turtle_up()` function. Now, when you move forward the path is not visible. If you want the path to be drawn
+again you should call the `turtle_down()` function.
+5. `turtle_show()` and `turtle_hide()` - Similarly, you may show or hide the Turtle image, using the `turtle_show()` and `turtle_hide()` functions respectively. If you call a lot of functions it is strongly recommended to hide the Turtle first as it speeds up the process.
+```{r} fig.width=15,fig.align=center, echo=false 
+par(mfrow=c(1,5))
+turtle_init()
+turtle_init()
+turtle_forward(dist=15)
+turtle_init()
+turtle_forward(dist=15)
+turtle_right(angle=30)
+turtle_init()
+turtle_forward(dist=15)
+turtle_right(angle=30)
+turtle_up()
+turtle_forward(dist=10)
+turtle_down()
+turtle_forward(dist=10)
+turtle_init()
+turtle_forward(dist=15)
+turtle_right(angle=30)
+turtle_up()
+turtle_forward(dist=10)
+turtle_down()
+turtle_forward(dist=10)
+turtle_hide()
+```
+
