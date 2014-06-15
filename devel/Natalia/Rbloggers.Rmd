@@ -105,9 +105,9 @@ turtle_hide()
   }}
   turtle_init(500,500)
   turtle_left(90)
-  turtle_hide()
+  turtle_do({
   turtle_star(7)
-  turtle_show()
+  })
 ```
 ```{r fig.width=10,fig.align='center',   fig.keep='last' , cache=TRUE }
   drawTriangle<- function(points){
@@ -141,7 +141,7 @@ turtle_hide()
   turtle_setpos(250, 448)
 ```
 
-We kindly invite you to use [TurtleGraphics](www.rexamine.com/TurtleGraphics) ! Enjoy !
+We kindly invite you to use [TurtleGraphics](http://www.rexamine.com/TurtleGraphics) ! Enjoy !
 A full tutorial of this package is available [here](http://cran.r-project.org/web/packages/TurtleGraphics/vignettes/TurtleGraphics.pdf) .
 <p> Marcin Kosinski, Natalia Potocka </p>
 
