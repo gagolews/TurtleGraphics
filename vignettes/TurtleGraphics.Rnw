@@ -480,9 +480,9 @@ turtle_reset()
 
 \subsection{Advanced Usage of the Package}
 
-Now you familiar with the basics. There are some more advanced
+Now you are familiar with the basics. There are some more advanced
 ways to use the package. The (\textsf{turtle\_do()}) function
-is designed for calling more complicated plot expressions.
+is designed to call more complicated plot expressions, because it automatically hides the Turtle before starting the operations that occurs in a faster proceed of plotting.
 
 
 <<results=hide, eval=FALSE>>=

@@ -1,4 +1,4 @@
-<h1> The famous Turtle Graphics has been released on CRAN ! </h1>
+<h1> The famous Turtle Graphics is now available on R ! </h1>
 
 ```{r fig.width=10,fig.align='center',   fig.keep='last' , cache=TRUE, echo=FALSE }
   drawTriangle<- function(points){
@@ -109,6 +109,7 @@ turtle_hide()
   turtle_star(7)
   })
 ```
+<p> One may wonder what `turtle_do()` function is doing here. It is an avdanced way to use the package. The `turtle\_do()` function is designed to call more complicated plot expressions, because it automatically hides the Turtle before starting the operations that occurs in a faster proceed of plotting.
 ```{r fig.width=10,fig.align='center',   fig.keep='last' , cache=TRUE }
   drawTriangle<- function(points){
   turtle_setpos(points[1,1],points[1,2])
