@@ -1,7 +1,7 @@
 Package: TurtleGraphics
-Version: 1.0-2
+Version: 1.0-4
 Date: 2014-08-05
-Title: Learn computer programming while having a jolly time
+Title: Turtle graphics in R
 Authors@R: c(
     person("Anna", "Cena", role = c("aut")),
     person("Marek", "Gagolewski", role = c("aut")),
@@ -13,13 +13,10 @@ Authors@R: c(
 Depends:
     R (>= 2.15.0),
     grid
-Description: Move the Turtle with commands that are relative
-    to its own position, e.g. "move forward 100 pixels" or
-    "turn right 30 degrees". From these building blocks you can build
-    more complex shapes like circles, fractals, etc.
-    Combined with R control flow expressions, functions, and recursion,
-    the idea of Turtle graphics allows students to get familiar with
-    computer programming in a very accessible and pleasant way.
+Description: An implementation of turtle graphics
+    (http://en.wikipedia.org/wiki/Turtle_graphics) in R.
+    Turtle graphics comes from Papert's language Logo and has
+    been used to teach concepts of computer programming.
 License: GPL (>= 3)
 URL: http://TurtleGraphics.rexamine.com
 BugReports: https://github.com/Rexamine/TurtleGraphics/issues
