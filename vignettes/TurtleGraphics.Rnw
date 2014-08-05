@@ -13,7 +13,7 @@
 {\Huge A Guide to the \textsf{TurtleGraphics} Package for \textsf{R}}
 
 \bigskip
-{\LARGE A. Cena,  M. G\k{a}golewski, M. Kosi\'{n}ski,\\ N. Potocka, B.~\.{Z}oga\l{}a-Siudem}
+{\LARGE A. Cena,  M. Gagolewski, M. Kosi\'{n}ski,\\ N. Potocka, B.~\.{Z}oga\l{}a-Siudem}
 
 \begin{figure}[hbt!]
 \centering
@@ -57,10 +57,10 @@ To install the \textsf{TurtleGraphics} package use the following calls.
 install.packages("TurtleGraphics")
 @
 
-Then you load the package with the \textsf{require()} function, as it is shown below.
+Then you load the package by calling the \textsf{library()} function:
 
 <<results=hide>>=
-require("TurtleGraphics")
+library("TurtleGraphics")
 @
 
 \subsection{The Basics}
@@ -75,8 +75,8 @@ turtle_init()
 @
 
 By default its size is 100 by 100 units.
-You can easily change it by passing as the arguments \textsf{width}
-and \textsf{height} (e.g. \textsf{turtle\_init(width=200, height=200)}).
+You can easily change it by passing appropriate values to the  \textsf{width}
+and \textsf{height} arguments (e.g.~\textsf{turtle\_init(width=200, height=200)}).
 
 To define what happens if the Turtle moves outside the plot region,
 you can set the \textsf{mode} option.
@@ -85,19 +85,19 @@ means that the Turtle can freely go outside the board (but it will not be seen).
 The \textsf{"error"} option does not let the Turtle out of the Terrarium
 -- if the Turtle tries to escape, an error is thrown.
 The third value,  \textsf{"cycle"}, makes the Turtle come out
-on the other side of the board in case of crossing its border.
+on the other side of the board if it tries to cross the border.
 
 \paragraph{\textsf{turtle\_forward} and \textsf{turtle\_backward}.}
 
-There are two main groups of functions used to move the Turtle.
+There are two main groups of functions that may be used to move the Turtle.
 
-The first one consists of the \textsf{turtle\_forward()}
+The first group consists in the \textsf{turtle\_forward()}
 and the \textsf{turtle\_backward()} functions.
-In its argument you have to give the distance you desire the Turtle to move.
+Their arguments define the distance you desire the Turtle to move.
 For example, to move the Turtle forward by a distance of 10 units,
 use the \textsf{turtle\_forward()} function.
 To move the Turtle backwards you can use either the \textsf{turtle\_forward()}
-function with the negative number as an argument or simply
+function with a negative number as an argument, or simply
 use the \textsf{turtle\_backward()} function.
 
 
@@ -140,7 +140,8 @@ turtle_backward(dist=10)
 
 \paragraph{\textsf{turtle\_right} and \textsf{turtle\_left}.}
 The other group of functions deal with the Turtle's rotation.
-\textsf{turtle\_left} and the \textsf{turtle\_right} change the Turtle's direction by a given angle.
+\textsf{turtle\_left} and the \textsf{turtle\_right} change 
+the Turtle's direction by a given angle.
 
 <<results=hide, echo=FALSE>>=
 file <- paste("figure_3", ".pdf", sep="")
@@ -178,7 +179,7 @@ turtle_forward(dist=10)
 @
 
 \subsubsection{Additional Options}
-Let's discuss some additional features that you can play with.
+Let's discuss some additional features you can play with.
 
 \paragraph{\textsf{turtle\_up} and \textsf{turtle\_down}.}
 To disable the path from being drawn you can use the
@@ -232,10 +233,10 @@ turtle_forward(dist=34)
 @
 
 \paragraph{\textsf{turtle\_hide} and \textsf{turtle\_show}.}
-Similarly, you may show or hide the Turtle image,
+Similarly, you may show or hide the Turtle's image,
 using the \textsf{turtle\_show()} and \textsf{turtle\_hide()} functions,
-respectively. If you are calling a lot of functions it is strongly
-recommended to hide the Turtle first as it speeds up the drawing process,
+respectively. If you are calling a bunch of functions at a time, it is strongly
+recommended to hide the Turtle first; it will speed up the drawing process,
 see also \textsf{turtle\_do()}.
 
 <<results=hide, echo=FALSE>>=
@@ -282,11 +283,11 @@ turtle_show()
 @
 
 \paragraph{\textsf{turtle\_col}, \textsf{turtle\_lty}  and \textsf{turtle\_lwd}.}
-To change the style of the Turtle's trace you can use
+To change the style of the Turtle's trace, you can use
 the \textsf{turtle\_col()}, \textsf{turtle\_lty()},
 and \textsf{turtle\_lwd()} functions.
-The first one, as you can easily guess, changes the color
-of the path. For example, if you wish to change the trace into green, try:
+The first one, as you can easily guess, changes the path color.
+For example, if you wish to change the trace to green, try:
 
 
 <<results=hide, echo=FALSE>>=
@@ -333,15 +334,16 @@ turtle_left(angle=60)
 turtle_forward(dist=20)
 @
 
-The full list of colors is available under the \textsf{colors()} function.
+A comprehensive list of available colors is provided by
+the \textsf{colors()} function.
 
 
 The \textsf{turtle\_lty()} and \textsf{turtle\_lwd()} functions change
-the type and the width of the line.
-To change the type of the path pass as an argument a number from $0$ to $6$
--- each denotes a different type of the line ($0=$blank,
+the style of the path.
+To change the ``type'' of the path, pass as an argument a number from $0$ to $6$
+-- each of these denotes a different type of the line ($0=$blank,
 $1=$solid (default), $2=$ dashed, $3=$ dotted, $4=$ dotdash, $5=$ longdash, $6=$ twodash).
-To change the width of the line use the \textsf{turtle\_lwd()} function.
+To change the width of the line, use the \textsf{turtle\_lwd()} function.
 % As an argument you pass a width you desire (but don't exaggerate!).
 
 <<results=hide, echo=FALSE, height=4>>=
@@ -397,19 +399,21 @@ turtle_forward(dist=15)
 @
 
 \paragraph{\textsf{turtle\_status}, \textsf{turtle\_getpos}  and \textsf{turtle\_getangle}.}
-If you got lost in the terrarium don't worry!
+If you got lost in the Terrarium (it's a jungle out there!), don't worry!
 Just use the \textsf{turtle\_status()} function: it returns
-the current drawing settings. It tells you whether
+the current drawing settings. It provides you  with the information on
+the width and height of the terrarium, 
+whether
 the Turtle and its path are visible,
-the width and height of the terrarium, where the Turtle is placed
-right now and at which angle.
+where the Turtle is placed
+right now and at which angle, and so on.
 
 <<results=verbatim, eval=TRUE>>=
 turtle_status()
 @
 
-If you just want to know where the Turtle is or at which angle it points
-try \textsf{turtle\_getpos()} and \textsf{turtle\_getangle()} functions, respectively.
+If you just want to know where the Turtle is, or what is its direction,
+try the \textsf{turtle\_getpos()} and \textsf{turtle\_getangle()} functions, respectively.
 
 <<results=verbatim, eval=TRUE>>=
 turtle_getpos()
@@ -417,7 +421,7 @@ turtle_getangle()
 @
 
 \paragraph{\textsf{turtle\_reset} and \textsf{turtle\_goto}.}
-If you wish to place the Turtle back at the starting position
+If you wish to relocate the Turtle back to the starting position
 and reset all of the graphical parameters, call the \textsf{turtle\_reset()}
 function.
 
@@ -482,7 +486,9 @@ turtle_reset()
 
 Now you are familiar with the basics. There are some more advanced
 ways to use the package. The (\textsf{turtle\_do()}) function
-is designed to call more complicated plot expressions, because it automatically hides the Turtle before starting the operations that occurs in a faster proceed of plotting.
+is here to wrap calls to multiple plot functions, because it 
+temporarily hides the Turtle while the functions are executed.
+This results in more efficient plotting.
 
 
 <<results=hide, eval=FALSE>>=
@@ -515,18 +521,18 @@ cat("\\includegraphics[width=10cm]{", file, "}\n\n", sep="")
 \end{center}
 
 
-You may ask why bother using such a function
-if the result is the same as while using three separate commands
-(in this case this would be \textsf{turtle\_move(10); turtle\_turn(45); turtle\_move(15)}).
-The thing is that this function hides the Turtle before evaluating
-the expression, thus the time that \textsf{expr} uses is decreased.
+% You may ask why bother using such a function
+% if the result is the same as while using three separate commands
+% (in this case this would be \textsf{turtle\_move(10); turtle\_turn(45); turtle\_move(15)}).
+% The thing is that this function hides the Turtle before evaluating
+% the expression, thus the time that \textsf{expr} uses is decreased.
 
 
 \newpage
 \section{Introduction to \textsf{R}}
 
 \subsection{The \textsf{for} loop.}
-This section shows how to connect the functions
+This section illustrates how to connect the functions
 listed above with the options that \textsf{R} provides us with.
 For example, sometimes you would like to repeat some action several times.
 % If it is once or twice then it is easy to type it. But if you wish to use the same
@@ -587,12 +593,12 @@ We strongly recommend to call each \textsf{for} loop always
 within \textsf{turtle\_do()}.
 
 \subsection{\textsf{If}}
-There are some cases when you would like to call
-a function when some condition is fulfilled.
-The \textsf{if} expression enables you to do it.
-The syntax is the following: \textsf{if(condition) \{\}}.
-When the \textsf{condition} is fulfilled the sequence of actions
-you put between the curly bracket is called. Let's see an example.
+There are some cases when you'd like to call
+a function provided that some condition is fulfilled.
+The \textsf{if} expression enables you to do so.
+The syntax is as follows: \textsf{if(condition) \{\}}.
+When the \textsf{condition} is fulfilled, the sequence of actions
+between the curly braces is executed. Let's study an example.
 
 <<results=hide, echo=FALSE>>=
 file <- paste("figure_03", ".pdf", sep="")
@@ -621,11 +627,10 @@ if (x>0.5) {
 turtle_forward(dist=15)
 @
 
-As you can see the condition is fulfilled so the Turtle turns right.
+As you  see, the condition is fulfilled, so the Turtle turns right.
 What if you would like to perform some actions when the condition
-is fulfilled and some other actions otherwise? There is an answer to it too.
-After the closing curly braces you write \textsf{else \{\}}
-and again between the brackets there are the functions you would like to call.
+is fulfilled, and some other actions otherwise? There's a solution to it too.
+
 
 <<results=hide, echo=FALSE>>=
 file <- paste("figure_04", ".pdf", sep="")
@@ -720,8 +725,8 @@ turtle_square(5)
 @
 
 \subsection{Recursion}
-The last thing you should know while using this package is recursion.
-It is a process of repeating actions in the self-similar pattern.
+The other thing you should know about is recursion.
+It is a process of repeating actions in a self-similar pattern.
 % You have a base case and all the other cases are reduced to the base case
 % that is defined by some rules (they are called recursive step).
 
