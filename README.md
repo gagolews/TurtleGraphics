@@ -1,8 +1,10 @@
 TurtleGraphics
 ==============
 
-** With the TurtleGraphics package for R you can learn computer
-programming while having a jolly time! **
+[![Build Status](https://travis-ci.org/Rexamine/TurtleGraphics.svg?branch=master)](https://travis-ci.org/Rexamine/TurtleGraphics)
+
+**With the TurtleGraphics package for R you can learn computer
+programming while having a jolly time!**
     
 TurtleGraphics R package's website is available
 [here](http://TurtleGraphics.rexamine.com).
