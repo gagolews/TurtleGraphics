@@ -1,6 +1,6 @@
 Package: TurtleGraphics
 Version: 1.0-4
-Date: 2014-08-05
+Date: 2014-08-18
 Title: Turtle graphics in R
 Authors@R: c(
     person("Anna", "Cena", role = c("aut")),
