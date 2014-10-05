@@ -1,6 +1,6 @@
 Package: TurtleGraphics
-Version: 1.0-4
-Date: 2014-08-18
+Version: 1.0-5
+Date: 2014-10-05
 Title: Turtle graphics in R
 Authors@R: c(
     person("Anna", "Cena", role = c("aut")),
@@ -10,6 +10,9 @@ Authors@R: c(
     person("Barbara", "Zogala-Siudem", role = c("aut", "cre"),
     email = "zogala@rexamine.com")
     )
+Suggests:
+    knitr
+VignetteBuilder: knitr
 Depends:
     R (>= 2.15.0),
     grid

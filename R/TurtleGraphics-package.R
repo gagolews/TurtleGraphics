@@ -41,6 +41,7 @@
 #' @name TurtleGraphics-package
 #' @docType package
 #' @importFrom grid grid.newpage
+#' @importFrom grid grid.remove
 #' @importFrom grid pushViewport
 #' @importFrom grid viewport
 #' @importFrom grid gpar

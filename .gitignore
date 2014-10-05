@@ -9,4 +9,7 @@ devel/Natalia/cache
 *.synctex.gz
 .directory
 *.toc
-vignettes/*.pdf
+vignettes/cache
+vignettes/figure
+*.aux
+*.log

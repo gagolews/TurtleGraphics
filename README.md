@@ -14,7 +14,7 @@ Authors:
 * [Anna Cena](http://cena.rexamine.com)
 * [Marek Gągolewski](http://gagolewski.rexamine.com)
 * Marcin Kosiński
-* Natalia Potocka
+* [Natalia Potocka](http://potocka.rexamine.com)
 * Barbara Żogała-Siudem
 
 
