@@ -1,7 +1,7 @@
 Package: TurtleGraphics
 Version: 1.0-5
-Date: 2014-10-05
-Title: Turtle graphics in R
+Date: 2014-10-07
+Title: Turtle Graphics in R
 Authors@R: c(
     person("Anna", "Cena", role = c("aut")),
     person("Marek", "Gagolewski", role = c("aut")),
@@ -14,7 +14,7 @@ Suggests:
     knitr
 VignetteBuilder: knitr
 Depends:
-    R (>= 2.15.0),
+    R (>= 3.0),
     grid
 Description: An implementation of turtle graphics
     (http://en.wikipedia.org/wiki/Turtle_graphics) in R.
