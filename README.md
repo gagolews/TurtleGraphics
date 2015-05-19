@@ -2,6 +2,10 @@ TurtleGraphics
 ==============
 
 [![Build Status](https://travis-ci.org/Rexamine/TurtleGraphics.svg?branch=master)](https://travis-ci.org/Rexamine/TurtleGraphics)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/TurtleGraphics)](http://cran.r-project.org/web/packages/TurtleGraphics)
+[![Downloads](http://cranlogs.r-pkg.org/badges/TurtleGraphics)](http://cran.rstudio.com/package=TurtleGraphics)
+
+
 
 **With the TurtleGraphics package for R you can learn computer
 programming while having a jolly time!**
