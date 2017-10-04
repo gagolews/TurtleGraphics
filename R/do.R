@@ -52,8 +52,8 @@ turtle_do <- function(expr){
    curVisible <- get("visible", envir=.turtle_data)
    if (curVisible)
       turtle_hide()
-   
-   eval(substitute(expr), enclos = parent.frame())
+   print(ls(parent.frame()))
+   eval(substitute(expr), envir = parent.frame())
    
    if (curVisible)
       turtle_show()
