@@ -19,7 +19,6 @@
 \usepackage{amsmath,amssymb,amsfonts}
 \RequirePackage{graphicx,verbatim,longtable}
 \usepackage{mdwlist}
-\usepackage[nottoc]{tocbibind}
 \usepackage{rotating}
 
 \usepackage{hyperref}
