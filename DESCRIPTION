@@ -1,7 +1,7 @@
 Package: TurtleGraphics
-Version: 1.0-6
+Version: 1.0-7
 Date: 2017-10-23
-Title: Turtle Graphics in R
+Title: Turtle Graphics
 Authors@R: c(
     person("Anna", "Cena", role = c("aut")),
     person("Marek", "Gagolewski", role = c("aut")),
@@ -17,7 +17,7 @@ Depends:
     R (>= 3.0),
     grid
 Description: An implementation of turtle graphics
-    (http://en.wikipedia.org/wiki/Turtle_graphics) in R.
+    <http://en.wikipedia.org/wiki/Turtle_graphics>.
     Turtle graphics comes from Papert's language Logo and has
     been used to teach concepts of computer programming.
 License: GPL (>= 3)
