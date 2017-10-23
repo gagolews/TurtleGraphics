@@ -124,7 +124,7 @@ opts_chunk$set(
 {\LARGE A. Cena,  M. Gagolewski, M. Kosi\'{n}ski,\\ N. Potocka, B.~\.{Z}oga\l{}a-Siudem}
 
 \medskip
-\href{http://TurtleGraphics.Rexamine.com}{http://TurtleGraphics.Rexamine.com}
+\href{http://www.gagolewski.com/software/TurtleGraphics/}{http://www.gagolewski.com/software/TurtleGraphics/}
 
 %\begin{figure}[hbt!]
 %\centering

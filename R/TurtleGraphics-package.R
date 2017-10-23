@@ -1,5 +1,5 @@
 ##    TurtleGraphics package for R
-##    Copyright (C) 2014 Rexamine
+##    Copyright (C) 2014-2017 A.Cena, M.Gagolewski, B.Zogala-Siudem, and others
 ##
 ##    This program is free software: you can redistribute it and/or modify
 ##    it under the terms of the GNU General Public License as published by

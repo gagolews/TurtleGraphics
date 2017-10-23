@@ -29,7 +29,7 @@ to the predefined plot region.
 After the \code{turtle_init()} function has been called
 you can e.g. move the Turtle with the \code{\link{turtle_forward}}
 function, turn its direction with \code{\link{turtle_right}}
-or set display parameters of the Turtle's trace, 
+or set display parameters of the Turtle's trace,
 see \code{\link{turtle_param}}.
 }
 \seealso{

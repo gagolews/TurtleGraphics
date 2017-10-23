@@ -15,7 +15,7 @@ image on the screen.
 }
 \details{
 The Turtle must be initialized prior to using
-this function, see \code{\link{turtle_init}}. 
+this function, see \code{\link{turtle_init}}.
 
 It is recommended to hide the Turtle when
 performing multiple Turtle moves, for efficiency reasons,

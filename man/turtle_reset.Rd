@@ -12,7 +12,7 @@ and graphical options.
 }
 \details{
 The Turtle must be initialized prior to using
-this function, see \code{\link{turtle_init}}. 
+this function, see \code{\link{turtle_init}}.
 
 After a call to this function, the Turtle will be placed
 in the terrarium's center and it will be directed

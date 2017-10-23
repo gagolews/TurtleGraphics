@@ -21,6 +21,6 @@ Description: An implementation of turtle graphics
     Turtle graphics comes from Papert's language Logo and has
     been used to teach concepts of computer programming.
 License: GPL (>= 3)
-URL: http://TurtleGraphics.rexamine.com
-BugReports: https://github.com/Rexamine/TurtleGraphics/issues
+URL: http://www.gagolewski.com/software/TurtleGraphics/
+BugReports: https://github.com/gagolews/TurtleGraphics/issues
 RoxygenNote: 6.0.1

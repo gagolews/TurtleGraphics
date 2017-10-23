@@ -18,10 +18,10 @@ turtle_setangle(angle)
 \item{angle}{numeric; rotation angle in degrees.}
 }
 \description{
-\code{turtle_goto} and \code{turtle_setpos} move the Turtle to a 
+\code{turtle_goto} and \code{turtle_setpos} move the Turtle to a
 given location without changing its direction.
 
-\code{turtle_setangle} 
+\code{turtle_setangle}
 rotates the Turtle to a given (absolute) angle,
 where 0 denotes a north-facing Turtle.
 }
@@ -33,10 +33,10 @@ If the given location (x, y) lies outside the terrarium,
 the behavior of these functions depends
 on the \code{mode} argument in \code{\link{turtle_init}}.
 
-\code{turtle_goto} may draw the path between the current Turtle's 
+\code{turtle_goto} may draw the path between the current Turtle's
 position and the new location. Its behavior depends on the current
-plot settings, 
-see \code{\link{turtle_up}}, \code{\link{turtle_down}}. In case of 
+plot settings,
+see \code{\link{turtle_up}}, \code{\link{turtle_down}}. In case of
 \code{turtle_setpos}, however, the path drawing is always disabled.
 }
 \seealso{

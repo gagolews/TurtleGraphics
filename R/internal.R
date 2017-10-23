@@ -1,5 +1,5 @@
 ##    TurtleGraphics package for R
-##    Copyright (C) 2014 Rexamine
+##    Copyright (C) 2014-2017 A.Cena, M.Gagolewski, B.Zogala-Siudem, and others
 ##
 ##    This program is free software: you can redistribute it and/or modify
 ##    it under the terms of the GNU General Public License as published by
@@ -47,43 +47,43 @@
    x <- get("x", envir=.turtle_data)
    y <- get("y", envir=.turtle_data)
    angle <- pi * get("angle", envir=.turtle_data) / 180.0
-   
+
    gp1 <- get("gpar_turtle1", envir=.turtle_data)
    gp2 <- get("gpar_turtle2", envir=.turtle_data)
-   
+
    scale <- max(get("width", envir=.turtle_data), get("height", envir=.turtle_data))
    tmp <- 0.03*scale
    grid.circle(
       x + tmp * sin(angle),
       y + tmp * cos(angle),
-      default.units='native',  
+      default.units='native',
       gp = gp1,
       r=0.015*scale,
       name = "turtle_head")
    grid.circle(
       x + tmp * sin(angle + pi/3),
       y + tmp * cos(angle + pi/3),
-      default.units='native',  
+      default.units='native',
       gp = gp1,
       r=0.01*scale,
       name = "turtle_leg1")
    grid.circle(
       x + tmp * sin(angle - pi/3),
       y + tmp * cos(angle - pi/3),
-      default.units='native',  
+      default.units='native',
       gp = gp1,
       r=0.01*scale, name = "turtle_leg2")
    grid.circle(
       x + tmp * sin(angle + 2*pi/3),
-      y + tmp * cos(angle + 2*pi/3),  
+      y + tmp * cos(angle + 2*pi/3),
       gp = gp1,
-      r=0.01*scale, 
+      r=0.01*scale,
       default.units='native',
       name = "turtle_leg3")
    grid.circle(
       x + tmp * sin(angle - 2*pi/3),
       y + tmp * cos(angle - 2*pi/3),
-      default.units='native',  
+      default.units='native',
       gp = gp1,
       r=0.01*scale,
       name = "turtle_leg4")
@@ -124,5 +124,5 @@
    assign(envir=.turtle_data, "draw",     TRUE)
    assign(envir=.turtle_data, "x",        get("width", envir=.turtle_data)*0.5)
    assign(envir=.turtle_data, "y",        get("height", envir=.turtle_data)*0.5)
-   assign(envir=.turtle_data, "angle",    0.0)   
+   assign(envir=.turtle_data, "angle",    0.0)
 }

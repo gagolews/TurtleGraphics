@@ -25,7 +25,7 @@ One of \code{"forward"} or \code{"backward"}.}
 }
 \details{
 The Turtle must be initialized prior to using
-these functions, see \code{\link{turtle_init}}. 
+these functions, see \code{\link{turtle_init}}.
 
 These functions make use of the Turtle's display options specified by
 the \code{\link{turtle_param}} function

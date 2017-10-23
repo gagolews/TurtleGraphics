@@ -1,5 +1,5 @@
 ##    TurtleGraphics package for R
-##    Copyright (C) 2014 Rexamine
+##    Copyright (C) 2014-2017 A.Cena, M.Gagolewski, B.Zogala-Siudem, and others
 ##
 ##    This program is free software: you can redistribute it and/or modify
 ##    it under the terms of the GNU General Public License as published by
@@ -20,12 +20,12 @@
 #'
 #' @description
 #' Turn the Turtle in the given direction by the given angle.
-#' 
+#'
 #' @details
 #' The Turtle must be initialized prior to using
-#' this function, see \code{\link{turtle_init}}. 
-#' 
-#' 
+#' this function, see \code{\link{turtle_init}}.
+#'
+#'
 #' @param angle  single numeric value; rotation angle in degrees.
 #'    A negative value turns the Turtle in the opposite
 #'    direction than the given one.
@@ -37,27 +37,27 @@
 #' turtle_left(30) # equivalent to turtle_turn(30, "left")
 #' turtle_right(40)
 #' turtle_turn(30, sample(c("left", "right"), 1)) # random turn
-#' 
+#'
 #' @family TurtleGraphics
 #' @export
 #' @rdname turtle_turn
 turtle_turn <- function(angle, direction = c("left", "right"))
 {
    .turtle_check()
-   
+
    direction <- match.arg(direction)
    stopifnot(is.numeric(angle), length(angle) == 1, is.finite(angle))
-   
+
    if (angle < 0)
       warning("Negative `angle` turns the Turtle in the opposite direction.")
-   
+
    if (direction == "left")
       angle = -angle
-   
+
    assign(envir=.turtle_data, "angle", get("angle", envir=.turtle_data) + angle)
-   
+
    .turtle_redraw()
-   
+
    invisible(NULL)
 }
 

@@ -1,5 +1,5 @@
 ##    TurtleGraphics package for R
-##    Copyright (C) 2014 Rexamine
+##    Copyright (C) 2014-2017 A.Cena, M.Gagolewski, B.Zogala-Siudem, and others
 ##
 ##    This program is free software: you can redistribute it and/or modify
 ##    it under the terms of the GNU General Public License as published by
@@ -20,18 +20,18 @@
 #' @description
 #' This function resets the Turtle's position, direction,
 #' and graphical options.
-#' 
+#'
 #' @details
 #' The Turtle must be initialized prior to using
-#' this function, see \code{\link{turtle_init}}. 
-#' 
+#' this function, see \code{\link{turtle_init}}.
+#'
 #' After a call to this function, the Turtle will be placed
 #' in the terrarium's center and it will be directed
 #' to the north.
 #'
 #' The drawing remains unchanged.
-#' 
-#' 
+#'
+#'
 #' @examples
 #' turtle_init()
 #' turtle_forward(4)
@@ -39,22 +39,22 @@
 #' turtle_reset()
 #' turtle_left(45)
 #' turtle_forward(3)
-#' 
+#'
 #' @family TurtleGraphics
 #' @export
 #' @rdname turtle_reset
 turtle_reset <- function()
 {
    .turtle_check()
-   
+
    was_visible <- get("visible", envir=.turtle_data)
-   
+
    .turtle_set_default_params()
-  
+
    if (!was_visible)
       .turtle_draw()
    else
       .turtle_redraw()
-   
+
    invisible(NULL)
-} 
+}

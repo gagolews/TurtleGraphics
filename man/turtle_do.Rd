@@ -10,7 +10,7 @@ turtle_do(expr)
 \item{expr}{expression to evaluate}
 }
 \description{
-\code{turtle_do} evaluates an R expression 
+\code{turtle_do} evaluates an R expression
 with the Turtle temporarily hidden (for performance reasons).
 }
 \details{
@@ -19,7 +19,7 @@ these functions, see \code{\link{turtle_init}}.
 
 In order to decrease the evaluation time of \code{expr},
 it is evaluated with Turtle temporarily hidden.
-Basically it means that if a Turtle image is visible (see 
+Basically it means that if a Turtle image is visible (see
 \code{\link{turtle_show}} and \code{\link{turtle_hide}}) \code{turtle_do}
 removes it, evaluates \code{expr} and redraws it on the function exit.
 }

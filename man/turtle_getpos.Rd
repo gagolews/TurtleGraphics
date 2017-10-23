@@ -29,7 +29,7 @@ see \code{\link{turtle_init}}.
 turtle_init()
 turtle_getpos()["x"] # x coordinate
 turtle_getpos()["y"] # y coordinate
- 
+
 }
 \seealso{
 Other TurtleGraphics: \code{\link{TurtleGraphics-package}},

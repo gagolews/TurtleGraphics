@@ -1,5 +1,5 @@
 ##    TurtleGraphics package for R
-##    Copyright (C) 2014 Rexamine
+##    Copyright (C) 2014-2017 A.Cena, M.Gagolewski, B.Zogala-Siudem, and others
 ##
 ##    This program is free software: you can redistribute it and/or modify
 ##    it under the terms of the GNU General Public License as published by
@@ -19,22 +19,22 @@
 #' Evaluate a Larger Portion of Turtle Drawing Code
 #'
 #' @description
-#' \code{turtle_do} evaluates an R expression 
+#' \code{turtle_do} evaluates an R expression
 #' with the Turtle temporarily hidden (for performance reasons).
-#' 
+#'
 #' @param expr expression to evaluate
-#' 
-#'  
+#'
+#'
 #' @details
 #' The terrarium must be initialized prior to using
 #' these functions, see \code{\link{turtle_init}}.
-#' 
+#'
 #' In order to decrease the evaluation time of \code{expr},
 #' it is evaluated with Turtle temporarily hidden.
-#' Basically it means that if a Turtle image is visible (see 
+#' Basically it means that if a Turtle image is visible (see
 #' \code{\link{turtle_show}} and \code{\link{turtle_hide}}) \code{turtle_do}
 #' removes it, evaluates \code{expr} and redraws it on the function exit.
-#'    
+#'
 #' @examples
 #' turtle_init()
 #' turtle_do({
@@ -43,7 +43,7 @@
 #'       turtle_right(90)
 #'    }
 #' })
-#' 
+#'
 #' @family TurtleGraphics
 #' @rdname turtle_do
 #' @export
@@ -53,10 +53,9 @@ turtle_do <- function(expr){
    if (curVisible)
       turtle_hide()
    eval(substitute(expr), envir = parent.frame())
-   
+
    if (curVisible)
       turtle_show()
- 
+
    invisible(NULL)
 }
-   

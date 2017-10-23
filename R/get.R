@@ -1,5 +1,5 @@
 ##    TurtleGraphics package for R
-##    Copyright (C) 2014 Rexamine
+##    Copyright (C) 2014-2017 A.Cena, M.Gagolewski, B.Zogala-Siudem, and others
 ##
 ##    This program is free software: you can redistribute it and/or modify
 ##    it under the terms of the GNU General Public License as published by
@@ -20,27 +20,27 @@
 #'
 #' @description
 #' \code{turtle_getpos} returns the Turtle's current position on the plane.
-#' 
+#'
 #' \code{turtle_getangle} returns the Turtle's current direction,
 #' in degrees. An angle of 0 represents a north-facing Turtle.
-#' 
+#'
 #' @details
 #' The terrarium must be initialized prior to using these functions,
 #' see \code{\link{turtle_init}}.
-#' 
-#' 
-#' 
+#'
+#'
+#'
 #' @return
 #' Both functions return a (named) numeric vector.
 #' \code{turtle_getpos} returns a vector of length two which
 #' specifies the \code{x} and \code{y} coordinates.
 #' The \code{turtle_getangle} returns the angle.
-#'    
+#'
 #' @examples
 #' turtle_init()
 #' turtle_getpos()["x"] # x coordinate
 #' turtle_getpos()["y"] # y coordinate
-#'  
+#'
 #' @family TurtleGraphics
 #' @rdname turtle_getpos
 #' @export
