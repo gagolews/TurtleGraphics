@@ -40,3 +40,4 @@ Other TurtleGraphics: \code{\link{TurtleGraphics-package}},
   \code{\link{turtle_show}}, \code{\link{turtle_status}},
   \code{\link{turtle_turn}}, \code{\link{turtle_up}}
 }
+

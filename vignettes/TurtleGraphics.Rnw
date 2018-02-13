@@ -83,7 +83,7 @@ opts_chunk$set(
    fig.height=6/sqrt(3),
 #    fig.path='figures-knitr/',
 #    cache.path='cache-knitr/',
-   cache=TRUE,
+   cache=FALSE,
    tidy=FALSE,
 #    dev='cairo_pdf',
 #    dev.args=list(pointsize=11),
@@ -121,7 +121,7 @@ opts_chunk$set(
 {\Huge A Guide to the \textsf{TurtleGraphics} Package for \textsf{R}}
 
 \bigskip
-{\LARGE A. Cena,  M. Gagolewski, M. Kosi\'{n}ski,\\ N. Potocka, B.~\.{Z}oga\l{}a-Siudem}
+{\LARGE A. Cena,  M. Gagolewski, B.~\.{Z}oga\l{}a-Siudem, M. Kosi\'{n}ski,\\ N. Potocka}
 
 \medskip
 \href{http://www.gagolewski.com/software/TurtleGraphics/}{http://www.gagolewski.com/software/TurtleGraphics/}
@@ -150,12 +150,12 @@ The Turtle, described by its location and orientation,
 moves with commands that are relative to its position. The line that it
 leaves behind can be controlled by disabling it or by setting its color and type.
 
-The \textsf{TurtleGraphics} package offers functions to move forward or
+The \textsf{TurtleGraphics} package offers functions to move the turtle forward or
 backward by a given distance and to turn the Turtle by a chosen angle.
 The graphical options of the plot, for example the color, type or
 visibility of the line, can also be easily changed.
 
-We strongly encourage you to try it yourself. Enjoy and have fun!
+Try it yourself. Enjoy and have fun!
 
 
 \section{Installation And Usage of The Package}
@@ -588,7 +588,7 @@ The parameters of the function are listed within the round brackets (separated
 by commas).
 
 
-<<fig.keep='last',dependson='fun1'>>=
+<<fig.keep='last'>>=
 turtle_init()
 turtle_square(10)
 turtle_left(90)

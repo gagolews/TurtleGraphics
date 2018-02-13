@@ -16,6 +16,13 @@ Combined with R control flow, functions, and recursion,
 the idea of Turtle graphics allows students to get familiar with
 computer programming in a very accessible and pleasant way.
 }
+\author{
+Anna Cena [aut]\cr
+Marek Gagolewski [aut]\cr
+Marcin Kosinski [aut]\cr
+Natalia Potocka [aut]
+Barbara Zogala-Siudem [aut, cre]
+}
 \seealso{
 Other TurtleGraphics: \code{\link{turtle_do}},
   \code{\link{turtle_getpos}}, \code{\link{turtle_goto}},
@@ -24,10 +31,4 @@ Other TurtleGraphics: \code{\link{turtle_do}},
   \code{\link{turtle_show}}, \code{\link{turtle_status}},
   \code{\link{turtle_turn}}, \code{\link{turtle_up}}
 }
-\author{
-Anna Cena [aut]\cr
-Marek Gagolewski [aut]\cr
-Marcin Kosinski [aut]\cr
-Natalia Potocka [aut]
-Barbara Zogala-Siudem [aut, cre]
-}
+

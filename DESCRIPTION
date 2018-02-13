@@ -1,17 +1,18 @@
 Package: TurtleGraphics
-Version: 1.0-7
-Date: 2017-10-23
+Version: 1.0-8
+Date: 2018-02-13
 Title: Turtle Graphics
 Authors@R: c(
     person("Anna", "Cena", role = c("aut")),
     person("Marek", "Gagolewski", role = c("aut")),
-    person("Marcin", "Kosinski", role = c("aut")),
-    person("Natalia", "Potocka", role = c("aut")),
     person("Barbara", "Zogala-Siudem", role = c("aut", "cre"),
-    email = "zogala@rexamine.com")
+    email = "zogala@rexamine.com"),
+    person("Marcin", "Kosinski", role = c("aut")),
+    person("Natalia", "Potocka", role = c("aut"))
     )
 Suggests:
-    knitr
+    knitr,
+    digest
 VignetteBuilder: knitr
 Depends:
     R (>= 3.0),
@@ -23,4 +24,4 @@ Description: An implementation of turtle graphics
 License: GPL (>= 3)
 URL: http://www.gagolewski.com/software/TurtleGraphics/
 BugReports: https://github.com/gagolews/TurtleGraphics/issues
-RoxygenNote: 6.0.1
+RoxygenNote: 5.0.1

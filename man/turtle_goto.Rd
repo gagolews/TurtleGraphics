@@ -2,8 +2,8 @@
 % Please edit documentation in R/goto.R
 \name{turtle_goto}
 \alias{turtle_goto}
-\alias{turtle_setpos}
 \alias{turtle_setangle}
+\alias{turtle_setpos}
 \title{Set the Turtle's Position and Direction}
 \usage{
 turtle_goto(x, y)
@@ -47,3 +47,4 @@ Other TurtleGraphics: \code{\link{TurtleGraphics-package}},
   \code{\link{turtle_show}}, \code{\link{turtle_status}},
   \code{\link{turtle_turn}}, \code{\link{turtle_up}}
 }
+

@@ -1,9 +1,13 @@
 TurtleGraphics package CHANGELOG
 ================================
 
+* 1.0-8 (2018-02-13)
+
+    * updated manual & package metadata
+
 * 1.0-6 (2017-10-23)
 
-    *  #31: allow turtle_do to work within functions
+    *  #31: allow `turtle_do()` to work within functions
        (bugfix by Homer White @homerhanumat)
 
 * 1.0-5 (2014-10-07)
