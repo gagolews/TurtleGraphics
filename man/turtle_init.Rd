@@ -4,7 +4,8 @@
 \alias{turtle_init}
 \title{Set Up a New, Shiny Terrarium}
 \usage{
-turtle_init(width = 100, height = 100, mode = c("error", "clip", "cycle"))
+turtle_init(width = 100, height = 100, mode = c("error", "clip",
+  "cycle"))
 }
 \arguments{
 \item{width}{numeric; plot width.}
@@ -40,4 +41,4 @@ Other TurtleGraphics: \code{\link{TurtleGraphics-package}},
   \code{\link{turtle_show}}, \code{\link{turtle_status}},
   \code{\link{turtle_turn}}, \code{\link{turtle_up}}
 }
-
+\concept{TurtleGraphics}
