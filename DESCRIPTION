@@ -1,13 +1,14 @@
 Package: TurtleGraphics
 Version: 1.0-8
-Date: 2018-02-13
+Date: 2018-03-13
 Title: Turtle Graphics
 Authors@R: c(
-    person("Anna", "Cena", role = c("aut")),
-    person("Marek", "Gagolewski", role = c("aut"),
+    person("Anna", "Cena", role = c("aut"),
+    comment = c(ORCID = "0000-0001-8697-5383")),
+    person("Marek", "Gagolewski", role = c("aut", "cre"),
     email = "marek@gagolewski.com",
     comment = c(ORCID = "0000-0003-0637-6028")),
-    person("Barbara", "Zogala-Siudem", role = c("aut", "cre"),
+    person("Barbara", "Zogala-Siudem", role = "aut",
     email = "zogala@rexamine.com"),
     person("Marcin", "Kosinski", role = c("aut")),
     person("Natalia", "Potocka", role = c("aut"))
