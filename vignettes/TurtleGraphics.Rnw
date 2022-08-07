@@ -47,10 +47,9 @@ require('knitr')
 #
 # options(tikzDefaultEngine = 'pdftex')
 #
-# options(tikzLatexPackages = c( # dolaczanie uzywanych pakietow TeX-a
-#    '\\usepackage{amsmath,amssymb,amsfonts}', # pakiety AMS
+# options(tikzLatexPackages = c(
+#    '\\usepackage{amsmath,amssymb,amsfonts}', 
 #    '\\usepackage{tikz}',
-# #   '\\usepackage[MeX,T1,plmath]{polski}', # obsluga m.in. polskich ogonkow
 #    '\\usepackage[utf8]{inputenc}',
 #    '\\usepackage[T1]{fontenc}',
 #    '\\usetikzlibrary{calc}',
@@ -124,7 +123,7 @@ opts_chunk$set(
 {\LARGE A. Cena,  M. Gagolewski, B.~\.{Z}oga\l{}a-Siudem, M. Kosi\'{n}ski,\\ N. Potocka}
 
 \medskip
-\href{http://www.gagolewski.com/software/TurtleGraphics/}{http://www.gagolewski.com/software/TurtleGraphics/}
+\href{https://github.com/gagolews/TurtleGraphics}{https://github.com/gagolews/TurtleGraphics}
 
 %\begin{figure}[hbt!]
 %\centering
